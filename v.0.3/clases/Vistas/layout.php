@@ -7,18 +7,22 @@
 </head>
 <body>
 
-<div class="row">
+        <div class="row">
 
-    <h3>PHPERU - APLICACIONES PHP-MVC CREATED BY @EPP</h3>
+            <h3>PHPERU - APLICACIONES PHP-MVC CREATED BY @EPP</h3>
    
-    <div><a href="?accion=Listar">Listar</a> <a href="?accion=Nuevo">Nuevo</a></div>
+            <div><a href="?accion=Listar">Listar</a> <a href="?accion=Nuevo">Nuevo</a></div>
 
-    <h2><?php echo $titulo;?></h2><br />
+            <h2><?php echo $titulo;?></h2><br />
 
-    <?php @include_once($contenido);?>
-    
-</div>
+            <div class="grid">
 
-</body>
+            	<?php @include_once($contenido);?>
 
-</html>
+            </div>
+
+        </div>
+
+        </body>
+
+        </html>

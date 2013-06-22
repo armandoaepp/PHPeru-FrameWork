@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>PHPeru</title>
+  <meta charset="UTF-8" />
+  <title>PHPeru</title>
 </head>
 
 <body>
@@ -20,20 +20,25 @@ $phperu= new PHPPeru() ;?>
           </tr>
           <tr>
             <td><?php
-        		  $acumu="";
-        		  $rpta1=$phperu->ListarTablas();
-        		 if(count($rpta1)>0){
-        			 for($i=0;$i<count($rpta1["cuerpo"]);$i++){
-        				 echo '<a href="?table='.$rpta1["cuerpo"][$i][0].'" > '.$rpta1["cuerpo"][$i][0].'</a>  <br/>';
-        				 }
-        			 }
-		   ?></td>
+              $acumu="";
+              $rpta1=$phperu->ListarTablas();
+             if(count($rpta1)>0){
+               for($i=0;$i<count($rpta1["cuerpo"]);$i++){
+                 echo '<a href="?table='.$rpta1["cuerpo"][$i][0].'" > '.$rpta1["cuerpo"][$i][0].'</a>  <br/>';
+                 }
+               }
+       ?></td>
           </tr>
         </table>
+        <?php 
+          if(isset($_GET["table"])){
+            $tablaGet=$_GET["table"];
+          } else{ $tablaGet="" ; }
+        ?>
         <table width="528" border="0" style="float:left">
           <tr>
-            <td width="477"> Campos Encontrados en la Tabla:&nbsp;&nbsp;<strong><?php echo $_GET["table"];?>
-              <input type="hidden" name="nomtabla" id="nomtabla" value="<?=$_GET["table"]?>" />
+            <td width="477"> Campos Encontrados en la Tabla:&nbsp;&nbsp;<strong><?php echo $tablaGet;?>
+              <input type="hidden" name="nomtabla" id="nomtabla" value="<?php echo $tablaGet ;?>" />
               </strong></td>
           </tr>
           <tr>
@@ -49,29 +54,32 @@ $phperu= new PHPPeru() ;?>
                   <td width="78">Encabezado(Alias)</td>
                 </tr>
                 <?php
-            				$arrayelementostabla=array();
-            		  $rpta=$phperu->ListarCampos($_GET["table"]);
-            		 if(count($rpta)>0){
-            			 for($i=0;$i<count($rpta["cuerpo"]);$i++){
-            				 $arrayelementostabla[]=$rpta['cuerpo'][$i]['Field'];
-            	?>
+                    $arrayelementostabla=array();
+                    if($tablaGet!="")
+                     $rpta=$phperu->ListarCampos($tablaGet);
+                   else $rpta=0;
+
+                 if(count($rpta)>0){
+                   for($i=0;$i<count($rpta["cuerpo"]);$i++){
+                     $arrayelementostabla[]=$rpta['cuerpo'][$i]['Field'];
+              ?>
                 <tr>
                   <td><input type="checkbox" name="sele[]" value="<?=$rpta['cuerpo'][$i]['Field']."/".$i ?>" />
                     <?php echo $rpta["cuerpo"][$i]["Field"]; ?></td>
                   <td><label>
                       <select name="ttabla<?=$i?>" id="ttabla<?=$i?>">
-                      <?php
+                        <?php
                        if(count($rpta1)>0){
-      			              for($p=0;$p<count($rpta1["cuerpo"]);$p++){
-      				       ?>
+                          for($p=0;$p<count($rpta1["cuerpo"]);$p++){
+                     ?>
                         <option  value="<?=$rpta1["cuerpo"][$p][0]?>" <?php if($_GET["table"]==$rpta1["cuerpo"][$p][0]){echo "selected='selected'";}
-			       	 ?>>
+               ?>>
                         <?=$rpta1["cuerpo"][$p][0]?>
                         </option>
-                        <?php        			
-                				 }
-                			 }?>
-                   </select>
+                        <?php             
+                         }
+                       }?>
+                      </select>
                     </label></td>
                   <td><label>
                       <input name="tenlace<?=$i?>" type="text" id="tenlace<?=$i?>" value="Nulo" size="17" />
@@ -81,10 +89,10 @@ $phperu= new PHPPeru() ;?>
                     </label></td>
                 </tr>
                 <?php
-				        $acumu.=$rpta['cuerpo'][$i]['Field']."*";
-      					 }
-      			 }
-      		   ?>
+                $acumu.=$rpta['cuerpo'][$i]['Field']."*";
+                 }
+             }
+             ?>
                 <tr>
                   <td><strong>
                     <input type="hidden" name="atributos" id="atributos" value="<?=$acumu?>" />
@@ -105,20 +113,20 @@ $phperu= new PHPPeru() ;?>
 </form>
 <script type="text/javascript">
  function confirmar(){
-	 if(confirm("Esta Seguro de Generar Los Cambios")){return true;}else{return false;} 
-	 }
+   if(confirm("Esta Seguro de Generar Los Cambios")){return true;}else{return false;} 
+   }
 function ckb(frm,estado){
-	form=document.getElementById(frm);
-	var cant=form.elements.length;
-	for(i=0;i<cant;i++){
-		if(form.elements[i].type=="checkbox"){
-		if(estado=="true"){form.elements[i].checked=true;}
-		if(estado=="false"){form.elements[i].checked=false;}
-			
-			}
-		}
-	
-	}
+  form=document.getElementById(frm);
+  var cant=form.elements.length;
+  for(i=0;i<cant;i++){
+    if(form.elements[i].type=="checkbox"){
+    if(estado=="true"){form.elements[i].checked=true;}
+    if(estado=="false"){form.elements[i].checked=false;}
+      
+      }
+    }
+  
+  }
 
 </script>
 </body>

@@ -18,9 +18,9 @@ $carpetap="clases/";
 	copy("conexion.php","./clases/Modelado/conexion.php");
 	copy("config.php","./clases/Modelado/config.php");
 	copy("./cixphp.php","./clases/Vistas/cixphp.php");
-	copy("./cixphp.php","./clases/Vistas/cixajax.php");
+	copy("./cixajax.php","./clases/Vistas/cixajax.php");
 	copy("./validacion.php","./clases/Vistas/validacion.php");
-	copy("./estilo_frms.css","./clases/Vistas/css/style.css");	
+	copy("./style.css","./clases/Vistas/css/style.css");	
 	
 	 $midir=opendir("./img");
      // $i=0;
