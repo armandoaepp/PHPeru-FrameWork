@@ -2,10 +2,10 @@
 class CixAJAX
 {
     // Generar una  tabla con Funciones JavaScript Modificar y Eliminar (para los Modales)
-    function ImprimeTable($idTabla, $data, $pactu = "", $peli = "")
+    function ImprimeTable($idTabla, $data, $pactu = "", $peli = "",$classCSS="table")
     {
         try {
-            $tabla = '<table id="' . $idTabla . '" class="table" >';
+            $tabla = '<table id="' . $idTabla . '" class="'.$classCSS.'" >';
             if (count($data["columnas"]) > 0) {
                 $tabla .= '<thead>';
                 $tabla .= '<tr>';
@@ -69,10 +69,10 @@ class CixAJAX
     }
     
     // Generar una  tabla con Funciones JavaScript enviando el Nombre de la Funciones (para los Modales)
-    function ImprimeTableFunciones($idTabla, $data, $pactu = "", $peli = "")
+    function ImprimeTableFunciones($idTabla, $data, $pactu = "", $peli = "",$classCSS)
     {
         try {
-            $tabla = '<table id="' . $idTabla . '" class="table" >';
+            $tabla = '<table id="' . $idTabla . '" class="'.$classCSS.'" >';
             if (count($data["columnas"]) > 0) {
                 $tabla .= '<thead>';
                 $tabla .= '<tr>';
@@ -139,9 +139,9 @@ class CixAJAX
     // PAGINADO
     // generar una tabla CON SOLO PAGINADO $id=id tabla, $data= datos, $pactu=funcion para modificar, $peli=funcion para eliminar,
     // $crxpag=numero de filas a mostra, $paginap = pagina mostrar x defecto pagina 1, $cantlink = cantida de link de numerocion x defecto es 5 
-    function ImprimeTableP($idTabla, $data, $pactu, $peli, $crxpag, $paginap = 1, $cantlink = 5)
+    function ImprimeTableP($idTabla, $data, $pactu, $peli, $crxpag, $paginap = 1, $cantlink = 5,$classCSS)
     {
-        $tabla = '<table id="' . $idTabla . '" class="table" >';
+        $tabla = '<table id="' . $idTabla . '" class="'.$classCSS.'" >';
         try {
             //if (count($data) > 0) {
             if (count($data["columnas"]) > 0) {
@@ -214,9 +214,9 @@ class CixAJAX
     // generar una tabla $id=id tabla, $data= datos, $pactu=funcion para modificar, $peli=funcion para eliminar,
     // $crxpag=numero de filas a mostra, $paginap = pagina mostrar x defecto pagina 1, $cantlink = cantida de link de numerocion x defecto es 5
     //$orderby = ordenar por columnas x defecto es -1, $classCSS=nombre de la clases css para la tabla
-    function ImprimeTablePO($idTabla, $data, $pactu, $peli, $crxpag = 10, $paginap = 1, $cantlink = 5, $orderby = -1)
+    function ImprimeTablePO($idTabla, $data, $pactu, $peli, $crxpag = 10, $paginap = 1, $cantlink = 5, $orderby = -1,classCSS)
     {
-        $tabla = '<table id="' . $idTabla . '" class="table" >';
+        $tabla = '<table id="' . $idTabla . '" class="'.$classCSS.'" >';
         try {
             if (count($data["columnas"]) > 0) {
                 $tabla .= '<thead>';
@@ -291,10 +291,10 @@ class CixAJAX
     // generar una tabla $id=id tabla, $data= datos, $pactu=funcion para modificar, $peli=funcion para eliminar,
     // $crxpag=numero de filas a mostra, $paginap = pagina mostrar x defecto pagina 1, $cantlink = cantida de link de numerocion x defecto es 5
     //$orderby = ordenar por columnas x defecto es -1, $classCSS=nombre de la clases css para la tabla
-    function ImprimeTablePOB($idTabla, $data, $pactu, $peli, $crxpag, $paginap = 1, $cantlink = 5, $orderby = -1, $buscar = "", $link_td = "")
+    function ImprimeTablePOB($idTabla, $data, $pactu, $peli, $crxpag, $paginap = 1, $cantlink = 5, $orderby = -1, $buscar = "", $link_td = "",$classCSS)
     {
         $tabla = "";
-        $tabla .= '<table id="' . $idTabla . '" class="table" >';
+        $tabla .= '<table id="' . $idTabla . '" class="'.$classCSS.'" >';
         try {
             // if (count($data) > 0) {
             if (count($data["columnas"]) > 0) {
@@ -422,7 +422,7 @@ function Paginar($numRows, $crxpag, $paginap, $cantlink, $orderby = -1, $buscar 
         if ($paginap != 1) {
             $tabla .= '<li><a href="#" onClick="Paginar(\'pagina=1' . $parametros . '\'); return false"  title="Ir Primera Pagina"> << </a></li>' . "\n";
         } else {
-             $tabla .= '<li> <a href="#" > << </a> </li>' . "\n";
+             $tabla .= '<li> <a href="#" class="cursor-default"> << </a> </li>' . "\n";
         }
         for ($i = $ini; $i <= $fin; $i++) {
             if ($i != $paginap) {
@@ -434,7 +434,7 @@ function Paginar($numRows, $crxpag, $paginap, $cantlink, $orderby = -1, $buscar 
         if ($paginap != $fin) {
             $tabla .= '<li><a href="#" onClick="Paginar(\'pagina=' . $cantpag . $parametros . '\'); return false;" title="Ir Ultima Pagina"> >> </a></li>' . "\n";
         } else {
-            $tabla .= '<li> <a href="#" > >> </a> </li>';
+            $tabla .= '<li> <a href="#" class="cursor-default" > >> </a> </li>';
         }
         $tabla .= '</ul> </div>';
         return $tabla;

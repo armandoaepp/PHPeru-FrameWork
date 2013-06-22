@@ -18,17 +18,20 @@ function generandolayout()
     $texto .= '<title><?php echo $titulo;?></title>' . PHP_EOL;
     $texto .= '<link href="../css/style.css" rel="stylesheet">' . PHP_EOL;
     $texto .= '</head>' . PHP_EOL;
-    $texto .= '<body>' . PHP_EOL . '
-        <div class="row">' . PHP_EOL . '
-            <h3>PHPERU - APLICACIONES PHP-MVC CREATED BY @EPP</h3>' . PHP_EOL . '   
-            <div><a href="?accion=Listar">Listar</a> <a href="?accion=Nuevo">Nuevo</a></div>' . PHP_EOL . '
-            <h2><?php echo $titulo;?></h2><br />' . PHP_EOL . '
-            <div class="grid">' . PHP_EOL . '
-            	<?php @include_once($contenido);?>' . PHP_EOL . '
-            </div>' . PHP_EOL . '
-        </div>' . PHP_EOL . '
-        </body>' . PHP_EOL . '
-        </html>';
+    $texto .= '<body>' . PHP_EOL;
+    $texto .= '<div class="row">' . PHP_EOL; 
+    $texto .= '     <h3>PHPERU - APLICACIONES PHP-MVC CREATED BY <a href="https://twitter.com/armandoaepp">@armandoaepp</a></h3>' . PHP_EOL ;   
+    $texto .= '     <div class="grid">' . PHP_EOL ;
+    $texto .= '     <ul class="list-separate text-right">' . PHP_EOL;
+    $texto .= '         <li class="titulo"><?php echo $titulo;?></li>' . PHP_EOL;
+    $texto .= '         <li><a href="?accion=Listar" class="btn">Listar</a></li>' . PHP_EOL;
+    $texto .= '         <li><a href="?accion=Nuevo" class="btn" >Nuevo</a></li>   ' . PHP_EOL;      
+    $texto .= '      </ul>' . PHP_EOL ;  
+    $texto .= '     <?php @include_once($contenido);?>' . PHP_EOL;
+    $texto .= ' </div>' . PHP_EOL;
+    $texto .= '</div>' . PHP_EOL ;
+    $texto .= '</body>' . PHP_EOL ;
+    $texto .= '</html>';
     fwrite($abrir, $texto);
     fclose($abrir);
     return "Layout Generado Correctamente";

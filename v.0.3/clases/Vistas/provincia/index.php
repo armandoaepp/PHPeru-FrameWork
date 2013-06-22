@@ -1,7 +1,7 @@
 <?php 
 ob_start();
 //Armando Enrique Pisfil Puemape tw: @armandoaepp
-include_once "./Controlador_base.php"; 
+include_once "./Controlador_provincia.php"; 
 include_once "../cixphp.php"; 
 
 $cix=new CixPHP();
@@ -14,30 +14,32 @@ if(isset($_GET["accion"])){
 }
 switch($evento){
 case "Registrar":
-  $rpta=CRegistrar_base();
-  $contenido="Registrar_base.php";
+  $rpta=CRegistrar_provincia();
+  $contenido="Registrar_provincia.php";
   $accionf= "?accion=Registrar";
   require_once "../layout.php";
 break;
 case "Actualizar":
-  $rpta=CActualizar_base();
-  $rptamo=CBuscar_base($_GET["id"]);
-  $BaseId=$rptamo["cuerpo"][0]["BaseId"];
-  $BaseNombre=$rptamo["cuerpo"][0]["BaseNombre"];
-  $contenido="Actualizar_base.php";
+  $rpta=CActualizar_provincia();
+  $rptamo=CBuscar_provincia($_GET["id"]);
+  $ProvinciaId=$rptamo["cuerpo"][0]["ProvinciaId"];
+  $ProvinciaNombre=$rptamo["cuerpo"][0]["ProvinciaNombre"];
+  $DepartamentoId=$rptamo["cuerpo"][0]["DepartamentoId"];
+  $ubigeoProv=$rptamo["cuerpo"][0]["ubigeoProv"];
+  $contenido="Actualizar_provincia.php";
   $accionf= "?id=".$_GET["id"]."&accion=Actualizar";
 require_once "../layout.php";
 break;
 case "Eliminar":
-  $rpta=CEliminar_base();
-  header("Location: ../base");
+  $rpta=CEliminar_provincia();
+  header("Location: ../provincia");
 break;
 case "Recuperar":
-  $rpta=CRecuperar_base();
+  $rpta=CRecuperar_provincia();
 break;
 case "Listar":
-       $titulo="Listar base";
-       $data=CListar_base();
+       $titulo="Listar provincia";
+       $data=CListar_provincia();
        if(isset($_GET["pagina"])){
            $page=$_GET["pagina"];}
          else{$page=1;}
@@ -54,30 +56,32 @@ case "Listar":
          }else{
          $busca=""; }
 */
-      $Listar_base=$cix->ImprimeTableP("tablabase",$data,"?","?",10,$page,5);
-   // $Listar_base=$cix->ImprimeTablePOB("tablabase",$data,"?","?",10,$page,5,$orden,$buscar);
-     $contenido="Listar_base.php";
+      $Listar_provincia=$cix->ImprimeTableP("tablaprovincia",$data,"?","?",10,$page,5);
+   // $Listar_provincia=$cix->ImprimeTablePOB("tablaprovincia",$data,"?","?",10,$page,5,$orden,$buscar);
+     $contenido="Listar_provincia.php";
       require_once "../layout.php";
 break;
 case "Listarsimple":
- $Listarsimple_base=CListadoSimple_base();
+ $Listarsimple_provincia=CListadoSimple_provincia();
 break;
 case "Buscar":
- $rpta=CBuscar_base();
+ $rpta=CBuscar_provincia();
 break;
 case "Nuevo":
- $titulo= "Nuevo base";
+ $titulo= "Nuevo provincia";
  $accionf= "?accion=Registrar";
- $contenido="Registrar_base.php";
+ $contenido="Registrar_provincia.php";
  require_once "../layout.php";
 break;
 case "Mactualizar":
- $rptamo=CBuscar_base($_GET["id"]);
- $BaseId=$rptamo["cuerpo"][0]["BaseId"];
- $BaseNombre=$rptamo["cuerpo"][0]["BaseNombre"];
- $titulo= "Actualizar base";
+ $rptamo=CBuscar_provincia($_GET["id"]);
+ $ProvinciaId=$rptamo["cuerpo"][0]["ProvinciaId"];
+ $ProvinciaNombre=$rptamo["cuerpo"][0]["ProvinciaNombre"];
+ $DepartamentoId=$rptamo["cuerpo"][0]["DepartamentoId"];
+ $ubigeoProv=$rptamo["cuerpo"][0]["ubigeoProv"];
+ $titulo= "Actualizar provincia";
  $accionf= "?id=".$_GET["id"]."&accion=Actualizar";
- $contenido="Actualizar_base.php";
+ $contenido="Actualizar_provincia.php";
  require_once "../layout.php";
 break;
 }

@@ -37,6 +37,7 @@ function generandoIndex($atri, $cabeza, $tabla, $tablaref, $arrayenlace, $arraye
         $texto .= '}' . PHP_EOL;
         $texto .= 'switch($evento){' . PHP_EOL;
         $texto .= 'case "Registrar":' . PHP_EOL;
+        $texto .= '  $titulo= "Nuevo ' . $tabla . '";' . PHP_EOL;
         $texto .= '  $rpta=CRegistrar_' . $tabla . '();' . PHP_EOL;
         $texto .= '  $contenido="Registrar_' . $tabla . '.php";' . PHP_EOL;
         $texto .= '  $accionf= "?accion=Registrar";' . PHP_EOL;

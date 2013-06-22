@@ -1,7 +1,7 @@
 <?php 
 ob_start();
 //Armando Enrique Pisfil Puemape tw: @armandoaepp
-include_once "./Controlador_base.php"; 
+include_once "./Controlador_educacion.php"; 
 include_once "../cixphp.php"; 
 
 $cix=new CixPHP();
@@ -14,30 +14,30 @@ if(isset($_GET["accion"])){
 }
 switch($evento){
 case "Registrar":
-  $rpta=CRegistrar_base();
-  $contenido="Registrar_base.php";
+  $rpta=CRegistrar_educacion();
+  $contenido="Registrar_educacion.php";
   $accionf= "?accion=Registrar";
   require_once "../layout.php";
 break;
 case "Actualizar":
-  $rpta=CActualizar_base();
-  $rptamo=CBuscar_base($_GET["id"]);
-  $BaseId=$rptamo["cuerpo"][0]["BaseId"];
-  $BaseNombre=$rptamo["cuerpo"][0]["BaseNombre"];
-  $contenido="Actualizar_base.php";
+  $rpta=CActualizar_educacion();
+  $rptamo=CBuscar_educacion($_GET["id"]);
+  $EducacionId=$rptamo["cuerpo"][0]["EducacionId"];
+  $EducacionNivel=$rptamo["cuerpo"][0]["EducacionNivel"];
+  $contenido="Actualizar_educacion.php";
   $accionf= "?id=".$_GET["id"]."&accion=Actualizar";
 require_once "../layout.php";
 break;
 case "Eliminar":
-  $rpta=CEliminar_base();
-  header("Location: ../base");
+  $rpta=CEliminar_educacion();
+  header("Location: ../educacion");
 break;
 case "Recuperar":
-  $rpta=CRecuperar_base();
+  $rpta=CRecuperar_educacion();
 break;
 case "Listar":
-       $titulo="Listar base";
-       $data=CListar_base();
+       $titulo="Listar educacion";
+       $data=CListar_educacion();
        if(isset($_GET["pagina"])){
            $page=$_GET["pagina"];}
          else{$page=1;}
@@ -54,30 +54,30 @@ case "Listar":
          }else{
          $busca=""; }
 */
-      $Listar_base=$cix->ImprimeTableP("tablabase",$data,"?","?",10,$page,5);
-   // $Listar_base=$cix->ImprimeTablePOB("tablabase",$data,"?","?",10,$page,5,$orden,$buscar);
-     $contenido="Listar_base.php";
+      $Listar_educacion=$cix->ImprimeTableP("tablaeducacion",$data,"?","?",10,$page,5);
+   // $Listar_educacion=$cix->ImprimeTablePOB("tablaeducacion",$data,"?","?",10,$page,5,$orden,$buscar);
+     $contenido="Listar_educacion.php";
       require_once "../layout.php";
 break;
 case "Listarsimple":
- $Listarsimple_base=CListadoSimple_base();
+ $Listarsimple_educacion=CListadoSimple_educacion();
 break;
 case "Buscar":
- $rpta=CBuscar_base();
+ $rpta=CBuscar_educacion();
 break;
 case "Nuevo":
- $titulo= "Nuevo base";
+ $titulo= "Nuevo educacion";
  $accionf= "?accion=Registrar";
- $contenido="Registrar_base.php";
+ $contenido="Registrar_educacion.php";
  require_once "../layout.php";
 break;
 case "Mactualizar":
- $rptamo=CBuscar_base($_GET["id"]);
- $BaseId=$rptamo["cuerpo"][0]["BaseId"];
- $BaseNombre=$rptamo["cuerpo"][0]["BaseNombre"];
- $titulo= "Actualizar base";
+ $rptamo=CBuscar_educacion($_GET["id"]);
+ $EducacionId=$rptamo["cuerpo"][0]["EducacionId"];
+ $EducacionNivel=$rptamo["cuerpo"][0]["EducacionNivel"];
+ $titulo= "Actualizar educacion";
  $accionf= "?id=".$_GET["id"]."&accion=Actualizar";
- $contenido="Actualizar_base.php";
+ $contenido="Actualizar_educacion.php";
  require_once "../layout.php";
 break;
 }

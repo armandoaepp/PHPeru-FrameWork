@@ -2,9 +2,9 @@
 ob_start();
 //Armando Enrique Pisfil Puemape tw: @armandoaepp
 include_once "./Controlador_pais.php"; 
-include_once "../cixajax.php"; 
+include_once "../cixphp.php"; 
 
-$cix=new CixAJAX();
+$cix=new CixPHP();
 if(isset($_GET["accion"])){
     $evento=$_GET["accion"];
 } else if (isset($_POST["accion"])) {

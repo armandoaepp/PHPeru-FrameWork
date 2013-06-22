@@ -5,7 +5,7 @@
  */
 
 /* ---- HTML RESET ---- */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,  form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 	margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; font: inherit; vertical-align: baseline;
 }
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, label, legend { display: block; }
@@ -319,7 +319,15 @@ dl dd{margin-left: 15px;}
 }
 
 .vform textarea, .hform textarea{min-height:120px; }
-.vform fieldset, .hform fieldset {margin-bottom: 20px; border:  1px!important solid #ccc; }
+.vform {width: 100%; max-width: 460px;}
+.hform {width: 100%; max-width: 520px;}
+.vform label, .hform  label {text-align: right;padding-right: 3px;}
+.vform fieldset, .hform fieldset {
+	margin-bottom: 20px;  border: 1px solid #ccc; 
+	-webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px; 
+}
 .vform legend, .hform legend { 	text-align: left; 	font-weight: bold; 	font-size: 16px;  margin:0 5px; padding:2px 5px; }
 /*.vform .botones , .hform .botones { width: 100%; margin: 0 auto; text-align: ; }*/
 
@@ -493,6 +501,7 @@ border: 1px solid #fbeee0;
 /* ---- Table ---- */
 .table {
 	width: 100%; 
+	max-width: 100%
 	font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 	border: solid #ccc 1px;
 	border-left: none;
@@ -502,6 +511,7 @@ border: 1px solid #fbeee0;
 	        box-shadow: 0 1px 2px #d1d1d1;
 	   -moz-box-shadow: 0 1px 2px #d1d1d1;
 	-webkit-box-shadow: 0 1px 2px #d1d1d1;
+	margin-bottom: 10px;
 }   
 .table td,.table th {border-top: 1px solid #ccc; border-left: 1px solid #ccc; padding: 10px; text-align: left;}
 .table th {
@@ -525,9 +535,10 @@ border: 1px solid #fbeee0;
 	    -moz-border-radius-topleft: 5px;
 	-webkit-border-top-left-radius: 5px;
 }
-
 .table-hover tbody tr:hover > td,
-.table-hover tbody tr:hover > th {
+.table-hover tbody tr:hover > th ,
+.table-hover tr:hover > td,
+.table-hover tr:hover > th  {
   background-color: #f5f5f5;
 }
 .table .td-img{
@@ -540,6 +551,8 @@ border: 1px solid #fbeee0;
 .table-hover tbody tr:hover > th {
   background-color: #f5f5f5;
 }
+.cursor-pointer{ cursor: pointer;}
+.cursor-default{cursor:default;}
 
 /* ---- Pagination ---- */
 .pagination ul {list-style: none; margin: 0; padding: 0;}
@@ -831,14 +844,15 @@ border: 1px solid #fbeee0;
 			box-shadow: 0 1px 3px rgba(0,0,0,.3);
 	   -moz-box-shadow: 0 1px 3px rgba(0,0,0,.3);
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.3);
-}	
+}
+
 /*clase btn */
 .btn:hover,
 .btn:focus,
 .btn:active,
 .btn.active,
 .btn.disabled,
-.btn[disabled] {
+.btn[disabled]{
   color: #333333;
   background-color: #e6e6e6;
   *background-color: #d9d9d9;
@@ -1210,3 +1224,8 @@ border: 1px solid #fbeee0;
 .text-user{
 	font-size: 12px;
 }
+
+/* ---- Lista Separacion ---- */
+.list-separate {list-style: none; margin: 0; padding: 0; width: 100%}
+.list-separate li {display: inline;}
+.list-separate li.titulo {text-align: left!important; font-size: 20px; font-weight: bold; float: left;}

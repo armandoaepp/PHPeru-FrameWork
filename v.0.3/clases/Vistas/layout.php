@@ -6,23 +6,16 @@
 <link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
-
-        <div class="row">
-
-            <h3>PHPERU - APLICACIONES PHP-MVC CREATED BY @EPP</h3>
-   
-            <div><a href="?accion=Listar">Listar</a> <a href="?accion=Nuevo">Nuevo</a></div>
-
-            <h2><?php echo $titulo;?></h2><br />
-
-            <div class="grid">
-
-            	<?php @include_once($contenido);?>
-
-            </div>
-
-        </div>
-
-        </body>
-
-        </html>
+<div class="row">
+     <h3>PHPERU - APLICACIONES PHP-MVC CREATED BY <a href="https://twitter.com/armandoaepp">@armandoaepp</a></h3>
+     <div class="grid">
+     <ul class="list-separate text-right">
+         <li class="titulo"><?php echo $titulo;?></li>
+         <li><a href="?accion=Listar" class="btn">Listar</a></li>
+         <li><a href="?accion=Nuevo" class="btn" >Nuevo</a></li>   
+      </ul>
+     <?php @include_once($contenido);?>
+ </div>
+</div>
+</body>
+</html>

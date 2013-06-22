@@ -1,7 +1,7 @@
 <?php 
 ob_start();
 //Armando Enrique Pisfil Puemape tw: @armandoaepp
-include_once "./Controlador_base.php"; 
+include_once "./Controlador_tipousuario.php"; 
 include_once "../cixphp.php"; 
 
 $cix=new CixPHP();
@@ -14,30 +14,31 @@ if(isset($_GET["accion"])){
 }
 switch($evento){
 case "Registrar":
-  $rpta=CRegistrar_base();
-  $contenido="Registrar_base.php";
+  $rpta=CRegistrar_tipousuario();
+  $contenido="Registrar_tipousuario.php";
   $accionf= "?accion=Registrar";
   require_once "../layout.php";
 break;
 case "Actualizar":
-  $rpta=CActualizar_base();
-  $rptamo=CBuscar_base($_GET["id"]);
-  $BaseId=$rptamo["cuerpo"][0]["BaseId"];
-  $BaseNombre=$rptamo["cuerpo"][0]["BaseNombre"];
-  $contenido="Actualizar_base.php";
+  $rpta=CActualizar_tipousuario();
+  $rptamo=CBuscar_tipousuario($_GET["id"]);
+  $TipoUsuarioId=$rptamo["cuerpo"][0]["TipoUsuarioId"];
+  $TipoUsuario=$rptamo["cuerpo"][0]["TipoUsuario"];
+  $TipoUsuarioEstado=$rptamo["cuerpo"][0]["TipoUsuarioEstado"];
+  $contenido="Actualizar_tipousuario.php";
   $accionf= "?id=".$_GET["id"]."&accion=Actualizar";
 require_once "../layout.php";
 break;
 case "Eliminar":
-  $rpta=CEliminar_base();
-  header("Location: ../base");
+  $rpta=CEliminar_tipousuario();
+  header("Location: ../tipousuario");
 break;
 case "Recuperar":
-  $rpta=CRecuperar_base();
+  $rpta=CRecuperar_tipousuario();
 break;
 case "Listar":
-       $titulo="Listar base";
-       $data=CListar_base();
+       $titulo="Listar tipousuario";
+       $data=CListar_tipousuario();
        if(isset($_GET["pagina"])){
            $page=$_GET["pagina"];}
          else{$page=1;}
@@ -54,30 +55,31 @@ case "Listar":
          }else{
          $busca=""; }
 */
-      $Listar_base=$cix->ImprimeTableP("tablabase",$data,"?","?",10,$page,5);
-   // $Listar_base=$cix->ImprimeTablePOB("tablabase",$data,"?","?",10,$page,5,$orden,$buscar);
-     $contenido="Listar_base.php";
+      $Listar_tipousuario=$cix->ImprimeTableP("tablatipousuario",$data,"?","?",10,$page,5);
+   // $Listar_tipousuario=$cix->ImprimeTablePOB("tablatipousuario",$data,"?","?",10,$page,5,$orden,$buscar);
+     $contenido="Listar_tipousuario.php";
       require_once "../layout.php";
 break;
 case "Listarsimple":
- $Listarsimple_base=CListadoSimple_base();
+ $Listarsimple_tipousuario=CListadoSimple_tipousuario();
 break;
 case "Buscar":
- $rpta=CBuscar_base();
+ $rpta=CBuscar_tipousuario();
 break;
 case "Nuevo":
- $titulo= "Nuevo base";
+ $titulo= "Nuevo tipousuario";
  $accionf= "?accion=Registrar";
- $contenido="Registrar_base.php";
+ $contenido="Registrar_tipousuario.php";
  require_once "../layout.php";
 break;
 case "Mactualizar":
- $rptamo=CBuscar_base($_GET["id"]);
- $BaseId=$rptamo["cuerpo"][0]["BaseId"];
- $BaseNombre=$rptamo["cuerpo"][0]["BaseNombre"];
- $titulo= "Actualizar base";
+ $rptamo=CBuscar_tipousuario($_GET["id"]);
+ $TipoUsuarioId=$rptamo["cuerpo"][0]["TipoUsuarioId"];
+ $TipoUsuario=$rptamo["cuerpo"][0]["TipoUsuario"];
+ $TipoUsuarioEstado=$rptamo["cuerpo"][0]["TipoUsuarioEstado"];
+ $titulo= "Actualizar tipousuario";
  $accionf= "?id=".$_GET["id"]."&accion=Actualizar";
- $contenido="Actualizar_base.php";
+ $contenido="Actualizar_tipousuario.php";
  require_once "../layout.php";
 break;
 }
