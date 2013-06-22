@@ -15,6 +15,7 @@ class Conexion{
         $this->Servidor = $config->servidor_;
         $this->Usuario = $config->usuario_;
         $this->Clave =$config->pass_;
+        
     }
     //Metodo para conectarnos a la base de datos
     private function conectar() {

@@ -20,13 +20,13 @@ $phperu= new PHPPeru() ;?>
           </tr>
           <tr>
             <td><?php
-		  $acumu="";
-		  $rpta1=$phperu->ListarTablas();
-		 if(count($rpta1)>0){
-			 for($i=0;$i<count($rpta1["cuerpo"]);$i++){
-				 echo '<a href="?table='.$rpta1["cuerpo"][$i][0].'" > '.$rpta1["cuerpo"][$i][0].'</a>  <br/>';
-				 }
-			 }
+        		  $acumu="";
+        		  $rpta1=$phperu->ListarTablas();
+        		 if(count($rpta1)>0){
+        			 for($i=0;$i<count($rpta1["cuerpo"]);$i++){
+        				 echo '<a href="?table='.$rpta1["cuerpo"][$i][0].'" > '.$rpta1["cuerpo"][$i][0].'</a>  <br/>';
+        				 }
+        			 }
 		   ?></td>
           </tr>
         </table>
@@ -49,30 +49,29 @@ $phperu= new PHPPeru() ;?>
                   <td width="78">Encabezado(Alias)</td>
                 </tr>
                 <?php
-				$arrayelementostabla=array();
-		  $rpta=$phperu->ListarCampos($_GET["table"]);
-		 if(count($rpta)>0){
-			 for($i=0;$i<count($rpta["cuerpo"]);$i++){
-				 $arrayelementostabla[]=$rpta['cuerpo'][$i]['Field'];
-				 ?>
+            				$arrayelementostabla=array();
+            		  $rpta=$phperu->ListarCampos($_GET["table"]);
+            		 if(count($rpta)>0){
+            			 for($i=0;$i<count($rpta["cuerpo"]);$i++){
+            				 $arrayelementostabla[]=$rpta['cuerpo'][$i]['Field'];
+            	?>
                 <tr>
                   <td><input type="checkbox" name="sele[]" value="<?=$rpta['cuerpo'][$i]['Field']."/".$i ?>" />
-                    <? echo $rpta["cuerpo"][$i]["Field"]; ?></td>
+                    <?php echo $rpta["cuerpo"][$i]["Field"]; ?></td>
                   <td><label>
                       <select name="ttabla<?=$i?>" id="ttabla<?=$i?>">
-                        <?php
-                 if(count($rpta1)>0){
-			 for($p=0;$p<count($rpta1["cuerpo"]);$p++){
-				 ?>
+                      <?php
+                       if(count($rpta1)>0){
+      			              for($p=0;$p<count($rpta1["cuerpo"]);$p++){
+      				       ?>
                         <option  value="<?=$rpta1["cuerpo"][$p][0]?>" <?php if($_GET["table"]==$rpta1["cuerpo"][$p][0]){echo "selected='selected'";}
-				 ?>>
+			       	 ?>>
                         <?=$rpta1["cuerpo"][$p][0]?>
                         </option>
-                        <?php
-			
-				 }
-			 }?>
-                      </select>
+                        <?php        			
+                				 }
+                			 }?>
+                   </select>
                     </label></td>
                   <td><label>
                       <input name="tenlace<?=$i?>" type="text" id="tenlace<?=$i?>" value="Nulo" size="17" />
@@ -82,10 +81,10 @@ $phperu= new PHPPeru() ;?>
                     </label></td>
                 </tr>
                 <?php
-				$acumu.=$rpta['cuerpo'][$i]['Field']."*";
-					 }
-			 }
-		   ?>
+				        $acumu.=$rpta['cuerpo'][$i]['Field']."*";
+      					 }
+      			 }
+      		   ?>
                 <tr>
                   <td><strong>
                     <input type="hidden" name="atributos" id="atributos" value="<?=$acumu?>" />
