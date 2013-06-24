@@ -11,22 +11,21 @@ class CixPHP {
     */
     // PARA GENERAR el cuerpo de un combo osea los  option
 	function ImprimeCuerpoSelect( $data, $param_valor, $param_mostrar, $valueSelect=-1) {
-		 $select ="";
-       
+		$select ="";       
         try {
             $cantele = count($data["cuerpo"]);
             if ($cantele > 0) {
-			 $select.='<option value=""></option>';
+			$select.='<option value=""></option>';
                 for ($i = 0;$i < $cantele;$i++) {
 				$selecciona="";
-					  if($valueSelect==$data["cuerpo"][$i]["$param_valor"]) {
+					if($valueSelect==$data["cuerpo"][$i]["$param_valor"]) {
 						   $selecciona='selected="selected"' ; 
 						  }
-                    $select.= '<option value="' . $data["cuerpo"][$i]["$param_valor"] . '"  '. $selecciona.'>' . $data["cuerpo"][$i]["$param_mostrar"] . '&nbsp;</option>'."\n";
+                    $select.= '<option value="' . $data["cuerpo"][$i]["$param_valor"] . '"  '. $selecciona.'>' . $data["cuerpo"][$i]["$param_mostrar"] . '</option>'."\n";
 									
                 }
             }else{
-				 $select.='<option value="0">&nbsp;  No hay Elementos  &nbsp;</option>';
+				 $select.='<option value="0">&nbsp;  *** - *.* - ***  &nbsp;</option>';
 				}	          
         }
         catch(exception $e) {
@@ -46,11 +45,11 @@ class CixPHP {
 					  if($valueSelect==$data["cuerpo"][$i]["$param_valor"]) {
 						  $selecciona='selected="selected"' ; 
 						  }
-                    $select.= '<option value="' . $data["cuerpo"][$i]["$param_valor"] . '"  '.  $selecciona.' >' . $data["cuerpo"][$i]["$param_mostrar"] . '&nbsp;</option>'."<br>";
+                    $select.= '<option value="' . $data["cuerpo"][$i]["$param_valor"] . '"  '.  $selecciona.' >' . $data["cuerpo"][$i]["$param_mostrar"] . '</option>'."\n";
 									
                 }
             }else{
-				 $select.='<option value="0">&nbsp;  nop hay Elementos &nbsp;</option>';
+				 $select.='<option value="0">&nbsp;  *** - *.* - ***  &nbsp;</option>';
 				}	
             $select.= '</select>';
         }

@@ -1,0 +1,88 @@
+
+body { font-family: DejaVuSansCondensed; font-size: 11pt;  }
+p { 	text-align: justify; margin-bottom: 4pt; margin-top:0pt;  }
+
+table {font-family: DejaVuSansCondensed; font-size: 9pt; line-height: 1.2;
+	margin-top: 2pt; margin-bottom: 5pt;
+	border-collapse: collapse;  }
+
+thead {	font-weight: bold; vertical-align: bottom; }
+tfoot {	font-weight: bold; vertical-align: top; }
+thead td { font-weight: bold; }
+tfoot td { font-weight: bold; }
+
+thead td, thead th, tfoot td, tfoot th { font-variant: small-caps; }
+
+th {	font-weight: bold; 
+	vertical-align: top; 
+	text-align:left; 
+	padding-left: 2mm; 
+	padding-right: 2mm; 
+	padding-top: 0.5mm; 
+	padding-bottom: 0.5mm; 
+ }
+
+td {	padding-left: 2mm; 
+	vertical-align: top; 
+	text-align:left; 
+	padding-right: 2mm; 
+	padding-top: 0.5mm; 
+	padding-bottom: 0.5mm;
+ }
+
+th p { text-align: left; margin:0pt;  }
+td p { text-align: left; margin:0pt;  }
+
+hr {	width: 70%; height: 1px; 
+	text-align: center; color: #999999; 
+	margin-top: 8pt; margin-bottom: 8pt; }
+
+a {	color: #000066; font-style: normal; text-decoration: underline; 
+	font-weight: normal; }
+
+ul {	text-indent: 5mm; margin-bottom: 9pt; }
+ol {	text-indent: 5mm; margin-bottom: 9pt; }
+
+pre { font-family: DejaVuSansMono; font-size: 9pt; margin-top: 5pt; margin-bottom: 5pt; }
+
+h1 {	font-weight: normal; font-size: 26pt; color: #000066; 
+	font-family: DejaVuSansCondensed; margin-top: 18pt; margin-bottom: 6pt; 
+	border-top: 0.075cm solid #000000; border-bottom: 0.075cm solid #000000; 
+	text-align: ; page-break-after:avoid; }
+h2 {	font-weight: bold; font-size: 12pt; color: #000066; 
+	font-family: DejaVuSansCondensed; margin-top: 6pt; margin-bottom: 6pt; 
+	border-top: 0.07cm solid #000000; border-bottom: 0.07cm solid #000000; 
+	text-align: ;  text-transform:uppercase; page-break-after:avoid; }
+h3 {	font-weight: normal; font-size: 26pt; color: #000000; 
+	font-family: DejaVuSansCondensed; margin-top: 0pt; margin-bottom: 6pt; 
+	border-top: 0; border-bottom: 0; 
+	text-align: ; page-break-after:avoid; }
+h4 {	font-weight: ; font-size: 13pt; color: #9f2b1e; 
+	font-family: DejaVuSansCondensed; margin-top: 10pt; margin-bottom: 7pt; 
+	font-variant: small-caps;
+	text-align: ;  margin-collapse:collapse; page-break-after:avoid; }
+h5 {	font-weight: bold; font-style:italic; ; font-size: 11pt; color: #000044; 
+	font-family: DejaVuSansCondensed; margin-top: 8pt; margin-bottom: 4pt; 
+	text-align: ;  page-break-after:avoid; }
+h6 {	font-weight: bold; font-size: 9.5pt; color: #333333; 
+	font-family: DejaVuSansCondensed; margin-top: 6pt; margin-bottom: ; 
+	text-align: ;  page-break-after:avoid; }
+
+.table{border: solid #ccc 1px;}
+.table td,.table th {border: 1px solid #ccc; padding: 5px;}
+
+.table-zebra tbody tr:nth-child(even) {
+	background: #E2E2E2; /*#f5f5f5;*/
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+	-moz-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+	box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+}
+.table-th-left th {text-align: left;}
+.table-th-right th {text-align: right;}
+.table-th-center th {text-align: center;}
+.table-th-justify th{text-align: justify;}
+.table-td-left td {text-align: left;}
+.table-td-right td {text-align: right;}
+.table-td-center td {text-align: center;}
+.table-td-justify td{text-align: justify;}
+
