@@ -14,6 +14,7 @@ if(isset($_GET["accion"])){
 }
 switch($evento){
 case "Registrar":
+  $titulo= "Nuevo pais";
   $rpta=CRegistrar_pais();
   $contenido="Registrar_pais.php";
   $accionf= "?accion=Registrar";

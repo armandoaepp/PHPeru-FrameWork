@@ -10,7 +10,7 @@
      <h3>PHPERU - APLICACIONES PHP-MVC CREATED BY <a href="https://twitter.com/armandoaepp" target="_blank">@armandoaepp</a></h3>
      <div class="grid">
      <ul class="list-separate text-right">
-         <li class="titulo"><?php echo $titulo;?></li>
+         <li class="titulo"><?php include_once("../superior_html.php");?></li>
          <li><a href="?accion=Exportar&type=pdf" class="btn" target="_blank"><i class="icon-pdf"></i></a></li>
          <li><a href="?accion=Exportar&type=xls" class="btn"><i class="icon-excel"></i></a></li>
          <li><a href="?accion=Exportar&type=doc" class="btn"><i class="icon-word"></i></a></li>

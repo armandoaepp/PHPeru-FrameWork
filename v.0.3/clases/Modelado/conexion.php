@@ -97,8 +97,7 @@ class Conexion
                 $registros = array();
                 //Recorremos el resultado de la consulta y lo almacenamos en el array
                 while ($reg = $rs->fetch_array()) { //por cada fila que recorra me almacena en un array
-                    array_push($registros, $reg); //pasar elementos de un arreglo a otro:: Matris
-                    
+                    array_push($registros, $reg); //pasar elementos de un arreglo a otro:: Matrix                    
                 }
                 //Liberamos recursos
                 mysqli_free_result($rs); //liberara los recursos de mysql
@@ -106,17 +105,10 @@ class Conexion
             }
         }
         catch (exception $e) {
-            try {
-                mysqli_free_result($rs); //para no tener que sobrecargar
-            }
-            catch (exception $e) {
-            }
-            try {
-                $this->Conexion_ID->close();
-                ;
-            }
-            catch (exception $e) {
-            }
+            try { mysqli_free_result($rs); }//para no tener que sobrecargar
+            catch (exception $e) {}
+            try { $this->Conexion_ID->close();}
+            catch (exception $e) {}
         }
         return $registros;
     }
@@ -137,12 +129,8 @@ class Conexion
             $this->Conexion_ID->close();
         }
         catch (exception $e) {
-            try {
-                $this->Conexion_ID->close();
-            }
-            catch (exception $e1) {
-                $rpta = "Error";
-            }
+            try {$this->Conexion_ID->close();}
+            catch (exception $e1) { $rpta = "Error";}
         }
         return $rpta;
     }
@@ -163,12 +151,8 @@ class Conexion
             $this->Conexion_ID->close();
         }
         catch (exception $e) {
-            try {
-                $this->Conexion_ID->close();
-            }
-            catch (exception $e1) {
-                $rpta = "Error";
-            }
+            try {$this->Conexion_ID->close();}
+            catch (exception $e1) { $rpta = "Error";}
         }
         return $rpta;
     }
@@ -191,12 +175,8 @@ class Conexion
             $this->Conexion_ID->close();
         }
         catch (exception $e) {
-            try {
-                $this->Conexion_ID->close();
-            }
-            catch (exception $e1) {
-                $rpta = "Error";
-            }
+            try { $this->Conexion_ID->close();}
+            catch (exception $e1) { $rpta = "Error";}
         }
         return $rpta;
     }
