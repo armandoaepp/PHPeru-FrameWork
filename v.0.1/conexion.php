@@ -82,18 +82,18 @@ public  function MetodoReg_Output($metodo) {
             //Eecutamos la sentencia
  $rs = @mysqli_query($this->Conexion_ID,$consulta);
     //Creamos un array que almacenara los datos de la sentencia
-if(@mysqli_num_rows($rs)>0){
-	//columnas
-	$col=array();
-		$regi = @mysqli_fetch_fields($rs);
-foreach($regi as $k=>$dato){
-	$col[]=$dato->name;
-	}
-   //fin columnas
+        if(@mysqli_num_rows($rs)>0){
+        	//columnas
+        	$col=array();
+        	$regi = @mysqli_fetch_fields($rs);
+            foreach($regi as $k=>$dato){
+            	$col[]=$dato->name;
+        	}
+           //fin columnas
 			$registros = array();
             //Recorremos el resultado de la consulta y lo almacenamos en el array
-while ($reg = @mysqli_fetch_array($rs)) {
-  array_push($registros, $reg);
+            while ($reg = @mysqli_fetch_array($rs)) {
+              array_push($registros, $reg);
             }
             //Liberamos recursos
             mysqli_free_result($rs);

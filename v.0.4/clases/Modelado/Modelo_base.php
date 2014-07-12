@@ -16,10 +16,10 @@ public function getBaseNombre(){ return $this->BaseNombre;}
 public function Insertar_base(){
 $rpta;
 try{
-include_once 'conexion.php';
-$con=new Conexion();
-$consulta="Insert into base values('$this->BaseId','$this->BaseNombre')";
-$rpta=$con->MetodoRegistrar($consulta);
+	include_once 'conexion.php';
+	$con=new Conexion();
+	$consulta="Insert into base values('$this->BaseId','$this->BaseNombre')";
+	$rpta=$con->MetodoRegistrar($consulta);
 
 }catch(exception $e){
  $rpta=$e->getMessage();}

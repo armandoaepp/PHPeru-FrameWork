@@ -165,7 +165,7 @@ class Conexion
             if (!$res) {
                 $rpta = "No Se Pudo Ejecutar la Consulta";
             } else {
-                $ID   = $this->Conexion_ID->insert_id(); // mysqli_fetch_array($res);
+                $ID   = $this->Conexion_ID->insert_id; // mysqli_fetch_array($res);
                 $rpta = $ID; //es una sola fila, y una sola columna valor de retorno del procedimiento
                 //echo " rpta = $ID";
             }
