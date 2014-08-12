@@ -12,48 +12,139 @@ function generarmodelo($atri, $cListar, $tabla)
     }
     $carpeta   = "./clases/Modelado/";
     $extension = ".php";
-    $clase     = "Clase_" . $tabla;
+    $clase     = "Cls" . $tabla;
     if (!empty($tabla)) {
-        $nomarchivo = $carpeta . "Modelo_" . $tabla;
+        $nomarchivo = $carpeta . "Cls" . $tabla;
         $abrir      = fopen($nomarchivo . $extension, "w");
         $texto      = '<?php ' . PHP_EOL;
-        $texto .= '/* Clase Generada desde Cix-PHP - Creado por @EPP */' . PHP_EOL;
-        $texto .= 'class ' . $clase . '{' . PHP_EOL;
-        $texto .= '//Constructor' . PHP_EOL;
-        $texto .= 'public function ' . $clase . '(){}' . PHP_EOL;
-        $texto .= '//Atributos' . PHP_EOL;
-        for ($i = 0; $i < count($aatri); $i++) {
-            $texto .= 'private $' . $aatri[$i] . ';' . PHP_EOL;
-        }
-        $texto .= '//Propiedades' . PHP_EOL;
-        for ($i = 0; $i < count($aatri); $i++) {
-            $texto .= 'public function set' . $aatri[$i] . '($' . $aatri[$i] . '_){ $this->' . $aatri[$i] . '=$' . $aatri[$i] . '_;}' . PHP_EOL;
-            $texto .= 'public function get' . $aatri[$i] . '(){ return $this->' . $aatri[$i] . ';}' . PHP_EOL;
-        }
-        $texto .= '//Métodos' . PHP_EOL;
-        $texto .= '//Método Insertar' . PHP_EOL;
+        $texto .= '/* Clase Generada desde PlaneaTec-PHP - Creado por @armandaepp */' . PHP_EOL;
+        $texto .= 'class ' . $clase . ' extends ClsConexion {' . PHP_EOL;
+
+        // $texto .= '//Métodos' . PHP_EOL;
+        $texto .= '# Método Insertar' . PHP_EOL;
         //Inicia Metodo Registrar
-        $texto .= 'public function Insertar_' . $tabla . '(){' . PHP_EOL;
-        $texto .= '$rpta;' . PHP_EOL;
-        $texto .= 'try{' . PHP_EOL;
-        $texto .= "include_once 'conexion.php';" . PHP_EOL;
-        $texto .= '$con=new Conexion();' . PHP_EOL;
+        $texto .= 'public function Set_'. $tabla . '($bean_'.$tabla.')' . PHP_EOL;
+        $texto .= '{' . PHP_EOL;
+        // $texto .= '$rpta;' . PHP_EOL;
+        // $texto .= 'try{' . PHP_EOL;
+
+        for ($i = 0; $i < count($aatri); $i++) {
+            $texto .= '$'.$aatri[$i]  .' = $bean_'.$tabla.'->get' . $aatri[$i] . ';' . PHP_EOL;
+        }
+        $texto .= '' . PHP_EOL;
+
         //comenzamos a insertar Registros
-        $texto .= '$consulta="Insert into ' . $tabla . ' values(';
+        $texto .= '$this->query = "CALL usp_Set_'.$tabla.'(';
+
         $concat = "";
         for ($i = 0; $i < count($aatri); $i++) {
-            $concat .= "'" . '$this->' . $aatri[$i] . "',";
+            $concat .= "'$" . $aatri[$i] . "',";
         }
         $texto .= substr($concat, 0, -1);
         $texto .= ')";' . PHP_EOL;
-        $texto .= '$rpta=$con->MetodoRegistrar($consulta);' . PHP_EOL;
+        $texto .= '$this->execute_query();' . PHP_EOL;
+        $texto .= '$data = $this->rows ;' . PHP_EOL;
+        $texto .= 'return $data;' . PHP_EOL;
         //fin de comenzar a insertar
         $texto .= PHP_EOL;
-        $texto .= '}catch(exception $e){' . PHP_EOL;
-        $texto .= ' $rpta=$e->getMessage();}' . PHP_EOL;
-        $texto .= 'return $rpta;' . PHP_EOL;
+        // $texto .= '}catch(exception $e){' . PHP_EOL;
+        // $texto .= ' return $e->getMessage();' . PHP_EOL;
+        // $texto .= ' }' . PHP_EOL;
+        // $texto .= 'return $rpta;' . PHP_EOL;
         $texto .= '}' . PHP_EOL;
-        //metodo Listar
+        // fin del merodo INsERTAR
+
+        $texto .= '//Método Actualizar' . PHP_EOL;
+        //Inicia Metodo Actualizar
+        $texto .= 'public function Upd_'. $tabla . '($bean_'.$tabla.')' . PHP_EOL;
+        $texto .= '{' . PHP_EOL;
+        // $texto .= '$rpta;' . PHP_EOL;
+        // $texto .= 'try{' . PHP_EOL;
+           for ($i = 0; $i < count($aatri); $i++) {
+                $texto .= '$'.$aatri[$i]  .' = $bean_'.$tabla.'->get' . $aatri[$i] . ';' . PHP_EOL;
+            }
+            $texto .= '' . PHP_EOL;
+
+            //comenzamos a insertar Registros
+            $texto .= '$this->query = "CALL usp_Set_'.$tabla.'(';
+
+            $concat = "";
+            for ($i = 0; $i < count($aatri); $i++) {
+                $concat .= "'$" . $aatri[$i] . "',";
+            }
+            $texto .= substr($concat, 0, -1);
+            $texto .= ')";' . PHP_EOL;
+            $texto .= '$this->execute_query();' . PHP_EOL;
+            $texto .= '$data = $this->rows ;' . PHP_EOL;
+            // $texto .= 'return $data;' . PHP_EOL;
+        //fin de comenzar a actualizar
+        $texto .= PHP_EOL;
+        // $texto .= '}catch(exception $e){' . PHP_EOL;
+        // $texto .= ' return $e->getMessage();' . PHP_EOL;
+        // $texto .= '}' . PHP_EOL;
+        // $texto .= 'return $rpta;' . PHP_EOL;
+        $texto .= '}' . PHP_EOL;
+
+        //metodo Eliminar(Actualizar Estado)
+        $texto .= '//Método Eliminar(Actualizar Estado)' . PHP_EOL;
+        $texto .= 'public function Upd_' . $tabla . '_Estado($bean_'.$tabla.')' . PHP_EOL;
+        $texto .= '{' . PHP_EOL;
+        // $texto .= '$rpta;' . PHP_EOL;
+        // $texto .= 'try{' . PHP_EOL;
+        //SQL
+
+            $texto .= '$'.$aatri[0]  .' = $bean_'.$tabla.'->get' . $aatri[0] . ';' . PHP_EOL;
+            $texto .= '$'.$aatri[count($aatri)-1]  .' = $bean_'.$tabla.'->get' . $aatri[count($aatri)-1] . ';' . PHP_EOL;
+            $texto .= '' . PHP_EOL;
+            //comenzamos a insertar Registros
+            $texto .= '$this->query = "CALL usp_Set_'.$tabla.'(';
+
+            $concat = "";
+                $concat .= "'$" . $aatri[0] . "',";
+                $concat .= "'$" . $aatri[count($aatri)-1] . "',";
+            $texto .= substr($concat, 0, -1);
+            $texto .= ')";' . PHP_EOL;
+            $texto .= '$this->execute_query();' . PHP_EOL;
+            $texto .= '$data = $this->rows ;' . PHP_EOL;
+        //SQL
+        // $texto .= '}catch(exception $e){' . PHP_EOL;
+        // $texto .= ' $rpta=$e->getMessage();' . PHP_EOL;
+        // $texto .= '}' . PHP_EOL;
+        // $texto .= 'return $rpta;' . PHP_EOL;
+        $texto .= '}' . PHP_EOL;
+        // fin del metodo Eliminar actualizar
+
+        //  START METODO BUSCAR POR ID
+        $texto .= '//Método Buscar por ID' . PHP_EOL;
+        $texto .= 'public function Get_' . $tabla . 'by_'.$aatri[0].'($bean_'.$tabla.')' . PHP_EOL;
+        $texto .= '{' . PHP_EOL;
+        // $texto .= '$rpta=array();' . PHP_EOL;
+        // $texto .= 'try{' . PHP_EOL;
+        // START SQL
+
+                $texto .= '$'.$aatri[0]  .' = $bean_'.$tabla.'->get' . $aatri[0] . ';' . PHP_EOL;
+                // $texto .= '$'.$aatri[count($aatri)-1]  .' = $bean_'.$tabla.'->get' . $aatri[count($aatri)-1] . ';' . PHP_EOL;
+            $texto .= '' . PHP_EOL;
+            //comenzamos a insertar Registros
+            $texto .= '$this->query = "CALL usp_Set_'.$tabla.'(';
+
+            $concat = "";
+                $concat .= "'$" . $aatri[0] . "',";
+                // $concat .= "'$" . $aatri[count($aatri)-1] . "',";
+            $texto .= substr($concat, 0, -1);
+            $texto .= ')";' . PHP_EOL;
+            $texto .= '$this->execute_query();' . PHP_EOL;
+            $texto .= '$data = $this->rows ;' . PHP_EOL;
+        // END SQL
+
+        // $texto .= '}catch(exception $e){' . PHP_EOL;
+        // $texto .= ' return $e->getMessage();}' . PHP_EOL;
+        // $texto .= 'return $rpta;' . PHP_EOL;
+        $texto .= '}' . PHP_EOL;
+        //  END METODO BUSCAR POR ID
+
+
+        /*//metodo Listar
         $texto .= '//Método Listar' . PHP_EOL;
         $texto .= 'public function Listar_' . $tabla . '(){' . PHP_EOL;
         $texto .= '$rpta=array();' . PHP_EOL;
@@ -69,23 +160,10 @@ function generarmodelo($atri, $cListar, $tabla)
         $texto .= 'return $rpta;' . PHP_EOL;
         $texto .= '}' . PHP_EOL;
         // fin del metodo Listar}
-        $texto .= '//Método Buscar por ID' . PHP_EOL;
-        $texto .= 'public function Buscar_' . $tabla . '(){' . PHP_EOL;
-        $texto .= '$rpta=array();' . PHP_EOL;
-        $texto .= 'try{' . PHP_EOL;
-        $texto .= "include_once 'conexion.php';" . PHP_EOL;
-        $texto .= '$con=new Conexion();' . PHP_EOL;
-        //Listamos
-        $texto .= '$consulta= "SELECT * FROM ' . $tabla . ' WHERE ' . $aatri[0] . "='" . '$this->' . $aatri[0] . "'" . '";' . PHP_EOL;
-        $texto .= '$rpta=$con->Listar($consulta);' . PHP_EOL;
-        //fin de listar
-        $texto .= '}catch(exception $e){' . PHP_EOL;
-        $texto .= ' $rpta=$e->getMessage();}' . PHP_EOL;
-        $texto .= 'return $rpta;' . PHP_EOL;
-        $texto .= '}' . PHP_EOL;
-        
-        
-        //metodo Consulta Simple
+        */
+
+
+       /* //metodo Consulta Simple
         $texto .= '//Método Listar' . PHP_EOL;
         $texto .= 'public function ListadoSimple_' . $tabla . '(){' . PHP_EOL;
         $texto .= '$rpta=array();' . PHP_EOL;
@@ -100,25 +178,10 @@ function generarmodelo($atri, $cListar, $tabla)
         $texto .= ' $rpta=$e->getMessage();}' . PHP_EOL;
         $texto .= 'return $rpta;' . PHP_EOL;
         $texto .= '}' . PHP_EOL;
-        // fin del metodo Listar}
-        
-        //metodo Eliminar(Actualizar Estado)
-        $texto .= '//Método Eliminar(Actualizar Estado)' . PHP_EOL;
-        $texto .= 'public function Eliminar_' . $tabla . '(){' . PHP_EOL;
-        $texto .= '$rpta;' . PHP_EOL;
-        $texto .= 'try{' . PHP_EOL;
-        $texto .= "include_once 'conexion.php';" . PHP_EOL;
-        $texto .= '$con=new Conexion();' . PHP_EOL;
-        //Listamos
-        $texto .= '$consulta="UPDATE ' . $tabla . ' SET ' . $tabla . 'Estado=' . "'E' WHERE " . $aatri[0] . "='" . '$this->' . $aatri[0] . "'" . '";' . PHP_EOL;
-        $texto .= '$rpta=$con->MetodoRegistrar($consulta);' . PHP_EOL;
-        //fin de listar
-        $texto .= '}catch(exception $e){' . PHP_EOL;
-        $texto .= ' $rpta=$e->getMessage();}' . PHP_EOL;
-        $texto .= 'return $rpta;' . PHP_EOL;
-        $texto .= '}' . PHP_EOL;
-        // fin del metodo actualizar}
-        //metodo Recuperar(Actualizar Estado)
+        // fin del metodo Listar}*/
+
+
+      /*  //metodo Recuperar(Actualizar Estado)
         $texto .= '//Método Recuperar' . PHP_EOL;
         $texto .= 'public function Recuperar_' . $tabla . '(){' . PHP_EOL;
         $texto .= '$rpta;' . PHP_EOL;
@@ -133,32 +196,11 @@ function generarmodelo($atri, $cListar, $tabla)
         $texto .= ' $rpta=$e->getMessage();}' . PHP_EOL;
         $texto .= 'return $rpta;' . PHP_EOL;
         $texto .= '}' . PHP_EOL;
-        // fin del metodo actualizar}
-        
-        $texto .= '//Método Actualizar' . PHP_EOL;
-        //Inicia Metodo Actualizar
-        $texto .= 'public function Actualizar_' . $tabla . '(){' . PHP_EOL;
-        $texto .= '$rpta;' . PHP_EOL;
-        $texto .= 'try{' . PHP_EOL;
-        $texto .= "include_once 'conexion.php';" . PHP_EOL;
-        $texto .= '$con=new Conexion();' . PHP_EOL;
-        //comenzamos a actualizar los elementos
-        $concat = '$consulta="UPDATE ' . $tabla . ' SET ';
-        for ($z = 1; $z < count($aatri); $z++) {
-            $concat .= $aatri[$z] . "='" . '$this->' . $aatri[$z] . "',";
-        }
-        $concat = substr($concat, 0, -1);
-        $concat .= " WHERE " . $aatri[0] . "='" . '$this->' . $aatri[0] . "'" . '";';
-        $texto .= $concat . PHP_EOL;
-        $texto .= '$rpta=$con->MetodoRegistrar($consulta);' . PHP_EOL;
-        //fin de comenzar a actualizar
-        $texto .= PHP_EOL;
-        $texto .= '}catch(exception $e){' . PHP_EOL;
-        $texto .= ' $rpta=$e->getMessage();}' . PHP_EOL;
-        $texto .= 'return $rpta;' . PHP_EOL;
-        $texto .= '}' . PHP_EOL;
-        
-        
+        // fin del metodo Recuperar}*/
+
+
+
+
         $texto .= '}' . PHP_EOL;
         $texto .= '?>';
         fwrite($abrir, $texto);
