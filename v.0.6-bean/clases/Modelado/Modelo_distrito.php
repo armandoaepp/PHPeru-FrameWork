@@ -7,6 +7,7 @@ public function Clase_distrito(){}
 private $nDisCodigo;
 private $cDisDescripcion;
 private $nProCodigo;
+private $cDisUbiCodigo;
 private $nDisEstado;
 //Propiedades
 public function setnDisCodigo($nDisCodigo_){ $this->nDisCodigo=$nDisCodigo_;}
@@ -15,6 +16,8 @@ public function setcDisDescripcion($cDisDescripcion_){ $this->cDisDescripcion=$c
 public function getcDisDescripcion(){ return $this->cDisDescripcion;}
 public function setnProCodigo($nProCodigo_){ $this->nProCodigo=$nProCodigo_;}
 public function getnProCodigo(){ return $this->nProCodigo;}
+public function setcDisUbiCodigo($cDisUbiCodigo_){ $this->cDisUbiCodigo=$cDisUbiCodigo_;}
+public function getcDisUbiCodigo(){ return $this->cDisUbiCodigo;}
 public function setnDisEstado($nDisEstado_){ $this->nDisEstado=$nDisEstado_;}
 public function getnDisEstado(){ return $this->nDisEstado;}
 //Métodos
@@ -24,7 +27,7 @@ $rpta;
 try{
 include_once 'conexion.php';
 $con=new Conexion();
-$consulta="Insert into distrito values('$this->nDisCodigo','$this->cDisDescripcion','$this->nProCodigo','$this->nDisEstado')";
+$consulta="Insert into distrito values('$this->nDisCodigo','$this->cDisDescripcion','$this->nProCodigo','$this->cDisUbiCodigo','$this->nDisEstado')";
 $rpta=$con->MetodoRegistrar($consulta);
 
 }catch(exception $e){
@@ -37,7 +40,7 @@ $rpta=array();
 try{
 include_once 'conexion.php';
 $con=new Conexion();
-$consulta="Select distrito.nDisCodigo As 'nDisCodigo',distrito.cDisDescripcion As 'cDisDescripcion',distrito.nProCodigo As 'nProCodigo',distrito.nDisEstado As 'nDisEstado' from distrito";
+$consulta="Select distrito.nDisCodigo As 'nDisCodigo',distrito.cDisDescripcion As 'cDisDescripcion',distrito.nProCodigo As 'nProCodigo',distrito.cDisUbiCodigo As 'cDisUbiCodigo',distrito.nDisEstado As 'nDisEstado' from distrito";
 $rpta=$con->Listar($consulta);
 }catch(exception $e){
  $rpta=$e->getMessage();}
@@ -97,7 +100,7 @@ $rpta;
 try{
 include_once 'conexion.php';
 $con=new Conexion();
-$consulta="UPDATE distrito SET cDisDescripcion='$this->cDisDescripcion',nProCodigo='$this->nProCodigo',nDisEstado='$this->nDisEstado' WHERE nDisCodigo='$this->nDisCodigo'";
+$consulta="UPDATE distrito SET cDisDescripcion='$this->cDisDescripcion',nProCodigo='$this->nProCodigo',cDisUbiCodigo='$this->cDisUbiCodigo',nDisEstado='$this->nDisEstado' WHERE nDisCodigo='$this->nDisCodigo'";
 $rpta=$con->MetodoRegistrar($consulta);
 
 }catch(exception $e){

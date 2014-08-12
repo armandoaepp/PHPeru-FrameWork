@@ -26,6 +26,7 @@ case "Actualizar":
   $nProCodigo=$rptamo["cuerpo"][0]["nProCodigo"];
   $cProDescripcion=$rptamo["cuerpo"][0]["cProDescripcion"];
   $nDepCodigo=$rptamo["cuerpo"][0]["nDepCodigo"];
+  $cProUbiCodigo=$rptamo["cuerpo"][0]["cProUbiCodigo"];
   $nProEstado=$rptamo["cuerpo"][0]["nProEstado"];
   $contenido="Actualizar_provincia.php";
   $accionf= "?id=".$_GET["id"]."&accion=Actualizar";
@@ -79,6 +80,7 @@ case "Mactualizar":
  $nProCodigo=$rptamo["cuerpo"][0]["nProCodigo"];
  $cProDescripcion=$rptamo["cuerpo"][0]["cProDescripcion"];
  $nDepCodigo=$rptamo["cuerpo"][0]["nDepCodigo"];
+ $cProUbiCodigo=$rptamo["cuerpo"][0]["cProUbiCodigo"];
  $nProEstado=$rptamo["cuerpo"][0]["nProEstado"];
  $titulo= "Actualizar provincia";
  $accionf= "?id=".$_GET["id"]."&accion=Actualizar";

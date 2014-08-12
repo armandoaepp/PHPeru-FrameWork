@@ -7,6 +7,7 @@ public function Bean_distrito(){}
 private $nDisCodigo;
 private $cDisDescripcion;
 private $nProCodigo;
+private $cDisUbiCodigo;
 private $nDisEstado;
 //Propiedades
 public function setnDisCodigo($nDisCodigo_){ $this->nDisCodigo=$nDisCodigo_;}
@@ -15,6 +16,8 @@ public function setcDisDescripcion($cDisDescripcion_){ $this->cDisDescripcion=$c
 public function getcDisDescripcion(){ return $this->cDisDescripcion;}
 public function setnProCodigo($nProCodigo_){ $this->nProCodigo=$nProCodigo_;}
 public function getnProCodigo(){ return $this->nProCodigo;}
+public function setcDisUbiCodigo($cDisUbiCodigo_){ $this->cDisUbiCodigo=$cDisUbiCodigo_;}
+public function getcDisUbiCodigo(){ return $this->cDisUbiCodigo;}
 public function setnDisEstado($nDisEstado_){ $this->nDisEstado=$nDisEstado_;}
 public function getnDisEstado(){ return $this->nDisEstado;}
 }

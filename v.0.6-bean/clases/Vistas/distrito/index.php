@@ -26,6 +26,7 @@ case "Actualizar":
   $nDisCodigo=$rptamo["cuerpo"][0]["nDisCodigo"];
   $cDisDescripcion=$rptamo["cuerpo"][0]["cDisDescripcion"];
   $nProCodigo=$rptamo["cuerpo"][0]["nProCodigo"];
+  $cDisUbiCodigo=$rptamo["cuerpo"][0]["cDisUbiCodigo"];
   $nDisEstado=$rptamo["cuerpo"][0]["nDisEstado"];
   $contenido="Actualizar_distrito.php";
   $accionf= "?id=".$_GET["id"]."&accion=Actualizar";
@@ -79,6 +80,7 @@ case "Mactualizar":
  $nDisCodigo=$rptamo["cuerpo"][0]["nDisCodigo"];
  $cDisDescripcion=$rptamo["cuerpo"][0]["cDisDescripcion"];
  $nProCodigo=$rptamo["cuerpo"][0]["nProCodigo"];
+ $cDisUbiCodigo=$rptamo["cuerpo"][0]["cDisUbiCodigo"];
  $nDisEstado=$rptamo["cuerpo"][0]["nDisEstado"];
  $titulo= "Actualizar distrito";
  $accionf= "?id=".$_GET["id"]."&accion=Actualizar";
