@@ -29,7 +29,7 @@ function generarmodelo($atri, $cListar, $tabla)
         // $texto .= 'try{' . PHP_EOL;
 
         for ($i = 0; $i < count($aatri); $i++) {
-            $texto .= '$'.$aatri[$i]  .' = $bean_'.$tabla.'->get' . $aatri[$i] . ';' . PHP_EOL;
+            $texto .= '$'.$aatri[$i]  .' = $bean_'.$tabla.'->get' . $aatri[$i] . '();' . PHP_EOL;
         }
         $texto .= '' . PHP_EOL;
 
@@ -54,19 +54,19 @@ function generarmodelo($atri, $cListar, $tabla)
         $texto .= '}' . PHP_EOL;
         // fin del merodo INsERTAR
 
-        $texto .= '//Método Actualizar' . PHP_EOL;
+        $texto .= '# Método Actualizar' . PHP_EOL;
         //Inicia Metodo Actualizar
         $texto .= 'public function Upd_'. $tabla . '($bean_'.$tabla.')' . PHP_EOL;
         $texto .= '{' . PHP_EOL;
         // $texto .= '$rpta;' . PHP_EOL;
         // $texto .= 'try{' . PHP_EOL;
            for ($i = 0; $i < count($aatri); $i++) {
-                $texto .= '$'.$aatri[$i]  .' = $bean_'.$tabla.'->get' . $aatri[$i] . ';' . PHP_EOL;
+                $texto .= '$'.$aatri[$i]  .' = $bean_'.$tabla.'->get' . $aatri[$i] . '();' . PHP_EOL;
             }
             $texto .= '' . PHP_EOL;
 
             //comenzamos a insertar Registros
-            $texto .= '$this->query = "CALL usp_Set_'.$tabla.'(';
+            $texto .= '$this->query = "CALL usp_Upd_'.$tabla.'(';
 
             $concat = "";
             for ($i = 0; $i < count($aatri); $i++) {
@@ -86,15 +86,15 @@ function generarmodelo($atri, $cListar, $tabla)
         $texto .= '}' . PHP_EOL;
 
         //metodo Eliminar(Actualizar Estado)
-        $texto .= '//Método Eliminar(Actualizar Estado)' . PHP_EOL;
+        $texto .= '# Método Eliminar(Actualizar Estado)' . PHP_EOL;
         $texto .= 'public function Upd_' . $tabla . '_Estado($bean_'.$tabla.')' . PHP_EOL;
         $texto .= '{' . PHP_EOL;
         // $texto .= '$rpta;' . PHP_EOL;
         // $texto .= 'try{' . PHP_EOL;
         //SQL
 
-            $texto .= '$'.$aatri[0]  .' = $bean_'.$tabla.'->get' . $aatri[0] . ';' . PHP_EOL;
-            $texto .= '$'.$aatri[count($aatri)-1]  .' = $bean_'.$tabla.'->get' . $aatri[count($aatri)-1] . ';' . PHP_EOL;
+            $texto .= '$'.$aatri[0]  .' = $bean_'.$tabla.'->get' . $aatri[0] . '();' . PHP_EOL;
+            $texto .= '$'.$aatri[count($aatri)-1]  .' = $bean_'.$tabla.'->get' . $aatri[count($aatri)-1] . '();' . PHP_EOL;
             $texto .= '' . PHP_EOL;
             //comenzamos a insertar Registros
             $texto .= '$this->query = "CALL usp_Set_'.$tabla.'(';
@@ -115,14 +115,14 @@ function generarmodelo($atri, $cListar, $tabla)
         // fin del metodo Eliminar actualizar
 
         //  START METODO BUSCAR POR ID
-        $texto .= '//Método Buscar por ID' . PHP_EOL;
-        $texto .= 'public function Get_' . $tabla . 'by_'.$aatri[0].'($bean_'.$tabla.')' . PHP_EOL;
+        $texto .= '# Método Buscar por ID' . PHP_EOL;
+        $texto .= 'public function Get_' . $tabla . '_by_'.$aatri[0].'($bean_'.$tabla.')' . PHP_EOL;
         $texto .= '{' . PHP_EOL;
         // $texto .= '$rpta=array();' . PHP_EOL;
         // $texto .= 'try{' . PHP_EOL;
         // START SQL
 
-                $texto .= '$'.$aatri[0]  .' = $bean_'.$tabla.'->get' . $aatri[0] . ';' . PHP_EOL;
+                $texto .= '$'.$aatri[0]  .' = $bean_'.$tabla.'->get' . $aatri[0] . '();' . PHP_EOL;
                 // $texto .= '$'.$aatri[count($aatri)-1]  .' = $bean_'.$tabla.'->get' . $aatri[count($aatri)-1] . ';' . PHP_EOL;
             $texto .= '' . PHP_EOL;
             //comenzamos a insertar Registros

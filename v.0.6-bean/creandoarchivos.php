@@ -50,7 +50,7 @@ if (isset($_POST["btenviar"])) {
         echo generarbean($atributos, $consulta, $tabla) . "<br/>";
         echo generandoVistas($atributos, $arraycabeza, $tabla, $arraytabla, $arrayenlace, $arrayenlace2) . "<br/>";
         echo generandoIndex($atributos, $arraycabeza, $tabla, $arraytabla, $arrayenlace, $arrayenlace2) . "<br/>";
-        echo '<a href="Editando.php" > <<Regresar</a>';
+        echo '<a href="index.php" > <<Regresar</a>';
     }
 }
 ?>
