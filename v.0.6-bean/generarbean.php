@@ -27,8 +27,8 @@ function generarbean($atri, $cListar, $tabla)
         }
         $texto .= '//Propiedades' . PHP_EOL;
         for ($i = 0; $i < count($aatri); $i++) {
-            $texto .= 'public function set' . $aatri[$i] . '($' . $aatri[$i] . '_){ $this->' . $aatri[$i] . '=$' . $aatri[$i] . '_;}' . PHP_EOL;
-            $texto .= 'public function get' . $aatri[$i] . '(){ return $this->' . $aatri[$i] . ';}' . PHP_EOL;
+            $texto .= 'public function set' . ucwords($aatri[$i]) . '($' . $aatri[$i] . '_){ $this->' . $aatri[$i] . '=$' . $aatri[$i] . '_;}' . PHP_EOL;
+            $texto .= 'public function get' . ucwords($aatri[$i]) . '(){ return $this->' . $aatri[$i] . ';}' . PHP_EOL;
         }
 
 
