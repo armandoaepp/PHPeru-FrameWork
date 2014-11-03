@@ -6,6 +6,7 @@ include_once 'generandovistas.php';
 include_once 'generandoControladores.php';
 include_once 'generandoindex.php';
 include_once 'generandolayout.php';
+include_once 'generando_procedures.php';
 if (isset($_POST["btenviar"])) {
 
     $sele = $_POST["sele"];
@@ -47,6 +48,8 @@ if (isset($_POST["btenviar"])) {
         echo generandolayout() . "<br/>";
         echo generandoControladores($atributos, $tabla) . "<br/>";
         echo generarmodelo($atributos, $consulta, $tabla) . "<br/>";
+        echo generarprocedure($atributos, $consulta, $tabla) . "<br/>";
+
         echo generarbean($atributos, $consulta, $tabla) . "<br/>";
         echo generandoVistas($atributos, $arraycabeza, $tabla, $arraytabla, $arrayenlace, $arrayenlace2) . "<br/>";
         echo generandoIndex($atributos, $arraycabeza, $tabla, $arraytabla, $arrayenlace, $arrayenlace2) . "<br/>";

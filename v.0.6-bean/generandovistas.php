@@ -1,5 +1,6 @@
 <?php
 function generandoVistas($atri, $aatri, $tabla, $tablaref, $arrayenlace, $arrayenlace2){
+
     //atributos
     $atri   = trim($atri);
     $romper = explode("*", $atri);
@@ -15,7 +16,7 @@ function generandoVistas($atri, $aatri, $tabla, $tablaref, $arrayenlace, $arraye
         mkdir("./clases/Vistas/" . $tabla, 0777);
         $carpeta = "./clases/Vistas/" . $tabla . "/";
     }
-    
+
     $extension = ".php";
     $versi=""; /*verificar esta variable*/
     if (!empty($tabla)) {
@@ -48,7 +49,7 @@ function generandoVistas($atri, $aatri, $tabla, $tablaref, $arrayenlace, $arraye
         $texto .= '</div>';
         fwrite($abrir, $texto);
         fclose($abrir);
-        
+
         // CREANDO ARCHIVO LISTAR
         $nomarchivo = $carpeta . "Listar_" . $tabla;
         $abrir      = fopen($nomarchivo . $extension, "w");
@@ -89,7 +90,7 @@ function generandoVistas($atri, $aatri, $tabla, $tablaref, $arrayenlace, $arraye
             }
         }
         $texto .= '<fieldset class="text-right"><button type="submit"  id="btregistrar">Registrar </button><button  type="button" id="btnCancelar" onclick="location.href=\'index.php?accion=Listar\';">Cancelar </button></fieldset>' . PHP_EOL;
-        
+
         $texto .= '</fieldset>' . PHP_EOL;
         $texto .= '</form>' . PHP_EOL;
         $texto .= '</div>';

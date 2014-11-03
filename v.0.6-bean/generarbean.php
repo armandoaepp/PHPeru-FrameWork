@@ -20,7 +20,8 @@ function generarbean($atri, $cListar, $tabla)
         $texto .= '/* Clase Bean Generada  - Creado por @armandoaepp */' . PHP_EOL;
         $texto .= 'class ' . $clase . '{' . PHP_EOL;
         $texto .= '//Constructor' . PHP_EOL;
-        $texto .= 'public function ' . $clase . '(){}' . PHP_EOL;
+        // $texto .= 'public function ' . $clase . '(){}' . PHP_EOL;
+        $texto .= 'public function __construct(){}' . PHP_EOL;
         $texto .= '//Atributos' . PHP_EOL;
         for ($i = 0; $i < count($aatri); $i++) {
             $texto .= 'private $' . $aatri[$i] . ';' . PHP_EOL;

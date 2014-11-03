@@ -12,13 +12,25 @@ function generarmodelo($atri, $cListar, $tabla)
     }
     $carpeta   = "./clases/Modelado/";
     $extension = ".php";
-    $clase     = "Cls" . $tabla;
-    if (!empty($tabla)) {
+    $clase     = "Cls" . ucwords($tabla);
+    $texto = '';
+    if (!empty($tabla))
+    {
         $nomarchivo = $carpeta . "Cls" . ucwords($tabla);
         $abrir      = fopen($nomarchivo . $extension, "w");
-        $texto      = '<?php ' . PHP_EOL;
+
+
+
+        $texto .= '<?php ' . PHP_EOL;
         $texto .= '/* Clase Generada desde PlaneaTec-PHP - Creado por @armandaepp */' . PHP_EOL;
         $texto .= 'class ' . $clase . ' extends ClsConexion {' . PHP_EOL;
+
+        # contructor
+        $texto .= '# CONSTRUCT ' . PHP_EOL;
+        $texto .= 'public function __construct($cnx  = null)' . PHP_EOL;
+        $texto .= '{' . PHP_EOL;
+        $texto .= '$this->conn = $cnx;' . PHP_EOL;
+        $texto .= '}' . PHP_EOL;
 
         // $texto .= '//Métodos' . PHP_EOL;
         $texto .= '# Método Insertar' . PHP_EOL;
@@ -87,7 +99,7 @@ function generarmodelo($atri, $cListar, $tabla)
 
         //metodo Eliminar(Actualizar Estado)
         $texto .= '# Método Eliminar(Actualizar Estado)' . PHP_EOL;
-        $texto .= 'public function upd_' . $tabla . '_Estado($bean_'.$tabla.')' . PHP_EOL;
+        $texto .= 'public function upd_' . $tabla . '_estado($bean_'.$tabla.')' . PHP_EOL;
         $texto .= '{' . PHP_EOL;
         // $texto .= '$rpta;' . PHP_EOL;
         // $texto .= 'try{' . PHP_EOL;
@@ -147,63 +159,21 @@ function generarmodelo($atri, $cListar, $tabla)
         $texto .= '}' . PHP_EOL;
         //  END METODO BUSCAR POR ID
 
+         //  START METODO GET SELECCIONAR TODOS
+        $texto .= '# Método get Seleccionar todos ' . PHP_EOL;
+        $texto .= 'public function get_' . $tabla . '()' . PHP_EOL;
+        $texto .= '{' . PHP_EOL;
 
-        /*//metodo Listar
-        $texto .= '//Método Listar' . PHP_EOL;
-        $texto .= 'public function Listar_' . $tabla . '(){' . PHP_EOL;
-        $texto .= '$rpta=array();' . PHP_EOL;
-        $texto .= 'try{' . PHP_EOL;
-        $texto .= "include_once 'conexion.php';" . PHP_EOL;
-        $texto .= '$con=new Conexion();' . PHP_EOL;
-        //Listamos
-        $texto .= '$consulta="' . $cListar . '";' . PHP_EOL;
-        $texto .= '$rpta=$con->Listar($consulta);' . PHP_EOL;
-        //fin de listar
-        $texto .= '}catch(exception $e){' . PHP_EOL;
-        $texto .= ' $rpta=$e->getMessage();}' . PHP_EOL;
-        $texto .= 'return $rpta;' . PHP_EOL;
+            $texto .= '' . PHP_EOL;
+            //comenzamos a insertar Registros
+            $texto .= '$this->query = "CALL usp_get_'.$tabla.'();';
+
+            $texto .= '$this->execute_query();' . PHP_EOL;
+            $texto .= '$data = $this->rows ;' . PHP_EOL;
+            $texto .= 'return $data;' . PHP_EOL;
+        // END SQL
         $texto .= '}' . PHP_EOL;
-        // fin del metodo Listar}
-        */
-
-
-       /* //metodo Consulta Simple
-        $texto .= '//Método Listar' . PHP_EOL;
-        $texto .= 'public function ListadoSimple_' . $tabla . '(){' . PHP_EOL;
-        $texto .= '$rpta=array();' . PHP_EOL;
-        $texto .= 'try{' . PHP_EOL;
-        $texto .= "include_once 'conexion.php';" . PHP_EOL;
-        $texto .= '$con=new Conexion();' . PHP_EOL;
-        //Listamos
-        $texto .= '$consulta= "SELECT * FROM ' . $tabla . '";' . PHP_EOL;
-        $texto .= '$rpta=$con->Listar($consulta);' . PHP_EOL;
-        //fin de listar
-        $texto .= '}catch(exception $e){' . PHP_EOL;
-        $texto .= ' $rpta=$e->getMessage();}' . PHP_EOL;
-        $texto .= 'return $rpta;' . PHP_EOL;
-        $texto .= '}' . PHP_EOL;
-        // fin del metodo Listar}*/
-
-
-      /*  //metodo Recuperar(Actualizar Estado)
-        $texto .= '//Método Recuperar' . PHP_EOL;
-        $texto .= 'public function Recuperar_' . $tabla . '(){' . PHP_EOL;
-        $texto .= '$rpta;' . PHP_EOL;
-        $texto .= 'try{' . PHP_EOL;
-        $texto .= "include_once 'conexion.php';" . PHP_EOL;
-        $texto .= '$con=new Conexion();' . PHP_EOL;
-        //Listamos
-        $texto .= '$consulta="UPDATE ' . $tabla . ' SET ' . $tabla . 'Estado=' . "'A' WHERE " . $aatri[0] . "='" . '$this->' . $aatri[0] . "'" . '";' . PHP_EOL;
-        $texto .= '$rpta=$con->MetodoRegistrar($consulta);' . PHP_EOL;
-        //fin de listar
-        $texto .= '}catch(exception $e){' . PHP_EOL;
-        $texto .= ' $rpta=$e->getMessage();}' . PHP_EOL;
-        $texto .= 'return $rpta;' . PHP_EOL;
-        $texto .= '}' . PHP_EOL;
-        // fin del metodo Recuperar}*/
-
-
-
+        //  END METODOGET SELECCIONAR TODOS
 
         $texto .= '}' . PHP_EOL;
         $texto .= '?>';
@@ -212,4 +182,3 @@ function generarmodelo($atri, $cListar, $tabla)
         return "Clase Generada Correctamente";
     }
 }
-?>

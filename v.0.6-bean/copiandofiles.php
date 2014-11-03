@@ -4,6 +4,9 @@ $carpetap="clases/";
 	if(!file_exists("./clases/Modelado")){
 		mkdir("./clases/Modelado",0777);
 	}
+	if(!file_exists("./clases/Procedure")){
+		mkdir("./clases/Procedure",0777);
+	}
 	if(!file_exists("./clases/Bean")){
 		mkdir("./clases/Bean",0777);
 	}
