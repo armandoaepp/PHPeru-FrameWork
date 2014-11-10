@@ -20,9 +20,8 @@ function generarmodelo($atri, $cListar, $tabla)
         $abrir      = fopen($nomarchivo . $extension, "w");
 
 
-
         $texto .= '<?php ' . PHP_EOL;
-        $texto .= '/* Clase Generada desde PlaneaTec-PHP - Creado por @armandaepp */' . PHP_EOL;
+        $texto .= '# Clase Generada desde PlaneaTec-PHP - Creado por @armandaepp ' . PHP_EOL;
         $texto .= 'class ' . $clase . ' extends ClsConexion {' . PHP_EOL;
 
         # contructor
@@ -164,9 +163,9 @@ function generarmodelo($atri, $cListar, $tabla)
         $texto .= 'public function get_' . $tabla . '()' . PHP_EOL;
         $texto .= '{' . PHP_EOL;
 
-            $texto .= '' . PHP_EOL;
+
             //comenzamos a insertar Registros
-            $texto .= '$this->query = "CALL usp_get_'.$tabla.'();';
+            $texto .= '$this->query = "CALL usp_get_'.$tabla.'();"';
 
             $texto .= '$this->execute_query();' . PHP_EOL;
             $texto .= '$data = $this->rows ;' . PHP_EOL;

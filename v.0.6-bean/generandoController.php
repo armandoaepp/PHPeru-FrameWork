@@ -19,7 +19,7 @@ function generandoControladores($atri, $tabla)
 
     $extension = ".php";
     if (!empty($tabla)) {
-        $nomarchivo = $carpeta . "Controlador_" . $tabla;
+        $nomarchivo = $carpeta . "Fnc_Controller_" . $tabla;
         $abrir      = fopen($nomarchivo . $extension, "w");
         $texto      = '<?php' . PHP_EOL;
         $texto .= 'include_once "../../Modelado/Modelo_' . $tabla . '.php"; ' . PHP_EOL;
