@@ -69,4 +69,3 @@ $enmsjemail=new Clase_msjemail();
 $enmsjemail->setidmsjemail($id);
 $rpta=$enmsjemail->Buscar_msjemail();
 return $rpta;}
-?>

@@ -49,7 +49,8 @@ if (isset($_POST["btenviar"])) {
         echo generandoControladores($atributos, $tabla) . "<br/>";
         echo generarprocedure($atributos, $consulta, $tabla) . "<br/>";
 
-        echo generarmodelo($atributos, $consulta, $tabla) . "<br/>";
+        // echo generarmodelo($atributos, $consulta, $tabla) . "<br/>";
+        echo generarmodelo($atributos, $consulta, $tabla , $arraycabeza) . "<br/>";
 
         // echo generarbean($atributos, $consulta, $tabla) . "<br/>";
         echo generarbean($atributos, $consulta, $tabla, $arraycabeza) . "<br/>";

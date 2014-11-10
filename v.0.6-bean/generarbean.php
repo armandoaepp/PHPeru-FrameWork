@@ -33,9 +33,8 @@ function generarbean($atri, $cListar, $tabla,  $nameMetodo )
         }
 
 
-
         $texto .= '}' . PHP_EOL;
-
+        $texto .= '?>';
         fwrite($abrir, $texto);
         fclose($abrir);
         return "Clase Generada Correctamente";

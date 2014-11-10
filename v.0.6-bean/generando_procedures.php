@@ -20,33 +20,7 @@ function generarprocedure($atri,$cListar,$tabla)
 		$data =$phperu->ListarCampos($tabla);
 		if(count($data["cuerpo"])>0)
 		{
-			# PROCEDURE SELECT ALL
-				$concat0 = '';
-				$texto.='DELIMITER ;;'.PHP_EOL;;
-				$texto.='CREATE PROCEDURE usp_get_'.$tabla.'() '.PHP_EOL;
-				$texto.='BEGIN'.PHP_EOL;
-					$concat1 = '';
-					$concat2 = '';
-					$texto.='SELECT '.PHP_EOL;
-						for($i=0;$i<count($data["cuerpo"]);$i++)
-						{
-							if(count($data["cuerpo"])==($i+1))
-							{
-								$concat1.= "	".$tabla.".".$data["cuerpo"][$i]["Field"];
-								break ;
-							}else
-							{
-								$concat1.= "	".$tabla.".".$data["cuerpo"][$i]["Field"].",".PHP_EOL;
-							}
-						}
-					// $texto.= trim($concat1, ',');
-					$texto.= $concat1.PHP_EOL ;
-					$texto.='FROM '.$tabla.";".PHP_EOL ;
-				$texto.='END;;'.PHP_EOL;
-				$texto.='DELIMITER ;;'.PHP_EOL;
-				$texto.= PHP_EOL;
-
-			# PROCEDURE SET
+			# 1  PROCEDURE SET
 				$concat0 = '';
 				$texto.='DELIMITER ;;'.PHP_EOL;;
 				$texto.='CREATE PROCEDURE usp_set_'.$tabla.'( ';
@@ -71,7 +45,6 @@ function generarprocedure($atri,$cListar,$tabla)
 								$concat1.= "	".$tabla.".".$data["cuerpo"][$i]["Field"].",".PHP_EOL;
 							}
 						}
-					// $texto.= trim($concat1, ',');
 					$texto.= $concat1;
 					$texto.= PHP_EOL.')'.PHP_EOL ;
 					$texto.='VALUES('.PHP_EOL ;
@@ -95,7 +68,7 @@ function generarprocedure($atri,$cListar,$tabla)
 
 				$texto.= PHP_EOL;
 
-			# PROCEDURE UPDATE
+			# 2 PROCEDURE UPDATE
 				$concat0 = '';
 				$texto.='DELIMITER ;;'.PHP_EOL;;
 				$texto.='CREATE PROCEDURE usp_upd_'.$tabla.'( ';
@@ -130,7 +103,35 @@ function generarprocedure($atri,$cListar,$tabla)
 
 				$texto.= PHP_EOL;
 
-			# PROCEDURE SELECT BY ID
+			# 3 PROCEDURE CAMBIAR ESTADO
+				/*$concat0 = '';
+				$texto.='DELIMITER ;;'.PHP_EOL;;
+				$texto.='CREATE PROCEDURE usp_upd_'.$tabla.'_by_Estado('$data["cuerpo"][0]["Field"] ." ".$data["cuerpo"][0]["Type"] .','.$data["cuerpo"][count($data["cuerpo"]-1]["Field"] ." ".$data["cuerpo"][count($data["cuerpo"]-1]["Type"] .') '.PHP_EOL;
+				$texto.='BEGIN'.PHP_EOL;
+					$concat1 = '';
+					$concat2 = '';
+					$texto.='SELECT '.PHP_EOL;
+						// for($i=0;$i<count($data["cuerpo"]);$i++)
+						// {
+							if(count($data["cuerpo"])==($i+1))
+							{
+								$concat1.= "	".$tabla.".".$data["cuerpo"][$i]["Field"];
+								break ;
+							}else
+							{
+								$concat1.= "	".$tabla.".".$data["cuerpo"][$i]["Field"].",".PHP_EOL;
+							}
+						// }
+					// $texto.= trim($concat1, ',');
+					$texto.= $concat1.PHP_EOL ;
+					$texto.='FROM '.$tabla.PHP_EOL ;
+					$texto.='WHERE  '.$tabla.".".$data["cuerpo"][0]["Field"]. " = ".$data["cuerpo"][0]["Field"].";".PHP_EOL ;
+
+				$texto.='END;;'.PHP_EOL;
+				$texto.='DELIMITER ;;'.PHP_EOL;
+				$texto.= PHP_EOL;*/
+
+			# 4 PROCEDURE SELECT BY ID
 				$concat0 = '';
 				$texto.='DELIMITER ;;'.PHP_EOL;;
 				$texto.='CREATE PROCEDURE usp_get_'.$tabla.'_by_'.$data["cuerpo"][0]["Field"].'('.$data["cuerpo"][0]["Field"] ." ".$data["cuerpo"][0]["Type"] .') '.PHP_EOL;
@@ -154,6 +155,32 @@ function generarprocedure($atri,$cListar,$tabla)
 					$texto.='FROM '.$tabla.PHP_EOL ;
 					$texto.='WHERE  '.$tabla.".".$data["cuerpo"][0]["Field"]. " = ".$data["cuerpo"][0]["Field"].";".PHP_EOL ;
 
+				$texto.='END;;'.PHP_EOL;
+				$texto.='DELIMITER ;;'.PHP_EOL;
+				$texto.= PHP_EOL;
+
+			# 5  PROCEDURE SELECT ALL
+				$concat0 = '';
+				$texto.='DELIMITER ;;'.PHP_EOL;;
+				$texto.='CREATE PROCEDURE usp_get_'.$tabla.'() '.PHP_EOL;
+				$texto.='BEGIN'.PHP_EOL;
+					$concat1 = '';
+					$concat2 = '';
+					$texto.='SELECT '.PHP_EOL;
+						for($i=0;$i<count($data["cuerpo"]);$i++)
+						{
+							if(count($data["cuerpo"])==($i+1))
+							{
+								$concat1.= "	".$tabla.".".$data["cuerpo"][$i]["Field"];
+								break ;
+							}else
+							{
+								$concat1.= "	".$tabla.".".$data["cuerpo"][$i]["Field"].",".PHP_EOL;
+							}
+						}
+					// $texto.= trim($concat1, ',');
+					$texto.= $concat1.PHP_EOL ;
+					$texto.='FROM '.$tabla.";".PHP_EOL ;
 				$texto.='END;;'.PHP_EOL;
 				$texto.='DELIMITER ;;'.PHP_EOL;
 				$texto.= PHP_EOL;

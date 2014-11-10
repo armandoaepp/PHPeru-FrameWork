@@ -1,5 +1,5 @@
 <?php
-function generarmodelo($atri, $cListar, $tabla)
+function generarmodelo($atri, $cListar, $tabla, $name_set_get)
 {
     //atributos
     $atri   = trim($atri);
@@ -40,7 +40,7 @@ function generarmodelo($atri, $cListar, $tabla)
         // $texto .= 'try{' . PHP_EOL;
 
         for ($i = 0; $i < count($aatri); $i++) {
-            $texto .= '$'.$aatri[$i]  .' = $bean_'.$tabla.'->get' . ucwords($aatri[$i]) . '();' . PHP_EOL;
+            $texto .= '$'.$aatri[$i]  .' = $bean_'.$tabla.'->get' . ucwords($name_set_get[$i]) . '();' . PHP_EOL;
         }
         $texto .= '' . PHP_EOL;
 
@@ -72,7 +72,7 @@ function generarmodelo($atri, $cListar, $tabla)
         // $texto .= '$rpta;' . PHP_EOL;
         // $texto .= 'try{' . PHP_EOL;
            for ($i = 0; $i < count($aatri); $i++) {
-                $texto .= '$'.$aatri[$i]  .' = $bean_'.$tabla.'->get' . ucwords($aatri[$i]) . '();' . PHP_EOL;
+                $texto .= '$'.$aatri[$i]  .' = $bean_'.$tabla.'->get' . ucwords($name_set_get[$i]) . '();' . PHP_EOL;
             }
             $texto .= '' . PHP_EOL;
 
@@ -104,8 +104,8 @@ function generarmodelo($atri, $cListar, $tabla)
         // $texto .= 'try{' . PHP_EOL;
         //SQL
 
-            $texto .= '$'.$aatri[0]  .' = $bean_'.$tabla.'->get' . ucwords($aatri[0]). '();' . PHP_EOL;
-            $texto .= '$'.$aatri[count($aatri)-1]  .' = $bean_'.$tabla.'->get' . ucwords($aatri[count($aatri)-1]) . '();' . PHP_EOL;
+            $texto .= '$'.$aatri[0]  .' = $bean_'.$tabla.'->get' . ucwords($name_set_get[0]). '();' . PHP_EOL;
+            $texto .= '$'.$aatri[count($aatri)-1]  .' = $bean_'.$tabla.'->get' . ucwords($name_set_get[count($aatri)-1]) . '();' . PHP_EOL;
             $texto .= '' . PHP_EOL;
             //comenzamos a insertar Registros
             $texto .= '$this->query = "CALL usp_upd_'.$tabla.'_Estado(';
@@ -135,7 +135,7 @@ function generarmodelo($atri, $cListar, $tabla)
         // $texto .= 'try{' . PHP_EOL;
         // START SQL
 
-                $texto .= '$'.$aatri[0]  .' = $bean_'.$tabla.'->get' . ucwords($aatri[0]) . '();' . PHP_EOL;
+                $texto .= '$'.$aatri[0]  .' = $bean_'.$tabla.'->get' . ucwords($name_set_get[0]) . '();' . PHP_EOL;
                 // $texto .= '$'.$aatri[count($aatri)-1]  .' = $bean_'.$tabla.'->get' . $aatri[count($aatri)-1] . ';' . PHP_EOL;
             $texto .= '' . PHP_EOL;
             //comenzamos a insertar Registros
@@ -165,7 +165,7 @@ function generarmodelo($atri, $cListar, $tabla)
 
 
             //comenzamos a insertar Registros
-            $texto .= '$this->query = "CALL usp_get_'.$tabla.'();"';
+            $texto .= '$this->query = "CALL usp_get_'.$tabla.'();"'. PHP_EOL;
 
             $texto .= '$this->execute_query();' . PHP_EOL;
             $texto .= '$data = $this->rows ;' . PHP_EOL;

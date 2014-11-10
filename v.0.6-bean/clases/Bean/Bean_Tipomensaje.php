@@ -1,13 +1,13 @@
 <?php 
 # Clase Bean Generada  - Creado por @armandoaepp 
 class Bean_Tipomensaje{
-//Constructor
+# Constructor
 public function __construct(){}
-//Atributos
+# Atributos
 private $idtipomensaje;
 private $tipomensaje;
 private $estado;
-//Propiedades
+# METODOS
 public function setIdTipoMensaje($idtipomensaje_){ $this->idtipomensaje=$idtipomensaje_;}
 public function getIdTipoMensaje(){ return $this->idtipomensaje;}
 public function setTipoMensaje($tipomensaje_){ $this->tipomensaje=$tipomensaje_;}

@@ -55,4 +55,3 @@ $entipofecha=new Clase_tipofecha();
 $entipofecha->setidtipofecha($id);
 $rpta=$entipofecha->Buscar_tipofecha();
 return $rpta;}
-?>

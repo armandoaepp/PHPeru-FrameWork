@@ -55,4 +55,3 @@ $entipomensaje=new Clase_tipomensaje();
 $entipomensaje->setidtipomensaje($id);
 $rpta=$entipomensaje->Buscar_tipomensaje();
 return $rpta;}
-?>

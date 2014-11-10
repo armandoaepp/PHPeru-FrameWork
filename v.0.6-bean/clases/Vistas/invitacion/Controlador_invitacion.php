@@ -59,4 +59,3 @@ $eninvitacion=new Clase_invitacion();
 $eninvitacion->setidinvitacion($id);
 $rpta=$eninvitacion->Buscar_invitacion();
 return $rpta;}
-?>

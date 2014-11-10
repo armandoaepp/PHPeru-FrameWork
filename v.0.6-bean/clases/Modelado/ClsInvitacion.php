@@ -65,3 +65,4 @@ class ClsInvitacion extends ClsConexion {
 		return $data;
 	}
 }
+?>

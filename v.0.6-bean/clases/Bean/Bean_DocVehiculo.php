@@ -1,6 +1,6 @@
-<?php
-# Clase Bean Generada  - Creado por @armandoaepp
-class Bean_DocVehiculo{
+<?php 
+# Clase Bean Generada  - Creado por @armandoaepp 
+class Bean_Docvehiculo{
 # Constructor
 public function __construct(){}
 # Atributos
@@ -36,3 +36,4 @@ public function getGlosa(){ return $this->glosa;}
 public function setEstado($estado_){ $this->estado=$estado_;}
 public function getEstado(){ return $this->estado;}
 }
+?>
