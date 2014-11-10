@@ -33,35 +33,35 @@ function generarprocedure($atri,$cListar,$tabla)
 				$texto.='BEGIN'.PHP_EOL;
 					$concat1 = '';
 					$concat2 = '';
-					$texto.='INSERT INTO  '.$tabla.'('.PHP_EOL;
+					$texto.='	INSERT INTO  '.$tabla.'('.PHP_EOL;
 						for($i=0;$i<count($data["cuerpo"]);$i++)
 						{
 							if(count($data["cuerpo"])==($i+1))
 							{
-								$concat1.= "	".$tabla.".".$data["cuerpo"][$i]["Field"];
+								$concat1.= "		".$tabla.".".$data["cuerpo"][$i]["Field"];
 								break ;
 							}else
 							{
-								$concat1.= "	".$tabla.".".$data["cuerpo"][$i]["Field"].",".PHP_EOL;
+								$concat1.= "		".$tabla.".".$data["cuerpo"][$i]["Field"].",".PHP_EOL;
 							}
 						}
 					$texto.= $concat1;
-					$texto.= PHP_EOL.')'.PHP_EOL ;
-					$texto.='VALUES('.PHP_EOL ;
+					$texto.= PHP_EOL.'	)'.PHP_EOL ;
+					$texto.='	VALUES('.PHP_EOL ;
 						for($i=0;$i<count($data["cuerpo"]);$i++)
 						{
 							if(count($data["cuerpo"])==($i+1))
 							{
-								$concat2.= "	".$data["cuerpo"][$i]["Field"];
+								$concat2.= "		".$data["cuerpo"][$i]["Field"];
 								break ;
 							}else
 							{
-								$concat2.= "	".$data["cuerpo"][$i]["Field"].",".PHP_EOL;
+								$concat2.= "		".$data["cuerpo"][$i]["Field"].",".PHP_EOL;
 							}
 						}
 					// $texto.=substr($concat,0,-1);
 					$texto.= $concat2 ;
-					$texto.= PHP_EOL.');'.PHP_EOL;
+					$texto.= PHP_EOL.'	);'.PHP_EOL;
 
 				$texto.='END;;'.PHP_EOL;
 				$texto.='DELIMITER ;;'.PHP_EOL;
@@ -81,20 +81,20 @@ function generarprocedure($atri,$cListar,$tabla)
 				$texto.='BEGIN'.PHP_EOL;
 					$concat1 = '';
 					$concat2 = '';
-					$texto.='UPDATE '.$tabla.' SET'.PHP_EOL;
+					$texto.='	UPDATE '.$tabla.' SET'.PHP_EOL;
 						for($i=0;$i<count($data["cuerpo"]);$i++)
 						{
 							if(count($data["cuerpo"])==($i+1))
 							{
-								$concat1.= "	".$tabla.".".$data["cuerpo"][$i]["Field"]." = ".$data["cuerpo"][$i]["Field"];
+								$concat1.= "		".$tabla.".".$data["cuerpo"][$i]["Field"]." = ".$data["cuerpo"][$i]["Field"];
 								break ;
 							}else
 							{
-								$concat1.= "	".$tabla.".".$data["cuerpo"][$i]["Field"]." = ".$data["cuerpo"][$i]["Field"].",".PHP_EOL;
+								$concat1.= "		".$tabla.".".$data["cuerpo"][$i]["Field"]." = ".$data["cuerpo"][$i]["Field"].",".PHP_EOL;
 							}
 						}
 					$texto.= $concat1.PHP_EOL;
-					$texto.='WHERE ' ;
+					$texto.='	WHERE ' ;
 					$texto.= $tabla.".".$data["cuerpo"][0]["Field"]." = ".$data["cuerpo"][0]["Field"] .";" ;
 
 					$texto.= PHP_EOL;
@@ -104,32 +104,25 @@ function generarprocedure($atri,$cListar,$tabla)
 				$texto.= PHP_EOL;
 
 			# 3 PROCEDURE CAMBIAR ESTADO
-				/*$concat0 = '';
+				$concat0 = '';
 				$texto.='DELIMITER ;;'.PHP_EOL;;
-				$texto.='CREATE PROCEDURE usp_upd_'.$tabla.'_by_Estado('$data["cuerpo"][0]["Field"] ." ".$data["cuerpo"][0]["Type"] .','.$data["cuerpo"][count($data["cuerpo"]-1]["Field"] ." ".$data["cuerpo"][count($data["cuerpo"]-1]["Type"] .') '.PHP_EOL;
+				$last = count($data["cuerpo"])-1 ;
+				$texto.='CREATE PROCEDURE usp_upd_'.$tabla.'_estado('.$data["cuerpo"][0]["Field"] ." ".$data["cuerpo"][0]["Type"] .','.$data["cuerpo"][$last]["Field"] ." ".$data["cuerpo"][$last]["Type"] .') '.PHP_EOL;
 				$texto.='BEGIN'.PHP_EOL;
 					$concat1 = '';
 					$concat2 = '';
-					$texto.='SELECT '.PHP_EOL;
-						// for($i=0;$i<count($data["cuerpo"]);$i++)
-						// {
-							if(count($data["cuerpo"])==($i+1))
-							{
-								$concat1.= "	".$tabla.".".$data["cuerpo"][$i]["Field"];
-								break ;
-							}else
-							{
-								$concat1.= "	".$tabla.".".$data["cuerpo"][$i]["Field"].",".PHP_EOL;
-							}
-						// }
-					// $texto.= trim($concat1, ',');
-					$texto.= $concat1.PHP_EOL ;
-					$texto.='FROM '.$tabla.PHP_EOL ;
-					$texto.='WHERE  '.$tabla.".".$data["cuerpo"][0]["Field"]. " = ".$data["cuerpo"][0]["Field"].";".PHP_EOL ;
+					$texto.='	UPDATE '.$tabla.' SET'.PHP_EOL;
+
+								$concat1.= "		".$tabla.".".$data["cuerpo"][count($data["cuerpo"])-1]["Field"]." = ".$data["cuerpo"][count($data["cuerpo"])-1]["Field"];
+					$texto.= $concat1.PHP_EOL;
+					$texto.='	WHERE ' ;
+					$texto.= $tabla.".".$data["cuerpo"][0]["Field"]." = ".$data["cuerpo"][0]["Field"] .";" ;
+
+					$texto.= PHP_EOL;
 
 				$texto.='END;;'.PHP_EOL;
 				$texto.='DELIMITER ;;'.PHP_EOL;
-				$texto.= PHP_EOL;*/
+				$texto.= PHP_EOL;
 
 			# 4 PROCEDURE SELECT BY ID
 				$concat0 = '';
@@ -138,22 +131,22 @@ function generarprocedure($atri,$cListar,$tabla)
 				$texto.='BEGIN'.PHP_EOL;
 					$concat1 = '';
 					$concat2 = '';
-					$texto.='SELECT '.PHP_EOL;
+					$texto.='	SELECT '.PHP_EOL;
 						for($i=0;$i<count($data["cuerpo"]);$i++)
 						{
 							if(count($data["cuerpo"])==($i+1))
 							{
-								$concat1.= "	".$tabla.".".$data["cuerpo"][$i]["Field"];
+								$concat1.= "		".$tabla.".".$data["cuerpo"][$i]["Field"];
 								break ;
 							}else
 							{
-								$concat1.= "	".$tabla.".".$data["cuerpo"][$i]["Field"].",".PHP_EOL;
+								$concat1.= "		".$tabla.".".$data["cuerpo"][$i]["Field"].",".PHP_EOL;
 							}
 						}
 					// $texto.= trim($concat1, ',');
 					$texto.= $concat1.PHP_EOL ;
-					$texto.='FROM '.$tabla.PHP_EOL ;
-					$texto.='WHERE  '.$tabla.".".$data["cuerpo"][0]["Field"]. " = ".$data["cuerpo"][0]["Field"].";".PHP_EOL ;
+					$texto.='	FROM '.$tabla.PHP_EOL ;
+					$texto.='	WHERE  '.$tabla.".".$data["cuerpo"][0]["Field"]. " = ".$data["cuerpo"][0]["Field"].";".PHP_EOL ;
 
 				$texto.='END;;'.PHP_EOL;
 				$texto.='DELIMITER ;;'.PHP_EOL;
@@ -166,21 +159,21 @@ function generarprocedure($atri,$cListar,$tabla)
 				$texto.='BEGIN'.PHP_EOL;
 					$concat1 = '';
 					$concat2 = '';
-					$texto.='SELECT '.PHP_EOL;
+					$texto.='	SELECT '.PHP_EOL;
 						for($i=0;$i<count($data["cuerpo"]);$i++)
 						{
 							if(count($data["cuerpo"])==($i+1))
 							{
-								$concat1.= "	".$tabla.".".$data["cuerpo"][$i]["Field"];
+								$concat1.= "		".$tabla.".".$data["cuerpo"][$i]["Field"];
 								break ;
 							}else
 							{
-								$concat1.= "	".$tabla.".".$data["cuerpo"][$i]["Field"].",".PHP_EOL;
+								$concat1.= "		".$tabla.".".$data["cuerpo"][$i]["Field"].",".PHP_EOL;
 							}
 						}
 					// $texto.= trim($concat1, ',');
 					$texto.= $concat1.PHP_EOL ;
-					$texto.='FROM '.$tabla.";".PHP_EOL ;
+					$texto.='	FROM '.$tabla.";".PHP_EOL ;
 				$texto.='END;;'.PHP_EOL;
 				$texto.='DELIMITER ;;'.PHP_EOL;
 				$texto.= PHP_EOL;

@@ -8,10 +8,10 @@ private $idtipodocumento;
 private $tipodocumento;
 private $estado;
 # METODOS
-public function setIdTipoDocumento($idtipodocumento_){ $this->idtipodocumento=$idtipodocumento_;}
-public function getIdTipoDocumento(){ return $this->idtipodocumento;}
-public function setTipoDocumento($tipodocumento_){ $this->tipodocumento=$tipodocumento_;}
-public function getTipoDocumento(){ return $this->tipodocumento;}
+public function setIdtipodocumento($idtipodocumento_){ $this->idtipodocumento=$idtipodocumento_;}
+public function getIdtipodocumento(){ return $this->idtipodocumento;}
+public function setTipodocumento($tipodocumento_){ $this->tipodocumento=$tipodocumento_;}
+public function getTipodocumento(){ return $this->tipodocumento;}
 public function setEstado($estado_){ $this->estado=$estado_;}
 public function getEstado(){ return $this->estado;}
 }

@@ -108,7 +108,7 @@ function generarmodelo($atri, $cListar, $tabla, $name_set_get)
             $texto .= '$'.$aatri[count($aatri)-1]  .' = $bean_'.$tabla.'->get' . ucwords($name_set_get[count($aatri)-1]) . '();' . PHP_EOL;
             $texto .= '' . PHP_EOL;
             //comenzamos a insertar Registros
-            $texto .= '$this->query = "CALL usp_upd_'.$tabla.'_Estado(';
+            $texto .= '$this->query = "CALL usp_upd_'.$tabla.'_estado(';
 
             $concat = "";
                 $concat .= "'$" . $aatri[0] . "',";
