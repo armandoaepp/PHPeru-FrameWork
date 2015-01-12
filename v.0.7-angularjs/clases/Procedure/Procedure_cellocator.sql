@@ -1,6 +1,7 @@
 /* Procedures Generada desde Cix-PHP - by power @armandoaepp */
+
 DELIMITER ;;
-CREATE PROCEDURE usp_set_cellocator( idrastreo int(11),RMUId varchar(10),CellDateTime datetime,GPSX int(11),GPSY int(11),GPSDateTime datetime,Speed int(11),Direction int(11),NumOfSat int(11),LocQuality int(11),EngineOn int(11),ExtInputA int(11),ExtInputB int(11),ExtInputC int(11),ExtInputD int(11),ExtInputE int(11),ExtInputF int(11),VersionNum varchar(25),IP varchar(15),InputVoltage int(11),BackBatVoltage int(11),GPSPDOP smallint(6),GPSHEIGHT int(11),NetworkTypeId smallint(6),InsertDate datetime,UTCTime datetime,DriverId mediumtext,TxReasonId int(11),AlertReason int(11),Hibernation int(11),HRNetwork int(11),MileCounter int(11),GPSMode1 int(11),GPSMode2 int(11),OutputA int(11),OutputB int(11),OutputC int(11),OutputD int(11),OptionalInput int(11),GPSCommStatus int(11),RawData varchar(2000),PLMN int(11),SN int(11),MessageType int(11),MsgProtocol smallint(6),TripId int(11),ManeuverId int(11),ManeuverUsage smallint(6),AccidentBuffer int(11),ItemId mediumtext ) 
+CREATE PROCEDURE usp_set_cellocator( idrastreo int(11),RMUId varchar(10),CellDateTime datetime,GPSX int(11),GPSY int(11),GPSDateTime datetime,Speed int(11),Direction int(11),NumOfSat int(11),LocQuality int(11),EngineOn int(11),ExtInputA int(11),ExtInputB int(11),ExtInputC int(11),ExtInputD int(11),ExtInputE int(11),ExtInputF int(11),VersionNum varchar(25),IP varchar(15),InputVoltage int(11),BackBatVoltage int(11),GPSPDOP smallint(6),GPSHEIGHT int(11),NetworkTypeId smallint(6),InsertDate datetime,UTCTime datetime,DriverId mediumtext,TxReasonId int(11),AlertReason int(11),Hibernation int(11),HRNetwork int(11),MileCounter int(11),GPSMode1 int(11),GPSMode2 int(11),OutputA int(11),OutputB int(11),OutputC int(11),OutputD int(11),OptionalInput int(11),GPSCommStatus int(11),RawData varchar(2000),PLMN int(11),SN int(11),MessageType int(11),MsgProtocol smallint(6),TripId int(11),ManeuverId int(11),ManeuverUsage smallint(6),AccidentBuffer int(11),ItemId mediumtext )
 BEGIN
 	INSERT INTO  cellocator(
 		cellocator.idrastreo,
@@ -110,7 +111,7 @@ END;;
 DELIMITER ;;
 
 DELIMITER ;;
-CREATE PROCEDURE usp_upd_cellocator( idrastreo int(11),RMUId varchar(10),CellDateTime datetime,GPSX int(11),GPSY int(11),GPSDateTime datetime,Speed int(11),Direction int(11),NumOfSat int(11),LocQuality int(11),EngineOn int(11),ExtInputA int(11),ExtInputB int(11),ExtInputC int(11),ExtInputD int(11),ExtInputE int(11),ExtInputF int(11),VersionNum varchar(25),IP varchar(15),InputVoltage int(11),BackBatVoltage int(11),GPSPDOP smallint(6),GPSHEIGHT int(11),NetworkTypeId smallint(6),InsertDate datetime,UTCTime datetime,DriverId mediumtext,TxReasonId int(11),AlertReason int(11),Hibernation int(11),HRNetwork int(11),MileCounter int(11),GPSMode1 int(11),GPSMode2 int(11),OutputA int(11),OutputB int(11),OutputC int(11),OutputD int(11),OptionalInput int(11),GPSCommStatus int(11),RawData varchar(2000),PLMN int(11),SN int(11),MessageType int(11),MsgProtocol smallint(6),TripId int(11),ManeuverId int(11),ManeuverUsage smallint(6),AccidentBuffer int(11),ItemId mediumtext ) 
+CREATE PROCEDURE usp_upd_cellocator( idrastreo int(11),RMUId varchar(10),CellDateTime datetime,GPSX int(11),GPSY int(11),GPSDateTime datetime,Speed int(11),Direction int(11),NumOfSat int(11),LocQuality int(11),EngineOn int(11),ExtInputA int(11),ExtInputB int(11),ExtInputC int(11),ExtInputD int(11),ExtInputE int(11),ExtInputF int(11),VersionNum varchar(25),IP varchar(15),InputVoltage int(11),BackBatVoltage int(11),GPSPDOP smallint(6),GPSHEIGHT int(11),NetworkTypeId smallint(6),InsertDate datetime,UTCTime datetime,DriverId mediumtext,TxReasonId int(11),AlertReason int(11),Hibernation int(11),HRNetwork int(11),MileCounter int(11),GPSMode1 int(11),GPSMode2 int(11),OutputA int(11),OutputB int(11),OutputC int(11),OutputD int(11),OptionalInput int(11),GPSCommStatus int(11),RawData varchar(2000),PLMN int(11),SN int(11),MessageType int(11),MsgProtocol smallint(6),TripId int(11),ManeuverId int(11),ManeuverUsage smallint(6),AccidentBuffer int(11),ItemId mediumtext )
 BEGIN
 	UPDATE cellocator SET
 		cellocator.idrastreo = idrastreo,
@@ -168,7 +169,7 @@ END;;
 DELIMITER ;;
 
 DELIMITER ;;
-CREATE PROCEDURE usp_upd_cellocator_estado(idrastreo int(11),ItemId mediumtext) 
+CREATE PROCEDURE usp_upd_cellocator_estado(idrastreo int(11),ItemId mediumtext)
 BEGIN
 	UPDATE cellocator SET
 		cellocator.ItemId = ItemId
@@ -177,9 +178,9 @@ END;;
 DELIMITER ;;
 
 DELIMITER ;;
-CREATE PROCEDURE usp_get_cellocator_by_idrastreo(idrastreo int(11)) 
+CREATE PROCEDURE usp_get_cellocator_by_idrastreo(idrastreo int(11))
 BEGIN
-	SELECT 
+	SELECT
 		cellocator.idrastreo,
 		cellocator.RMUId,
 		cellocator.CellDateTime,
@@ -236,9 +237,9 @@ END;;
 DELIMITER ;;
 
 DELIMITER ;;
-CREATE PROCEDURE usp_get_cellocator() 
+CREATE PROCEDURE usp_get_cellocator()
 BEGIN
-	SELECT 
+	SELECT
 		cellocator.idrastreo,
 		cellocator.RMUId,
 		cellocator.CellDateTime,
