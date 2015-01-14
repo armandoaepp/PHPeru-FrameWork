@@ -5,8 +5,9 @@
     {
         try
         {
-            $objpersona  = new ClsPersona();
-            $data = $objpersona->get_persona() ;
+            $objPersona  = new ClsPersona();
+
+            $data = $objPersona->get_persona() ;
             $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);
         }
         catch (Exception $e)
@@ -21,20 +22,21 @@
         {
             
             $inputs = json_decode(file_get_contents("php://input"));
-            $idpersona = validar($inputs->IdPersona);
-            $nombres = validar($inputs->Nombres);
-            $nacimiento = validar($inputs->Nacimiento);
-            $tipo = validar($inputs->Tipo);
-            $estado = validar($inputs->Estado);
+
+            $idpersona = Helpers::validate($inputs->IdPersona);
+            $nombres = Helpers::validate($inputs->Nombres);
+            $nacimiento = Helpers::validate($inputs->Nacimiento);
+            $tipo = Helpers::validate($inputs->Tipo);
+            $estado = Helpers::validate($inputs->Estado);
         
             $objPersona  = new ClsPersona();
-            $beanPersona = new BeanPersona();
+            $bean_persona = new BeanPersona();
             
-            $beanPersona->setIdPersona($idpersona);
-            $beanPersona->setNombres($nombre);
-            $beanPersona->setNacimiento($nacimiento);
-            $beanPersona->setTipo($tipo);
-            $beanPersona->setEstado($estado);
+            $bean_persona->setIdPersona($idpersona);
+            $bean_persona->setNombres($nombre);
+            $bean_persona->setNacimiento($nacimiento);
+            $bean_persona->setTipo($tipo);
+            $bean_persona->setEstado($estado);
             
             $data = $objPersona->get_persona($beanPersona) ;
             $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);
@@ -50,9 +52,10 @@
         try
         {
             $objPersona  = new ClsPersona();
-            $beanPersona = new BeanPersona();
-            $beanPersona->setId($id);
-            $data = $objpersona->get_persona() ;
+            $bean_persona = new BeanPersona();
+
+            $bean_persona->setId($id);
+            $data = $objPersona->get_persona() ;
             $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);
         }
         catch (Exception $e)
@@ -67,20 +70,21 @@
         {
             
             $inputs = json_decode(file_get_contents("php://input"));
-            $idpersona = validar($inputs->IdPersona);
-            $nombres = validar($inputs->Nombres);
-            $nacimiento = validar($inputs->Nacimiento);
-            $tipo = validar($inputs->Tipo);
-            $estado = validar($inputs->Estado);
+
+            $idpersona = Helpers::validate($inputs->IdPersona);
+            $nombres = Helpers::validate($inputs->Nombres);
+            $nacimiento = Helpers::validate($inputs->Nacimiento);
+            $tipo = Helpers::validate($inputs->Tipo);
+            $estado = Helpers::validate($inputs->Estado);
         
             $objPersona  = new ClsPersona();
-            $beanPersona = new BeanPersona();
+            $bean_persona = new BeanPersona();
             
-            $beanPersona->setIdPersona($idpersona);
-            $beanPersona->setNombres($nombre);
-            $beanPersona->setNacimiento($nacimiento);
-            $beanPersona->setTipo($tipo);
-            $beanPersona->setEstado($estado);
+            $bean_persona->setIdPersona($idpersona);
+            $bean_persona->setNombres($nombre);
+            $bean_persona->setNacimiento($nacimiento);
+            $bean_persona->setTipo($tipo);
+            $bean_persona->setEstado($estado);
             
             $data = $objPersona->upd_persona($beanPersona) ;
             $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);

@@ -2,6 +2,7 @@
 # Autor: Armando Enrique Pisfil Puemape tw: @armandoaepp
     header('content-type: application/json; charset=utf-8');
     require_once '../../autoload.php';
+    require_once '../helpers/Helpers.php';
 
 if(isset($_GET["accion"])){
     $evento=$_GET["accion"];

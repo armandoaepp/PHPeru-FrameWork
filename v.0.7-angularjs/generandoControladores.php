@@ -26,21 +26,15 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto .= ' class '.$tabla.'Controller' . PHP_EOL;
         $texto  .= '{' . PHP_EOL;
 
-        /*$texto  .= '    function c_get_'.$tabla.'()' . PHP_EOL;
-        $texto  .= '    {' . PHP_EOL;
-        $texto  .= '    ' . PHP_EOL;
-        $texto  .= '    }' . PHP_EOL;
-        $texto  .= '    ' . PHP_EOL;
-        */
 
         # FUNCTION get
         $texto  .= '    function c_get_'.$tabla.'()' . PHP_EOL;
         $texto  .= '    {' . PHP_EOL;
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
-        $texto  .= '            $obj'.$tabla.'  = new Cls'.ucwords($tabla).'();' . PHP_EOL;
-        // $texto  .= '        $bean'.$tabla.' = new Bean'.$tabla.'();' . PHP_EOL;
-        $texto  .= '            $data = $obj'.$tabla.'->get_'.$tabla.'() ;' . PHP_EOL;
+        $texto  .= '            $obj'.ucwords($tabla).'  = new Cls'.ucwords($tabla).'();' . PHP_EOL;
+        $texto  .= '' . PHP_EOL;
+        $texto  .= '            $data = $obj'.ucwords($tabla).'->get_'.$tabla.'() ;' . PHP_EOL;
         $texto  .= '            $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);'. PHP_EOL;
         $texto  .= '        }' . PHP_EOL;
         $texto  .= '        catch (Exception $e)' . PHP_EOL;
@@ -57,23 +51,25 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '        {' . PHP_EOL;
         $texto  .= '            ' . PHP_EOL;
         $texto  .= '            $inputs = json_decode(file_get_contents("php://input"));' . PHP_EOL;
+        $texto  .= '' . PHP_EOL;
+
                                 if (count($nameatri) > 0) {
                                     for ($i = 0; $i < count($nameatri); $i++) {
                                         if ($nameatri[$i] != "estado") {
-                                            $texto .= '            $'.strtolower($nameatri[$i]).' = validar($inputs->'.$nameatri[$i].');'. PHP_EOL;
+                                            $texto .= '            $'.strtolower($nameatri[$i]).' = Helpers::validate($inputs->'.$nameatri[$i].');'. PHP_EOL;
                                         }
                                     }
                                 }
         $texto  .= '        ' . PHP_EOL;
 
         $texto  .= '            $obj'.ucwords($tabla).'  = new Cls'.ucwords($tabla).'();' . PHP_EOL;
-        $texto  .= '            $bean'.ucwords($tabla).' = new Bean'.ucwords($tabla).'();' . PHP_EOL;
+        $texto  .= '            $bean_'.($tabla).' = new Bean'.ucwords($tabla).'();' . PHP_EOL;
         $texto  .= '            ' . PHP_EOL;
 
                                 if (count($nameatri) > 0) {
                                     for ($i = 0; $i < count($nameatri); $i++) {
                                         if ($nameatri[$i] != "estado") {
-                                            $texto .= '            $bean'.ucwords($tabla).'->set'.$nameatri[$i].'($'.strtolower($aatri[$i]).');'. PHP_EOL;
+                                            $texto .= '            $bean_'.($tabla).'->set'.$nameatri[$i].'($'.strtolower($aatri[$i]).');'. PHP_EOL;
                                         }
                                     }
                                 }
@@ -95,11 +91,12 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
         $texto  .= '            $obj'.ucwords($tabla).'  = new Cls'.ucwords($tabla).'();' . PHP_EOL;
-        $texto  .= '            $bean'.ucwords($tabla).' = new Bean'.ucwords($tabla).'();' . PHP_EOL;
+        $texto  .= '            $bean_'.($tabla).' = new Bean'.ucwords($tabla).'();' . PHP_EOL;
+        $texto  .= '' . PHP_EOL;
 
-        $texto  .= '            $bean'.ucwords($tabla).'->setId($id);' . PHP_EOL;
+        $texto  .= '            $bean_'.($tabla).'->setId($id);' . PHP_EOL;
 
-        $texto  .= '            $data = $obj'.$tabla.'->get_'.$tabla.'() ;' . PHP_EOL;
+        $texto  .= '            $data = $obj'.ucwords($tabla).'->get_'.$tabla.'() ;' . PHP_EOL;
         $texto  .= '            $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);'. PHP_EOL;
         $texto  .= '        }' . PHP_EOL;
         $texto  .= '        catch (Exception $e)' . PHP_EOL;
@@ -116,23 +113,25 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '        {' . PHP_EOL;
         $texto  .= '            ' . PHP_EOL;
         $texto  .= '            $inputs = json_decode(file_get_contents("php://input"));' . PHP_EOL;
+        $texto  .= '' . PHP_EOL;
+
                                 if (count($nameatri) > 0) {
                                     for ($i = 0; $i < count($nameatri); $i++) {
                                         if ($nameatri[$i] != "estado") {
-                                            $texto .= '            $'.strtolower($nameatri[$i]).' = validar($inputs->'.$nameatri[$i].');'. PHP_EOL;
+                                            $texto .= '            $'.strtolower($nameatri[$i]).' = Helpers::validate($inputs->'.$nameatri[$i].');'. PHP_EOL;
                                         }
                                     }
                                 }
         $texto  .= '        ' . PHP_EOL;
 
         $texto  .= '            $obj'.ucwords($tabla).'  = new Cls'.ucwords($tabla).'();' . PHP_EOL;
-        $texto  .= '            $bean'.ucwords($tabla).' = new Bean'.ucwords($tabla).'();' . PHP_EOL;
+        $texto  .= '            $bean_'.($tabla).' = new Bean'.ucwords($tabla).'();' . PHP_EOL;
         $texto  .= '            ' . PHP_EOL;
 
                                 if (count($nameatri) > 0) {
                                     for ($i = 0; $i < count($nameatri); $i++) {
                                         if ($nameatri[$i] != "estado") {
-                                            $texto .= '            $bean'.ucwords($tabla).'->set'.$nameatri[$i].'($'.strtolower($aatri[$i]).');'. PHP_EOL;
+                                            $texto .= '            $bean_'.($tabla).'->set'.$nameatri[$i].'($'.strtolower($aatri[$i]).');'. PHP_EOL;
                                         }
                                     }
                                 }
@@ -157,7 +156,7 @@ function generandoControladores($atri, $tabla, $nameatri)
                 if ($aatri[$i] == "estado") {
                     $texto .= '$en' . $tabla . '->set' . $aatri[$i] . '("A");' . PHP_EOL;
                 } else {
-                    $texto .= '$en' . $tabla . '->set' . $aatri[$i] . '(validar($_POST["' . $aatri[$i] . '_"]));' . PHP_EOL;
+                    $texto .= '$en' . $tabla . '->set' . $aatri[$i] . '(Helpers::validate($_POST["' . $aatri[$i] . '_"]));' . PHP_EOL;
                 }
             }
         }
@@ -171,7 +170,7 @@ function generandoControladores($atri, $tabla, $nameatri)
         if (count($aatri) > 0) {
             for ($i = 0; $i < count($aatri); $i++) {
                 if ($aatri[$i] != "estado") {
-                    $texto .= '$en' . $tabla . '->set' . $aatri[$i] . '(validar($_POST["' . $aatri[$i] . '_"]));' . PHP_EOL;
+                    $texto .= '$en' . $tabla . '->set' . $aatri[$i] . '(Helpers::validate($_POST["' . $aatri[$i] . '_"]));' . PHP_EOL;
                 } else {
                     $texto .= 'if(isset($_POST["' . $aatri[$i] . '_"])){' . PHP_EOL;
                     $texto .= '$estado="A";' . PHP_EOL;
