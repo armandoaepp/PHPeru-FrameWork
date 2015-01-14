@@ -1,0 +1,26 @@
+<div id="div_persona">
+<form id="frm_persona" name="frm_persona" class="hform"  ng-submit="updPersona()">
+<fieldset> <legend> Editar Persona</legend>
+    <fieldset>
+        <label for="IdPersona">IdPersona : </label>
+        <input type="text" name="IdPersona" ng-model="persona.IdPersona"  value="{{IdPersona}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Nombres">Nombres : </label>
+        <input type="text" name="Nombres" ng-model="persona.Nombres"  value="{{Nombres}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Nacimiento">Nacimiento : </label>
+        <input type="text" name="Nacimiento" ng-model="persona.Nacimiento"  value="{{Nacimiento}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Tipo">Tipo : </label>
+        <input type="text" name="Tipo" ng-model="persona.Tipo"  value="{{Tipo}}" />
+    </fieldset>
+     <fieldset class="text-right">
+        <button  type="button" id="btnCancelar" onclick="location.href='#/persona/listar';">Cancelar </button>
+        <button id="btregistrar" ng-disabled="frm_persona.$invalid"  >Registrar </button>
+    </fieldset>
+</fieldset>
+</form>
+</div>

@@ -46,7 +46,7 @@ if (isset($_POST["btenviar"])) {
         $atributos = substr($atributos, 0, -1);
         echo copiandofiles() . "<br/>";
         echo generandolayout() . "<br/>";
-        echo generandoControladores($atributos, $tabla) . "<br/>";
+        echo generandoControladores($atributos, $tabla,$arraycabeza) . "<br/>";
         echo generarprocedure($atributos, $consulta, $tabla) . "<br/>";
 
         // echo generarmodelo($atributos, $consulta, $tabla) . "<br/>";

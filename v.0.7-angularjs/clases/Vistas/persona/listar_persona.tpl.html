@@ -1,0 +1,24 @@
+<div id="div_persona">
+<form id="frm_persona" name="frm_persona" class="hform"  ng-submit="updPersona()">
+<table class="table" >
+ <caption>LISTA DE PERSONA </caption>
+<thead>
+    <tr>
+        <th>IdPersona </th>
+        <th>Nombres </th>
+        <th>Nacimiento </th>
+        <th>Tipo </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="persona in personas">
+        <th>persona.IdPersona </th>
+        <th>persona.Nombres </th>
+        <th>persona.Nacimiento </th>
+        <th>persona.Tipo </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>
