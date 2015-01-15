@@ -18,7 +18,7 @@ function generarbean($atri, $cListar, $tabla,  $nameMetodo )
         $abrir      = fopen($nomarchivo . $extension, "w");
         $texto      = '<?php ' . PHP_EOL;
         $texto .= '# Clase Bean Generada  - Creado por @armandoaepp ' . PHP_EOL;
-        $texto .= '  class ' . $clase . '{' . PHP_EOL;
+        $texto .= 'class ' . $clase . '{' . PHP_EOL;
         $texto .= '# Constructor' . PHP_EOL;
         // $texto .= 'public function ' . $clase . '(){}' . PHP_EOL;
         $texto .= '     public function __construct(){}' . PHP_EOL;
