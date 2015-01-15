@@ -22,6 +22,7 @@ function generandoControladores($atri, $tabla, $nameatri)
         $nomarchivo = $carpeta .$tabla."Controller";
         $abrir      = fopen($nomarchivo . $extension, "w");
         $texto      = '<?php' . PHP_EOL;
+        $texto .= '# Autor: Armando Enrique Pisfil Puemape tw: @armandoaepp' . PHP_EOL;
 
         $texto .= ' class '.$tabla.'Controller' . PHP_EOL;
         $texto  .= '{' . PHP_EOL;

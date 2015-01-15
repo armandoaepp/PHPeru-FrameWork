@@ -1,4 +1,5 @@
 <?php
+# Autor: Armando Enrique Pisfil Puemape tw: @armandoaepp
  class personaController
 {
     function c_get_persona()
@@ -24,7 +25,7 @@
             $inputs = json_decode(file_get_contents("php://input"));
 
             $idpersona = Helpers::validate($inputs->IdPersona);
-            $nombres = Helpers::validate($inputs->Nombres);
+            $nombre = Helpers::validate($inputs->Nombre);
             $nacimiento = Helpers::validate($inputs->Nacimiento);
             $tipo = Helpers::validate($inputs->Tipo);
             $estado = Helpers::validate($inputs->Estado);
@@ -33,7 +34,7 @@
             $bean_persona = new BeanPersona();
             
             $bean_persona->setIdPersona($idpersona);
-            $bean_persona->setNombres($nombre);
+            $bean_persona->setNombre($nombre);
             $bean_persona->setNacimiento($nacimiento);
             $bean_persona->setTipo($tipo);
             $bean_persona->setEstado($estado);
@@ -72,7 +73,7 @@
             $inputs = json_decode(file_get_contents("php://input"));
 
             $idpersona = Helpers::validate($inputs->IdPersona);
-            $nombres = Helpers::validate($inputs->Nombres);
+            $nombre = Helpers::validate($inputs->Nombre);
             $nacimiento = Helpers::validate($inputs->Nacimiento);
             $tipo = Helpers::validate($inputs->Tipo);
             $estado = Helpers::validate($inputs->Estado);
@@ -81,7 +82,7 @@
             $bean_persona = new BeanPersona();
             
             $bean_persona->setIdPersona($idpersona);
-            $bean_persona->setNombres($nombre);
+            $bean_persona->setNombre($nombre);
             $bean_persona->setNacimiento($nacimiento);
             $bean_persona->setTipo($tipo);
             $bean_persona->setEstado($estado);
