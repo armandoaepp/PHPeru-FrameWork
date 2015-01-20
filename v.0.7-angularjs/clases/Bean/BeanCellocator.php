@@ -1,6 +1,6 @@
 <?php 
 # Clase Bean Generada  - Creado por @armandoaepp 
-  class BeanCellocator{
+class BeanCellocator{
 # Constructor
      public function __construct(){}
 # Atributos

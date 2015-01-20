@@ -58,7 +58,7 @@ function generandoControladores($atri, $tabla, $nameatri)
                                 if (count($nameatri) > 0) {
                                     for ($i = 0; $i < count($nameatri); $i++) {
                                         if ($nameatri[$i] != "estado") {
-                                            $texto .= '            $'.strtolower($nameatri[$i]).' = $inputs->'.$nameatri[$i].';'. PHP_EOL;
+                                            $texto .= '            $'.strtolower($nameatri[$i]).' = Helpers::validate($inputs->'.$nameatri[$i].');'. PHP_EOL;
                                         }
                                     }
                                 }
@@ -122,7 +122,7 @@ function generandoControladores($atri, $tabla, $nameatri)
                                 if (count($nameatri) > 0) {
                                     for ($i = 0; $i < count($nameatri); $i++) {
                                         if ($nameatri[$i] != "estado") {
-                                            $texto .= '            $'.strtolower($nameatri[$i]).' = $inputs->'.$nameatri[$i].';'. PHP_EOL;
+                                            $texto .= '            $'.strtolower($nameatri[$i]).' = Helpers::validate($inputs->'.$nameatri[$i].');'. PHP_EOL;
                                         }
                                     }
                                 }

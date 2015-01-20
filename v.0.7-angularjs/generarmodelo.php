@@ -62,7 +62,7 @@ function generarmodelo($atri, $cListar, $tabla, $name_set_get)
         // $texto .= ' return $e->getMessage();' . PHP_EOL;
         // $texto .= ' }' . PHP_EOL;
         // $texto .= 'return $rpta;' . PHP_EOL;
-        $texto .= '     }' . PHP_EOL;
+        $texto .= '    }' . PHP_EOL;
         // fin del merodo INsERTAR
 
         $texto .= '# Método Actualizar' . PHP_EOL;

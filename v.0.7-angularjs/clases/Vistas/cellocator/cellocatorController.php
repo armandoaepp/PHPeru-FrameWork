@@ -15,69 +15,70 @@
         {
             $rpta = array("msg" => $e->getMessage(), "error" => true, "data" => array());
         }
+        return $rpta ;
     }
 
     function c_set_cellocator()
     {
         try
         {
-
+            
             $inputs = json_decode(file_get_contents("php://input"));
 
-            $idrastreo = Helpers::validate($inputs->IdRastreo);
-            $rmuid = Helpers::validate($inputs->RMUId);
-            $celldatetime = Helpers::validate($inputs->CellDateTime);
-            $gpsx = Helpers::validate($inputs->GPSX);
-            $gpsy = Helpers::validate($inputs->GPSY);
-            $gpsdatetime = Helpers::validate($inputs->GPSDateTime);
-            $speed = Helpers::validate($inputs->Speed);
-            $direction = Helpers::validate($inputs->Direction);
-            $numofsat = Helpers::validate($inputs->NumOfSat);
-            $locquality = Helpers::validate($inputs->LocQuality);
-            $engineon = Helpers::validate($inputs->EngineOn);
-            $extinputa = Helpers::validate($inputs->ExtInputA);
-            $extinputb = Helpers::validate($inputs->ExtInputB);
-            $extinputc = Helpers::validate($inputs->ExtInputC);
-            $extinputd = Helpers::validate($inputs->ExtInputD);
-            $extinpute = Helpers::validate($inputs->ExtInputE);
-            $extinputf = Helpers::validate($inputs->ExtInputF);
-            $versionnum = Helpers::validate($inputs->VersionNum);
-            $ip = Helpers::validate($inputs->IP);
-            $inputvoltage = Helpers::validate($inputs->InputVoltage);
-            $backbatvoltage = Helpers::validate($inputs->BackBatVoltage);
-            $gpspdop = Helpers::validate($inputs->GPSPDOP);
-            $gpsheight = Helpers::validate($inputs->GPSHEIGHT);
-            $networktypeid = Helpers::validate($inputs->NetworkTypeId);
-            $insertdate = Helpers::validate($inputs->InsertDate);
-            $utctime = Helpers::validate($inputs->UTCTime);
-            $driverid = Helpers::validate($inputs->DriverId);
-            $txreasonid = Helpers::validate($inputs->TxReasonId);
-            $alertreason = Helpers::validate($inputs->AlertReason);
-            $hibernation = Helpers::validate($inputs->Hibernation);
-            $hrnetwork = Helpers::validate($inputs->HRNetwork);
-            $milecounter = Helpers::validate($inputs->MileCounter);
-            $gpsmode1 = Helpers::validate($inputs->GPSMode1);
-            $gpsmode2 = Helpers::validate($inputs->GPSMode2);
-            $outputa = Helpers::validate($inputs->OutputA);
-            $outputb = Helpers::validate($inputs->OutputB);
-            $outputc = Helpers::validate($inputs->OutputC);
-            $outputd = Helpers::validate($inputs->OutputD);
-            $optionalinput = Helpers::validate($inputs->OptionalInput);
-            $gpscommstatus = Helpers::validate($inputs->GPSCommStatus);
-            $rawdata = Helpers::validate($inputs->RawData);
-            $plmn = Helpers::validate($inputs->PLMN);
-            $sn = Helpers::validate($inputs->SN);
-            $messagetype = Helpers::validate($inputs->MessageType);
-            $msgprotocol = Helpers::validate($inputs->MsgProtocol);
-            $tripid = Helpers::validate($inputs->TripId);
-            $maneuverid = Helpers::validate($inputs->ManeuverId);
-            $maneuverusage = Helpers::validate($inputs->ManeuverUsage);
-            $accidentbuffer = Helpers::validate($inputs->AccidentBuffer);
-            $itemid = Helpers::validate($inputs->ItemId);
-
+            $idrastreo = $inputs->IdRastreo;
+            $rmuid = $inputs->RMUId;
+            $celldatetime = $inputs->CellDateTime;
+            $gpsx = $inputs->GPSX;
+            $gpsy = $inputs->GPSY;
+            $gpsdatetime = $inputs->GPSDateTime;
+            $speed = $inputs->Speed;
+            $direction = $inputs->Direction;
+            $numofsat = $inputs->NumOfSat;
+            $locquality = $inputs->LocQuality;
+            $engineon = $inputs->EngineOn;
+            $extinputa = $inputs->ExtInputA;
+            $extinputb = $inputs->ExtInputB;
+            $extinputc = $inputs->ExtInputC;
+            $extinputd = $inputs->ExtInputD;
+            $extinpute = $inputs->ExtInputE;
+            $extinputf = $inputs->ExtInputF;
+            $versionnum = $inputs->VersionNum;
+            $ip = $inputs->IP;
+            $inputvoltage = $inputs->InputVoltage;
+            $backbatvoltage = $inputs->BackBatVoltage;
+            $gpspdop = $inputs->GPSPDOP;
+            $gpsheight = $inputs->GPSHEIGHT;
+            $networktypeid = $inputs->NetworkTypeId;
+            $insertdate = $inputs->InsertDate;
+            $utctime = $inputs->UTCTime;
+            $driverid = $inputs->DriverId;
+            $txreasonid = $inputs->TxReasonId;
+            $alertreason = $inputs->AlertReason;
+            $hibernation = $inputs->Hibernation;
+            $hrnetwork = $inputs->HRNetwork;
+            $milecounter = $inputs->MileCounter;
+            $gpsmode1 = $inputs->GPSMode1;
+            $gpsmode2 = $inputs->GPSMode2;
+            $outputa = $inputs->OutputA;
+            $outputb = $inputs->OutputB;
+            $outputc = $inputs->OutputC;
+            $outputd = $inputs->OutputD;
+            $optionalinput = $inputs->OptionalInput;
+            $gpscommstatus = $inputs->GPSCommStatus;
+            $rawdata = $inputs->RawData;
+            $plmn = $inputs->PLMN;
+            $sn = $inputs->SN;
+            $messagetype = $inputs->MessageType;
+            $msgprotocol = $inputs->MsgProtocol;
+            $tripid = $inputs->TripId;
+            $maneuverid = $inputs->ManeuverId;
+            $maneuverusage = $inputs->ManeuverUsage;
+            $accidentbuffer = $inputs->AccidentBuffer;
+            $itemid = $inputs->ItemId;
+        
             $objCellocator  = new ClsCellocator();
             $bean_cellocator = new BeanCellocator();
-
+            
             $bean_cellocator->setIdRastreo($idrastreo);
             $bean_cellocator->setRMUId($rmuid);
             $bean_cellocator->setCellDateTime($celldatetime);
@@ -128,7 +129,7 @@
             $bean_cellocator->setManeuverUsage($maneuverusage);
             $bean_cellocator->setAccidentBuffer($accidentbuffer);
             $bean_cellocator->setItemId($itemid);
-
+            
             $data = $objCellocator->get_cellocator($beanCellocator) ;
             $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);
         }
@@ -136,6 +137,7 @@
         {
             $rpta = array("msg" => $e->getMessage(), "error" => true, "data" => array());
         }
+        return $rpta ;
     }
 
     function c_get_cellocator_by_id($id)
@@ -153,69 +155,70 @@
         {
             $rpta = array("msg" => $e->getMessage(), "error" => true, "data" => array());
         }
+        return $rpta ;
     }
 
     function c_upd_cellocator()
     {
         try
         {
-
+            
             $inputs = json_decode(file_get_contents("php://input"));
 
-            $idrastreo = Helpers::validate($inputs->IdRastreo);
-            $rmuid = Helpers::validate($inputs->RMUId);
-            $celldatetime = Helpers::validate($inputs->CellDateTime);
-            $gpsx = Helpers::validate($inputs->GPSX);
-            $gpsy = Helpers::validate($inputs->GPSY);
-            $gpsdatetime = Helpers::validate($inputs->GPSDateTime);
-            $speed = Helpers::validate($inputs->Speed);
-            $direction = Helpers::validate($inputs->Direction);
-            $numofsat = Helpers::validate($inputs->NumOfSat);
-            $locquality = Helpers::validate($inputs->LocQuality);
-            $engineon = Helpers::validate($inputs->EngineOn);
-            $extinputa = Helpers::validate($inputs->ExtInputA);
-            $extinputb = Helpers::validate($inputs->ExtInputB);
-            $extinputc = Helpers::validate($inputs->ExtInputC);
-            $extinputd = Helpers::validate($inputs->ExtInputD);
-            $extinpute = Helpers::validate($inputs->ExtInputE);
-            $extinputf = Helpers::validate($inputs->ExtInputF);
-            $versionnum = Helpers::validate($inputs->VersionNum);
-            $ip = Helpers::validate($inputs->IP);
-            $inputvoltage = Helpers::validate($inputs->InputVoltage);
-            $backbatvoltage = Helpers::validate($inputs->BackBatVoltage);
-            $gpspdop = Helpers::validate($inputs->GPSPDOP);
-            $gpsheight = Helpers::validate($inputs->GPSHEIGHT);
-            $networktypeid = Helpers::validate($inputs->NetworkTypeId);
-            $insertdate = Helpers::validate($inputs->InsertDate);
-            $utctime = Helpers::validate($inputs->UTCTime);
-            $driverid = Helpers::validate($inputs->DriverId);
-            $txreasonid = Helpers::validate($inputs->TxReasonId);
-            $alertreason = Helpers::validate($inputs->AlertReason);
-            $hibernation = Helpers::validate($inputs->Hibernation);
-            $hrnetwork = Helpers::validate($inputs->HRNetwork);
-            $milecounter = Helpers::validate($inputs->MileCounter);
-            $gpsmode1 = Helpers::validate($inputs->GPSMode1);
-            $gpsmode2 = Helpers::validate($inputs->GPSMode2);
-            $outputa = Helpers::validate($inputs->OutputA);
-            $outputb = Helpers::validate($inputs->OutputB);
-            $outputc = Helpers::validate($inputs->OutputC);
-            $outputd = Helpers::validate($inputs->OutputD);
-            $optionalinput = Helpers::validate($inputs->OptionalInput);
-            $gpscommstatus = Helpers::validate($inputs->GPSCommStatus);
-            $rawdata = Helpers::validate($inputs->RawData);
-            $plmn = Helpers::validate($inputs->PLMN);
-            $sn = Helpers::validate($inputs->SN);
-            $messagetype = Helpers::validate($inputs->MessageType);
-            $msgprotocol = Helpers::validate($inputs->MsgProtocol);
-            $tripid = Helpers::validate($inputs->TripId);
-            $maneuverid = Helpers::validate($inputs->ManeuverId);
-            $maneuverusage = Helpers::validate($inputs->ManeuverUsage);
-            $accidentbuffer = Helpers::validate($inputs->AccidentBuffer);
-            $itemid = Helpers::validate($inputs->ItemId);
-
+            $idrastreo = $inputs->IdRastreo;
+            $rmuid = $inputs->RMUId;
+            $celldatetime = $inputs->CellDateTime;
+            $gpsx = $inputs->GPSX;
+            $gpsy = $inputs->GPSY;
+            $gpsdatetime = $inputs->GPSDateTime;
+            $speed = $inputs->Speed;
+            $direction = $inputs->Direction;
+            $numofsat = $inputs->NumOfSat;
+            $locquality = $inputs->LocQuality;
+            $engineon = $inputs->EngineOn;
+            $extinputa = $inputs->ExtInputA;
+            $extinputb = $inputs->ExtInputB;
+            $extinputc = $inputs->ExtInputC;
+            $extinputd = $inputs->ExtInputD;
+            $extinpute = $inputs->ExtInputE;
+            $extinputf = $inputs->ExtInputF;
+            $versionnum = $inputs->VersionNum;
+            $ip = $inputs->IP;
+            $inputvoltage = $inputs->InputVoltage;
+            $backbatvoltage = $inputs->BackBatVoltage;
+            $gpspdop = $inputs->GPSPDOP;
+            $gpsheight = $inputs->GPSHEIGHT;
+            $networktypeid = $inputs->NetworkTypeId;
+            $insertdate = $inputs->InsertDate;
+            $utctime = $inputs->UTCTime;
+            $driverid = $inputs->DriverId;
+            $txreasonid = $inputs->TxReasonId;
+            $alertreason = $inputs->AlertReason;
+            $hibernation = $inputs->Hibernation;
+            $hrnetwork = $inputs->HRNetwork;
+            $milecounter = $inputs->MileCounter;
+            $gpsmode1 = $inputs->GPSMode1;
+            $gpsmode2 = $inputs->GPSMode2;
+            $outputa = $inputs->OutputA;
+            $outputb = $inputs->OutputB;
+            $outputc = $inputs->OutputC;
+            $outputd = $inputs->OutputD;
+            $optionalinput = $inputs->OptionalInput;
+            $gpscommstatus = $inputs->GPSCommStatus;
+            $rawdata = $inputs->RawData;
+            $plmn = $inputs->PLMN;
+            $sn = $inputs->SN;
+            $messagetype = $inputs->MessageType;
+            $msgprotocol = $inputs->MsgProtocol;
+            $tripid = $inputs->TripId;
+            $maneuverid = $inputs->ManeuverId;
+            $maneuverusage = $inputs->ManeuverUsage;
+            $accidentbuffer = $inputs->AccidentBuffer;
+            $itemid = $inputs->ItemId;
+        
             $objCellocator  = new ClsCellocator();
             $bean_cellocator = new BeanCellocator();
-
+            
             $bean_cellocator->setIdRastreo($idrastreo);
             $bean_cellocator->setRMUId($rmuid);
             $bean_cellocator->setCellDateTime($celldatetime);
@@ -266,7 +269,7 @@
             $bean_cellocator->setManeuverUsage($maneuverusage);
             $bean_cellocator->setAccidentBuffer($accidentbuffer);
             $bean_cellocator->setItemId($itemid);
-
+            
             $data = $objCellocator->upd_cellocator($beanCellocator) ;
             $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);
         }
@@ -274,6 +277,7 @@
         {
             $rpta = array("msg" => $e->getMessage(), "error" => true, "data" => array());
         }
+        return $rpta ;
     }
 
 }
