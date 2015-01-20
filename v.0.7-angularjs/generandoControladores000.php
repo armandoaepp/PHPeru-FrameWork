@@ -19,17 +19,17 @@ function generandoControladores($atri, $tabla, $nameatri)
 
     $extension = ".php";
     if (!empty($tabla)) {
-        $nomarchivo = $carpeta .ucwords($tabla)."Controller";
+        $nomarchivo = $carpeta .$tabla."Controller";
         $abrir      = fopen($nomarchivo . $extension, "w");
         $texto      = '<?php' . PHP_EOL;
         $texto .= '# Autor: Armando Enrique Pisfil Puemape tw: @armandoaepp' . PHP_EOL;
 
-        $texto .= ' class '.ucwords($tabla).'Controller' . PHP_EOL;
+        $texto .= ' class '.$tabla.'Controller' . PHP_EOL;
         $texto  .= '{' . PHP_EOL;
 
 
         # FUNCTION get
-        $texto  .= '    function get_'.$tabla.'()' . PHP_EOL;
+        $texto  .= '    function c_get_'.$tabla.'()' . PHP_EOL;
         $texto  .= '    {' . PHP_EOL;
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
@@ -47,7 +47,7 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '' . PHP_EOL;
 
         # FUNCTION set
-        $texto  .= '    function set_'.$tabla.'()' . PHP_EOL;
+        $texto  .= '    function c_set_'.$tabla.'()' . PHP_EOL;
         $texto  .= '    {' . PHP_EOL;
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
@@ -89,7 +89,7 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '' . PHP_EOL;
 
         # FUNCTION get
-        $texto  .= '    function get_'.$tabla.'_by_id($id)' . PHP_EOL;
+        $texto  .= '    function c_get_'.$tabla.'_by_id($id)' . PHP_EOL;
         $texto  .= '    {' . PHP_EOL;
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
@@ -111,7 +111,7 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '' . PHP_EOL;
 
         # FUNCTION upd
-        $texto  .= '    function upd_'.$tabla.'()' . PHP_EOL;
+        $texto  .= '    function c_upd_'.$tabla.'()' . PHP_EOL;
         $texto  .= '    {' . PHP_EOL;
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;

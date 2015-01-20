@@ -20,7 +20,7 @@ class ClsPersona extends ClsConexion {
         $data = $this->rows ;
         return $data;
 
-     }
+    }
 # Método Actualizar
     public function upd_persona($bean_persona)
     {

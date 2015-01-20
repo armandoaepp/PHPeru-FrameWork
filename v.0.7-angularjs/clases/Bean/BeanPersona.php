@@ -1,6 +1,6 @@
 <?php 
 # Clase Bean Generada  - Creado por @armandoaepp 
-  class BeanPersona{
+class BeanPersona{
 # Constructor
      public function __construct(){}
 # Atributos

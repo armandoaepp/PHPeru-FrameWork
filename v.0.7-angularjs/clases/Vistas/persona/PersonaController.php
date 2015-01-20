@@ -1,8 +1,8 @@
 <?php
 # Autor: Armando Enrique Pisfil Puemape tw: @armandoaepp
- class personaController
+ class PersonaController
 {
-    function c_get_persona()
+    function get_persona()
     {
         try
         {
@@ -15,20 +15,21 @@
         {
             $rpta = array("msg" => $e->getMessage(), "error" => true, "data" => array());
         }
+        return $rpta ;
     }
 
-    function c_set_persona()
+    function set_persona()
     {
         try
         {
             
             $inputs = json_decode(file_get_contents("php://input"));
 
-            $idpersona = Helpers::validate($inputs->IdPersona);
-            $nombre = Helpers::validate($inputs->Nombre);
-            $nacimiento = Helpers::validate($inputs->Nacimiento);
-            $tipo = Helpers::validate($inputs->Tipo);
-            $estado = Helpers::validate($inputs->Estado);
+            $idpersona = $inputs->IdPersona;
+            $nombre = $inputs->Nombre;
+            $nacimiento = $inputs->Nacimiento;
+            $tipo = $inputs->Tipo;
+            $estado = $inputs->Estado;
         
             $objPersona  = new ClsPersona();
             $bean_persona = new BeanPersona();
@@ -46,9 +47,10 @@
         {
             $rpta = array("msg" => $e->getMessage(), "error" => true, "data" => array());
         }
+        return $rpta ;
     }
 
-    function c_get_persona_by_id($id)
+    function get_persona_by_id($id)
     {
         try
         {
@@ -63,20 +65,21 @@
         {
             $rpta = array("msg" => $e->getMessage(), "error" => true, "data" => array());
         }
+        return $rpta ;
     }
 
-    function c_upd_persona()
+    function upd_persona()
     {
         try
         {
             
             $inputs = json_decode(file_get_contents("php://input"));
 
-            $idpersona = Helpers::validate($inputs->IdPersona);
-            $nombre = Helpers::validate($inputs->Nombre);
-            $nacimiento = Helpers::validate($inputs->Nacimiento);
-            $tipo = Helpers::validate($inputs->Tipo);
-            $estado = Helpers::validate($inputs->Estado);
+            $idpersona = $inputs->IdPersona;
+            $nombre = $inputs->Nombre;
+            $nacimiento = $inputs->Nacimiento;
+            $tipo = $inputs->Tipo;
+            $estado = $inputs->Estado;
         
             $objPersona  = new ClsPersona();
             $bean_persona = new BeanPersona();
@@ -94,6 +97,7 @@
         {
             $rpta = array("msg" => $e->getMessage(), "error" => true, "data" => array());
         }
+        return $rpta ;
     }
 
 }
