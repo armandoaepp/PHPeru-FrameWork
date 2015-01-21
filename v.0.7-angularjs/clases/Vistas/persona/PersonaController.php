@@ -18,27 +18,20 @@
         return $rpta ;
     }
 
-    function set_persona()
+    function set_persona($params = array() )
     {
         try
         {
             
-            $inputs = json_decode(file_get_contents("php://input"));
+            extract($params) ; 
 
-            $idpersona = $inputs->IdPersona;
-            $nombre = $inputs->Nombre;
-            $nacimiento = $inputs->Nacimiento;
-            $tipo = $inputs->Tipo;
-            $estado = $inputs->Estado;
-        
             $objPersona  = new ClsPersona();
             $bean_persona = new BeanPersona();
             
             $bean_persona->setIdPersona($idpersona);
-            $bean_persona->setNombre($nombre);
+            $bean_persona->setNombres($nombre);
             $bean_persona->setNacimiento($nacimiento);
             $bean_persona->setTipo($tipo);
-            $bean_persona->setEstado($estado);
             
             $data = $objPersona->get_persona($beanPersona) ;
             $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);
@@ -73,22 +66,15 @@
         try
         {
             
-            $inputs = json_decode(file_get_contents("php://input"));
+            extract($params) ; 
 
-            $idpersona = $inputs->IdPersona;
-            $nombre = $inputs->Nombre;
-            $nacimiento = $inputs->Nacimiento;
-            $tipo = $inputs->Tipo;
-            $estado = $inputs->Estado;
-        
             $objPersona  = new ClsPersona();
             $bean_persona = new BeanPersona();
             
             $bean_persona->setIdPersona($idpersona);
-            $bean_persona->setNombre($nombre);
+            $bean_persona->setNombres($nombre);
             $bean_persona->setNacimiento($nacimiento);
             $bean_persona->setTipo($tipo);
-            $bean_persona->setEstado($estado);
             
             $data = $objPersona->upd_persona($beanPersona) ;
             $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);

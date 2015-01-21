@@ -46,17 +46,17 @@ if (isset($_POST["btenviar"])) {
         $atributos = substr($atributos, 0, -1);
         echo copiandofiles() . "<br/>";
         echo generandolayout() . "<br/>";
+        echo generarbean($atributos, $consulta, $tabla, $arraycabeza) . "<br/>";
+        echo generarmodelo($atributos, $consulta, $tabla , $arraycabeza) . "<br/>";
         echo generandoControladores($atributos, $tabla,$arraycabeza) . "<br/>";
-        echo generarprocedure($atributos, $consulta, $tabla) . "<br/>";
+        echo generandoIndex($atributos, $arraycabeza, $tabla, $arraytabla, $arrayenlace, $arrayenlace2) . "<br/>";
 
         // echo generarmodelo($atributos, $consulta, $tabla) . "<br/>";
-        echo generarmodelo($atributos, $consulta, $tabla , $arraycabeza) . "<br/>";
 
         // echo generarbean($atributos, $consulta, $tabla) . "<br/>";
-        echo generarbean($atributos, $consulta, $tabla, $arraycabeza) . "<br/>";
 
         echo generandoVistas($atributos, $arraycabeza, $tabla, $arraytabla, $arrayenlace, $arrayenlace2) . "<br/>";
-        echo generandoIndex($atributos, $arraycabeza, $tabla, $arraytabla, $arrayenlace, $arrayenlace2) . "<br/>";
+        echo generarprocedure($atributos, $consulta, $tabla) . "<br/>";
         echo '<a href="index.php" > <<Regresar</a>';
     }
 }

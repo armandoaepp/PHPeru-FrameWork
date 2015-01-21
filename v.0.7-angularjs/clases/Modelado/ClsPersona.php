@@ -10,7 +10,7 @@ class ClsPersona extends ClsConexion {
     public function set_persona($bean_persona)
     {
         $idpersona = $bean_persona->getIdPersona();
-        $nombre = $bean_persona->getNombre();
+        $nombre = $bean_persona->getNombres();
         $nacimiento = $bean_persona->getNacimiento();
         $tipo = $bean_persona->getTipo();
         $estado = $bean_persona->getEstado();
@@ -25,7 +25,7 @@ class ClsPersona extends ClsConexion {
     public function upd_persona($bean_persona)
     {
         $idpersona = $bean_persona->getIdPersona();
-        $nombre = $bean_persona->getNombre();
+        $nombre = $bean_persona->getNombres();
         $nacimiento = $bean_persona->getNacimiento();
         $tipo = $bean_persona->getTipo();
         $estado = $bean_persona->getEstado();

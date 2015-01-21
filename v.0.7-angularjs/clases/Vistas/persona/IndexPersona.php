@@ -17,14 +17,27 @@ switch($evento)
 {
     case "list":
         $personaCtrl = new PersonaController() ; 
-        $data = $personaCtrl->c_get_persona() ;
+        $data = $personaCtrl->get_persona() ;
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
 
     case "set":
+        
+        $idpersona = $inputs->IdPersona;
+        $nombres = $inputs->Nombres;
+        $nacimiento = $inputs->Nacimiento;
+        $tipo = $inputs->Tipo;
+        
+        $params = array(
+           $idpersona,
+           $nombres,
+           $nacimiento,
+           $tipo,
+        ) ; 
+        
         $personaCtrl = new PersonaController() ; 
-        $data = $personaCtrl->c_set_persona() ;
+        $data = $personaCtrl->set_persona($params) ;
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
@@ -32,14 +45,27 @@ switch($evento)
     case "getid":
         $id = $_GET["id"] ;
         $personaCtrl = new PersonaController() ; 
-        $data = $personaCtrl->c_get_persona_idpersona( $id) ;
+        $data = $personaCtrl->get_persona_idpersona( $id) ;
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
 
     case "upd":
+        
+        $idpersona = $inputs->IdPersona;
+        $nombres = $inputs->Nombres;
+        $nacimiento = $inputs->Nacimiento;
+        $tipo = $inputs->Tipo;
+        
+        $params = array(
+           $idpersona,
+           $nombres,
+           $nacimiento,
+           $tipo,
+        ) ; 
+        
         $personaCtrl = new PersonaController() ; 
-        $data = $personaCtrl->c_upd_persona() ;
+        $data = $personaCtrl->upd_persona($params) ;
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;

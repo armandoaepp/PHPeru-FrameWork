@@ -47,14 +47,15 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '' . PHP_EOL;
 
         # FUNCTION set
-        $texto  .= '    function set_'.$tabla.'()' . PHP_EOL;
+        $texto  .= '    function set_'.$tabla.'($params = array() )' . PHP_EOL;
         $texto  .= '    {' . PHP_EOL;
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
         $texto  .= '            ' . PHP_EOL;
-        $texto  .= '            $inputs = json_decode(file_get_contents("php://input"));' . PHP_EOL;
+        $texto  .= '            extract($params) ; ' . PHP_EOL;
+        // $texto  .= '            $inputs = json_decode(file_get_contents("php://input"));' . PHP_EOL;
         $texto  .= '' . PHP_EOL;
-
+/*
                                 if (count($nameatri) > 0) {
                                     for ($i = 0; $i < count($nameatri); $i++) {
                                         if ($nameatri[$i] != "estado") {
@@ -62,7 +63,7 @@ function generandoControladores($atri, $tabla, $nameatri)
                                         }
                                     }
                                 }
-        $texto  .= '        ' . PHP_EOL;
+        $texto  .= '        ' . PHP_EOL;*/
 
         $texto  .= '            $obj'.ucwords($tabla).'  = new Cls'.ucwords($tabla).'();' . PHP_EOL;
         $texto  .= '            $bean_'.($tabla).' = new Bean'.ucwords($tabla).'();' . PHP_EOL;
@@ -116,9 +117,10 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
         $texto  .= '            ' . PHP_EOL;
-        $texto  .= '            $inputs = json_decode(file_get_contents("php://input"));' . PHP_EOL;
+        $texto  .= '            extract($params) ; ' . PHP_EOL;
+        // $texto  .= '            $inputs = json_decode(file_get_contents("php://input"));' . PHP_EOL;
         $texto  .= '' . PHP_EOL;
-
+/*
                                 if (count($nameatri) > 0) {
                                     for ($i = 0; $i < count($nameatri); $i++) {
                                         if ($nameatri[$i] != "estado") {
@@ -126,7 +128,7 @@ function generandoControladores($atri, $tabla, $nameatri)
                                         }
                                     }
                                 }
-        $texto  .= '        ' . PHP_EOL;
+        $texto  .= '        ' . PHP_EOL;*/
 
         $texto  .= '            $obj'.ucwords($tabla).'  = new Cls'.ucwords($tabla).'();' . PHP_EOL;
         $texto  .= '            $bean_'.($tabla).' = new Bean'.ucwords($tabla).'();' . PHP_EOL;
