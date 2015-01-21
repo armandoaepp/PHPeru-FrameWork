@@ -1,0 +1,18 @@
+<div id="div_moneda">
+<form id="frm_moneda" name="frm_moneda" class="hform"  ng-submit="setMoneda()">
+<fieldset> <legend> Nuevo Moneda</legend>
+    <fieldset>
+        <label for="idmoneda">idmoneda : </label>
+        <input type="text" name="idmoneda" ng-model="moneda.idmoneda" />
+    </fieldset>
+    <fieldset>
+        <label for="nombre">nombre : </label>
+        <input type="text" name="nombre" ng-model="moneda.nombre" />
+    </fieldset>
+     <fieldset class="text-right">
+        <button  type="button" id="btnCancelar" onclick="location.href='#/moneda/listar';">Cancelar </button>
+        <button id="btregistrar" ng-disabled="frm_moneda.$invalid"  >Registrar </button>
+    </fieldset>
+</fieldset>
+</form>
+</div>

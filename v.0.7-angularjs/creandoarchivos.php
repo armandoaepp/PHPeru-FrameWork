@@ -7,6 +7,7 @@ include_once 'generandoControladores.php';
 include_once 'generandoindex.php';
 include_once 'generandolayout.php';
 include_once 'generando_procedures.php';
+include_once 'generandoServiceJS.php';
 if (isset($_POST["btenviar"])) {
 
     $sele = $_POST["sele"];
@@ -57,7 +58,10 @@ if (isset($_POST["btenviar"])) {
 
         echo generandoVistas($atributos, $arraycabeza, $tabla, $arraytabla, $arrayenlace, $arrayenlace2) . "<br/>";
         echo generarprocedure($atributos, $consulta, $tabla) . "<br/>";
+
+       echo  generandoServiceJS($atributos, $tabla,$arraycabeza) ;
         echo '<a href="index.php" > <<Regresar</a>';
+
     }
 }
 ?>

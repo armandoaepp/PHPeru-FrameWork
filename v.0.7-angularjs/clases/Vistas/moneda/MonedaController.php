@@ -1,14 +1,14 @@
 <?php
 # Autor: Armando Enrique Pisfil Puemape tw: @armandoaepp
- class PersonaController
+ class MonedaController
 {
-    function get_persona()
+    function get_moneda()
     {
         try
         {
-            $objPersona  = new ClsPersona();
+            $objMoneda  = new ClsMoneda();
 
-            $data = $objPersona->get_persona() ;
+            $data = $objMoneda->get_moneda() ;
             $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);
         }
         catch (Exception $e)
@@ -18,22 +18,20 @@
         return $rpta ;
     }
 
-    function set_persona($params = array() )
+    function set_moneda($params = array() )
     {
         try
         {
             
             extract($params) ; 
 
-            $objPersona  = new ClsPersona();
-            $bean_persona = new BeanPersona();
+            $objMoneda  = new ClsMoneda();
+            $bean_moneda = new BeanMoneda();
             
-            $bean_persona->setIdPersona($idpersona);
-            $bean_persona->setNombres($nombre);
-            $bean_persona->setNacimiento($nacimiento);
-            $bean_persona->setTipo($tipo);
+            $bean_moneda->setidmoneda($idmoneda);
+            $bean_moneda->setnombre($nombre);
             
-            $data = $objPersona->get_persona($beanPersona) ;
+            $data = $objMoneda->get_moneda($beanMoneda) ;
             $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);
         }
         catch (Exception $e)
@@ -43,15 +41,15 @@
         return $rpta ;
     }
 
-    function get_persona_by_id($id)
+    function get_moneda_by_id($id)
     {
         try
         {
-            $objPersona  = new ClsPersona();
-            $bean_persona = new BeanPersona();
+            $objMoneda  = new ClsMoneda();
+            $bean_moneda = new BeanMoneda();
 
-            $bean_persona->setId($id);
-            $data = $objPersona->get_persona() ;
+            $bean_moneda->setId($id);
+            $data = $objMoneda->get_moneda() ;
             $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);
         }
         catch (Exception $e)
@@ -61,22 +59,20 @@
         return $rpta ;
     }
 
-    function upd_persona($params = array())
+    function upd_moneda($params = array())
     {
         try
         {
             
             extract($params) ; 
 
-            $objPersona  = new ClsPersona();
-            $bean_persona = new BeanPersona();
+            $objMoneda  = new ClsMoneda();
+            $bean_moneda = new BeanMoneda();
             
-            $bean_persona->setIdPersona($idpersona);
-            $bean_persona->setNombres($nombre);
-            $bean_persona->setNacimiento($nacimiento);
-            $bean_persona->setTipo($tipo);
+            $bean_moneda->setidmoneda($idmoneda);
+            $bean_moneda->setnombre($nombre);
             
-            $data = $objPersona->upd_persona($beanPersona) ;
+            $data = $objMoneda->upd_moneda($beanMoneda) ;
             $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);
         }
         catch (Exception $e)
