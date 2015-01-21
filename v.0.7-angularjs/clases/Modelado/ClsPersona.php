@@ -9,8 +9,8 @@ class ClsPersona extends ClsConexion {
 # Método Insertar
     public function set_persona($bean_persona)
     {
-        $idpersona = $bean_persona->getIdPersona();
-        $nombre = $bean_persona->getNombres();
+        $idpersona = $bean_persona->getIdpersona();
+        $nombre = $bean_persona->getNombre();
         $nacimiento = $bean_persona->getNacimiento();
         $tipo = $bean_persona->getTipo();
         $estado = $bean_persona->getEstado();
@@ -24,8 +24,8 @@ class ClsPersona extends ClsConexion {
 # Método Actualizar
     public function upd_persona($bean_persona)
     {
-        $idpersona = $bean_persona->getIdPersona();
-        $nombre = $bean_persona->getNombres();
+        $idpersona = $bean_persona->getIdpersona();
+        $nombre = $bean_persona->getNombre();
         $nacimiento = $bean_persona->getNacimiento();
         $tipo = $bean_persona->getTipo();
         $estado = $bean_persona->getEstado();
@@ -39,7 +39,7 @@ class ClsPersona extends ClsConexion {
 # Método Eliminar(Actualizar Estado)
     public function upd_persona_estado($bean_persona)
     {
-        $idpersona = $bean_persona->getIdPersona();
+        $idpersona = $bean_persona->getIdpersona();
         $estado = $bean_persona->getEstado();
 
         $this->query = "CALL usp_upd_persona_estado('$idpersona','$estado')";
@@ -50,7 +50,7 @@ class ClsPersona extends ClsConexion {
 # Método Buscar por ID
     public function get_persona_by_idpersona($bean_persona)
     {
-        $idpersona = $bean_persona->getIdPersona();
+        $idpersona = $bean_persona->getIdpersona();
 
         $this->query = "CALL usp_get_persona_by_idpersona('$idpersona')";
         $this->execute_query();

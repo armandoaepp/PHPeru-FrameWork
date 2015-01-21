@@ -10,10 +10,10 @@ class BeanPersona{
     private $tipo;
     private $estado;
 # METODOS
-    public function setIdPersona($idpersona_){ $this->idpersona=$idpersona_;}
-    public function getIdPersona(){ return $this->idpersona;}
-    public function setNombres($nombre_){ $this->nombre=$nombre_;}
-    public function getNombres(){ return $this->nombre;}
+    public function setIdpersona($idpersona_){ $this->idpersona=$idpersona_;}
+    public function getIdpersona(){ return $this->idpersona;}
+    public function setNombre($nombre_){ $this->nombre=$nombre_;}
+    public function getNombre(){ return $this->nombre;}
     public function setNacimiento($nacimiento_){ $this->nacimiento=$nacimiento_;}
     public function getNacimiento(){ return $this->nacimiento;}
     public function setTipo($tipo_){ $this->tipo=$tipo_;}

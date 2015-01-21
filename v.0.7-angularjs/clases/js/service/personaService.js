@@ -2,28 +2,36 @@
 // Autor: Armando Enrique Pisfil Puemape tw: @armandoaepp
 'use strinct';
 app.service('personaService', function($http){
-    this.getPersonas = function(params_)
+    this.getPersonas = function()
     {
         var url_    = 'data/ajax/persona/indexPersona.php';
+        var params_   = {'params': {'accion': 'list'}};
+        
         return $http.get(url_, {'params': params_});
     };
 
-    this.setPersona = function(persona)
+    this.setPersona = function(params_)
     {
         var url_    = 'data/ajax/persona/indexPersona.php';
-        return $http.post(url_,persona );
+        params_.accion = 'set';
+       
+        return $http.post(url_, params_ );
     };
 
-    this.getPersonaById = function(persona)
+    this.getPersonaById = function(params_)
     {
         var url_    = 'data/ajax/persona/indexPersona.php';
+        var params_   = {'params': {'accion': 'list', 'id': id}};
+
         return $http.get(url_, {'params': params_});
     };
 
-    this.updPersona = function(persona)
+    this.updPersona = function(params_)
     {
         var url_    = 'data/ajax/persona/indexPersona.php';
-        return $http.post(url_,persona );
+        params_.accion = 'upd';
+       
+        return $http.post(url_, params_ );
     };
 
 });

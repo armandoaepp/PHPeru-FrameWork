@@ -24,14 +24,14 @@ switch($evento)
 
     case "set":
         
-        $idpersona = $inputs->IdPersona;
-        $nombres = $inputs->Nombres;
+        $idpersona = $inputs->Idpersona;
+        $nombre = $inputs->Nombre;
         $nacimiento = $inputs->Nacimiento;
         $tipo = $inputs->Tipo;
         
         $params = array(
            $idpersona,
-           $nombres,
+           $nombre,
            $nacimiento,
            $tipo,
         ) ; 
@@ -52,14 +52,14 @@ switch($evento)
 
     case "upd":
         
-        $idpersona = $inputs->IdPersona;
-        $nombres = $inputs->Nombres;
+        $idpersona = $inputs->Idpersona;
+        $nombre = $inputs->Nombre;
         $nacimiento = $inputs->Nacimiento;
         $tipo = $inputs->Tipo;
         
         $params = array(
            $idpersona,
-           $nombres,
+           $nombre,
            $nacimiento,
            $tipo,
         ) ; 

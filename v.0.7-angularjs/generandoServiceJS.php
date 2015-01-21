@@ -10,12 +10,13 @@ function generandoServiceJS($atri, $tabla, $nameatri)
             $aatri[] = $romper[$i];
         }
     }
-   /* if (file_exists("./clases/js/service/" . $tabla)) {
-        $carpeta = "./clases/js/service/" . $tabla . "/";
-    } else {
-        mkdir("./clases/js/service/" . $tabla, 0777);
-    }*/
+    if (file_exists("./clases/js/service")) {
         $carpeta = "./clases/js/service/";
+    } else {
+        mkdir("./clases/js/service", 0777);
+        $carpeta = "./clases/js/service/";
+
+    }
 
     $extension = ".js";
     if (!empty($tabla)) {
@@ -30,9 +31,11 @@ function generandoServiceJS($atri, $tabla, $nameatri)
 
         $texto  .= 'app.service(\''.$tabla.'Service\', function($http){' . PHP_EOL;
 
-        $texto  .= '    this.get'.ucwords($tabla).'s = function(params_)'. PHP_EOL;
+        $texto  .= '    this.get'.ucwords($tabla).'s = function()'. PHP_EOL;
         $texto  .= '    {'. PHP_EOL;
         $texto  .= '        var url_    = \'data/ajax/'.$tabla.'/index'.ucwords($tabla).'.php\';'. PHP_EOL;
+        $texto  .= '        var params_   = {\'params\': {\'accion\': \'list\'}};'. PHP_EOL;
+        $texto  .= '        '. PHP_EOL;
 
         $texto  .= '        return $http.get(url_, {\'params\': params_});'. PHP_EOL;
         $texto  .= '    };'. PHP_EOL;
@@ -40,11 +43,12 @@ function generandoServiceJS($atri, $tabla, $nameatri)
 
         # metodo SET
 
-        $texto  .= '    this.set'.ucwords($tabla).' = function('.$tabla.')'. PHP_EOL;
+        $texto  .= '    this.set'.ucwords($tabla).' = function(params_)'. PHP_EOL;
         $texto  .= '    {'. PHP_EOL;
         $texto  .= '        var url_    = \'data/ajax/'.$tabla.'/index'.ucwords($tabla).'.php\';'. PHP_EOL;
-
-        $texto  .= '        return $http.post(url_,'.$tabla.' );'. PHP_EOL;
+        $texto  .= '        params_.accion = \'set\';'. PHP_EOL;
+        $texto  .= '       '. PHP_EOL;
+        $texto  .= '        return $http.post(url_, params_ );'. PHP_EOL;
         $texto  .= '    };'. PHP_EOL;
         $texto  .= ''. PHP_EOL;
 
@@ -53,6 +57,8 @@ function generandoServiceJS($atri, $tabla, $nameatri)
         $texto  .= '    this.get'.ucwords($tabla).'ById = function(params_)'. PHP_EOL;
         $texto  .= '    {'. PHP_EOL;
         $texto  .= '        var url_    = \'data/ajax/'.$tabla.'/index'.ucwords($tabla).'.php\';'. PHP_EOL;
+        $texto  .= '        var params_   = {\'params\': {\'accion\': \'list\', \'id\': id}};'. PHP_EOL;
+        $texto  .= ''. PHP_EOL;
 
         $texto  .= '        return $http.get(url_, {\'params\': params_});'. PHP_EOL;
         $texto  .= '    };'. PHP_EOL;
@@ -60,29 +66,16 @@ function generandoServiceJS($atri, $tabla, $nameatri)
 
          # metodo UPDATE
 
-        $texto  .= '    this.upd'.ucwords($tabla).' = function('.$tabla.')'. PHP_EOL;
+        $texto  .= '    this.upd'.ucwords($tabla).' = function(params_)'. PHP_EOL;
         $texto  .= '    {'. PHP_EOL;
         $texto  .= '        var url_    = \'data/ajax/'.$tabla.'/index'.ucwords($tabla).'.php\';'. PHP_EOL;
-
-        $texto  .= '        return $http.post(url_,'.$tabla.' );'. PHP_EOL;
+         $texto .= '        params_.accion = \'upd\';'. PHP_EOL;
+        $texto  .= '       '. PHP_EOL;
+        $texto  .= '        return $http.post(url_, params_ );'. PHP_EOL;
         $texto  .= '    };'. PHP_EOL;
         $texto  .= ''. PHP_EOL;
 
-          /*  this.setPrueba = function(prueba){
-                return $http.post('data/ajax/prueba/indexPrueba.php', prueba);
-            };
 
-            this.getPruebaById = function(params_){
-                var url_    = 'data/ajax/prueba/indexPrueba.php';
-                // var params_ = {'accion': accion} ;
-                return $http.get(url_, {'params': params_});
-            };
-
-            this.updatePrueba = function(prueba){
-                return $http.post('data/ajax/prueba/indexPrueba.php', prueba) ;
-            }
-
-*/
 
          $texto  .= '});' . PHP_EOL;
 
