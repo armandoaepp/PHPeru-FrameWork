@@ -22,17 +22,17 @@
     {
         try
         {
-            
-            extract($params) ; 
+
+            extract($params) ;
 
             $objPersona  = new ClsPersona();
             $bean_persona = new BeanPersona();
-            
-            $bean_persona->setIdPersona($idpersona);
-            $bean_persona->setNombres($nombre);
-            $bean_persona->setNacimiento($nacimiento);
-            $bean_persona->setTipo($tipo);
-            
+
+            $bean_persona->setidpersona($idpersona);
+            $bean_persona->setnombre($nombre);
+            $bean_persona->setnacimiento($nacimiento);
+            $bean_persona->settipo($tipo);
+
             $data = $objPersona->get_persona($beanPersona) ;
             $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);
         }
@@ -65,17 +65,17 @@
     {
         try
         {
-            
-            extract($params) ; 
+
+            extract($params) ;
 
             $objPersona  = new ClsPersona();
             $bean_persona = new BeanPersona();
-            
-            $bean_persona->setIdPersona($idpersona);
-            $bean_persona->setNombres($nombre);
-            $bean_persona->setNacimiento($nacimiento);
-            $bean_persona->setTipo($tipo);
-            
+
+            $bean_persona->setidpersona($idpersona);
+            $bean_persona->setnombre($nombre);
+            $bean_persona->setnacimiento($nacimiento);
+            $bean_persona->settipo($tipo);
+
             $data = $objPersona->upd_persona($beanPersona) ;
             $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);
         }

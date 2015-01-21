@@ -112,7 +112,7 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '' . PHP_EOL;
 
         # FUNCTION upd
-        $texto  .= '    function upd_'.$tabla.'()' . PHP_EOL;
+        $texto  .= '    function upd_'.$tabla.'($params = array())' . PHP_EOL;
         $texto  .= '    {' . PHP_EOL;
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
