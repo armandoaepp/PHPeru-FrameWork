@@ -17,8 +17,8 @@ switch($evento)
 {
     case "list":
         $personaCtrl = new PersonaController() ; 
-        $response = $personaCtrl->get_persona() ;
-        $jsn  = json_encode($response);
+        $data = $personaCtrl->get_persona() ;
+        $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
 
@@ -44,25 +44,25 @@ switch($evento)
             $personaCtrl = new PersonaController($cnx) ; 
             $objConexion->beginTransaction();
         
-            $response = $personaCtrl->set_persona($params) ;
+            $data = $personaCtrl->set_persona($params) ;
         
             $objConexion->commit();
         }
         catch (Exception $e)
         {
             $objConexion->rollback();
-            $response = array('msg' => $e->getMessage(), 'error' => true, 'data' => array());
+            $data = array('msg' => $e->getMessage(), 'error' => true, 'data' => array());
         }
         
-        $jsn  = json_encode($response);
+        $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
 
     case "getid":
         $id = $_GET["id"] ;
         $personaCtrl = new PersonaController() ; 
-        $response = $personaCtrl->get_persona_idpersona( $id) ;
-        $jsn  = json_encode($response);
+        $data = $personaCtrl->get_persona_idpersona( $id) ;
+        $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
 
@@ -85,17 +85,17 @@ switch($evento)
             ) ; 
         
             $personaCtrl = new PersonaController($cnx) ; 
-            $response = $personaCtrl->upd_persona($params) ;
+            $data = $personaCtrl->upd_persona($params) ;
         
             $objConexion->commit();
         }
         catch (Exception $e)
         {
             $objConexion->rollback();
-            $response = array('msg' => $e->getMessage(), 'error' => true, 'data' => array());
+            $data = array('msg' => $e->getMessage(), 'error' => true, 'data' => array());
         }
         
-        $jsn  = json_encode($response);
+        $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
 

@@ -59,8 +59,8 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         # EVENTE list
         $texto .= '    case "list":' . PHP_EOL;
         $texto .= '        $'.$tabla.'Ctrl = new '.ucwords($tabla).'Controller() ; ' . PHP_EOL;
-        $texto .= '        $response = $'.$tabla.'Ctrl->get_'.$tabla.'() ;' . PHP_EOL;
-        $texto .= '        $jsn  = json_encode($response);' . PHP_EOL;
+        $texto .= '        $data = $'.$tabla.'Ctrl->get_'.$tabla.'() ;' . PHP_EOL;
+        $texto .= '        $jsn  = json_encode($data);' . PHP_EOL;
         $texto .= '        print_r($jsn) ;' . PHP_EOL;
         $texto .= '    break;' . PHP_EOL;
         $texto .= "" . PHP_EOL;
@@ -98,18 +98,18 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto .= '            $'.$tabla.'Ctrl = new '.ucwords($tabla).'Controller($cnx) ; ' . PHP_EOL;
         $texto .= '            $objConexion->beginTransaction();' . PHP_EOL;
         $texto .= '        ' . PHP_EOL;
-        $texto .= '            $response = $'.$tabla.'Ctrl->set_'.$tabla.'($params) ;' . PHP_EOL;
+        $texto .= '            $data = $'.$tabla.'Ctrl->set_'.$tabla.'($params) ;' . PHP_EOL;
         $texto .= '        ' . PHP_EOL;
         $texto .= '            $objConexion->commit();' . PHP_EOL;
         $texto .= '        }' . PHP_EOL;
         $texto .= '        catch (Exception $e)' . PHP_EOL;
         $texto .= '        {' . PHP_EOL;
         $texto .= '            $objConexion->rollback();' . PHP_EOL;
-        $texto .= '            $response = array(\'msg\' => $e->getMessage(), \'error\' => true, \'data\' => array());' . PHP_EOL;
+        $texto .= '            $data = array(\'msg\' => $e->getMessage(), \'error\' => true, \'data\' => array());' . PHP_EOL;
         $texto .= '        }' . PHP_EOL;
         $texto .= '        ' . PHP_EOL;
 
-        $texto .= '        $jsn  = json_encode($response);' . PHP_EOL;
+        $texto .= '        $jsn  = json_encode($data);' . PHP_EOL;
         $texto .= '        print_r($jsn) ;' . PHP_EOL;
 
         $texto .= '    break;' . PHP_EOL;
@@ -119,8 +119,8 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto .= '    case "getid":' . PHP_EOL;
         $texto .= '        $id = $_GET["id"] ;' . PHP_EOL;
         $texto .= '        $'.$tabla.'Ctrl = new '.ucwords($tabla).'Controller() ; ' . PHP_EOL;
-        $texto .= '        $response = $'.$tabla.'Ctrl->get_'.$tabla.'_id'.$tabla.'( $id) ;' . PHP_EOL;
-        $texto .= '        $jsn  = json_encode($response);' . PHP_EOL;
+        $texto .= '        $data = $'.$tabla.'Ctrl->get_'.$tabla.'_id'.$tabla.'( $id) ;' . PHP_EOL;
+        $texto .= '        $jsn  = json_encode($data);' . PHP_EOL;
         $texto .= '        print_r($jsn) ;' . PHP_EOL;
         $texto .= '    break;' . PHP_EOL;
         $texto .= "" . PHP_EOL;
@@ -151,18 +151,18 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto  .= '        ' . PHP_EOL;
 
         $texto .= '            $'.$tabla.'Ctrl = new '.ucwords($tabla).'Controller($cnx) ; ' . PHP_EOL;
-        $texto .= '            $response = $'.$tabla.'Ctrl->upd_'.$tabla.'($params) ;' . PHP_EOL;
+        $texto .= '            $data = $'.$tabla.'Ctrl->upd_'.$tabla.'($params) ;' . PHP_EOL;
         $texto .= '        ' . PHP_EOL;
         $texto .= '            $objConexion->commit();' . PHP_EOL;
         $texto .= '        }' . PHP_EOL;
         $texto .= '        catch (Exception $e)' . PHP_EOL;
         $texto .= '        {' . PHP_EOL;
         $texto .= '            $objConexion->rollback();' . PHP_EOL;
-        $texto .= '            $response = array(\'msg\' => $e->getMessage(), \'error\' => true, \'data\' => array());' . PHP_EOL;
+        $texto .= '            $data = array(\'msg\' => $e->getMessage(), \'error\' => true, \'data\' => array());' . PHP_EOL;
         $texto .= '        }' . PHP_EOL;
         $texto .= '        ' . PHP_EOL;
 
-        $texto .= '        $jsn  = json_encode($response);' . PHP_EOL;
+        $texto .= '        $jsn  = json_encode($data);' . PHP_EOL;
         $texto .= '        print_r($jsn) ;' . PHP_EOL;
         $texto .= '    break;' . PHP_EOL;
         $texto .= "" . PHP_EOL;

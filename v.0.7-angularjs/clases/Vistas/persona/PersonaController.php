@@ -16,13 +16,12 @@
             $objPersona  = new ClsPersona();
 
             $data = $objPersona->get_persona() ;
-            $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);
+            return $data ;
         }
         catch (Exception $e)
         {
-            $rpta = array("msg" => $e->getMessage(), "error" => true, "data" => array());
+            throw new Exception($e->getMessage());
         }
-        return $rpta ;
     }
 
     public function set_persona($params = array() )
@@ -41,13 +40,12 @@
             $bean_persona->settipo($tipo);
             
             $data = $objPersona->get_persona($beanPersona) ;
-            $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);
+            return $data ;
         }
         catch (Exception $e)
         {
-            $rpta = array("msg" => $e->getMessage(), "error" => true, "data" => array());
+            throw new Exception($e->getMessage());
         }
-        return $rpta ;
     }
 
     public function get_persona_by_id($id)
@@ -59,13 +57,12 @@
 
             $bean_persona->setId($id);
             $data = $objPersona->get_persona() ;
-            $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);
+            return $data;
         }
         catch (Exception $e)
         {
-            $rpta = array("msg" => $e->getMessage(), "error" => true, "data" => array());
+            throw new Exception($e->getMessage());
         }
-        return $rpta ;
     }
 
     public function upd_persona($params = array())
@@ -84,13 +81,12 @@
             $bean_persona->settipo($tipo);
             
             $data = $objPersona->upd_persona($beanPersona) ;
-            $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);
+            return $data;
         }
         catch (Exception $e)
         {
-            $rpta = array("msg" => $e->getMessage(), "error" => true, "data" => array());
+           throw new Exception($e->getMessage());
         }
-        return $rpta ;
     }
 
 }
