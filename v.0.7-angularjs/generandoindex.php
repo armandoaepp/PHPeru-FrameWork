@@ -73,7 +73,9 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto  .= '            $objConexion = new ClsConexion();' . PHP_EOL;
         $texto  .= '            $cnx = $objConexion->get_connection();' . PHP_EOL;
         $texto  .= '        ' . PHP_EOL;
-
+        $texto .= '            $'.$tabla.'Ctrl = new '.ucwords($tabla).'Controller($cnx) ; ' . PHP_EOL;
+        $texto .= '            $objConexion->beginTransaction();' . PHP_EOL;
+        $texto .= '        ' . PHP_EOL;
 
 
 
@@ -95,9 +97,7 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto  .= '        ' . PHP_EOL;
 
 
-        $texto .= '            $'.$tabla.'Ctrl = new '.ucwords($tabla).'Controller($cnx) ; ' . PHP_EOL;
-        $texto .= '            $objConexion->beginTransaction();' . PHP_EOL;
-        $texto .= '        ' . PHP_EOL;
+
         $texto .= '            $data = $'.$tabla.'Ctrl->set_'.$tabla.'($params) ;' . PHP_EOL;
         $texto .= '        ' . PHP_EOL;
         $texto .= '            $objConexion->commit();' . PHP_EOL;
@@ -133,6 +133,9 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto  .= '            $objConexion = new ClsConexion();' . PHP_EOL;
         $texto  .= '            $cnx = $objConexion->get_connection();' . PHP_EOL;
         $texto  .= '        ' . PHP_EOL;
+        $texto  .= '            $'.$tabla.'Ctrl = new '.ucwords($tabla).'Controller($cnx) ; ' . PHP_EOL;
+        $texto  .= '            $objConexion->beginTransaction();' . PHP_EOL;
+        $texto  .= '        ' . PHP_EOL;
 
 
                 if (count($nameatri) > 0) {
@@ -150,7 +153,6 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto  .= '            ) ; ' . PHP_EOL;
         $texto  .= '        ' . PHP_EOL;
 
-        $texto .= '            $'.$tabla.'Ctrl = new '.ucwords($tabla).'Controller($cnx) ; ' . PHP_EOL;
         $texto .= '            $data = $'.$tabla.'Ctrl->upd_'.$tabla.'($params) ;' . PHP_EOL;
         $texto .= '        ' . PHP_EOL;
         $texto .= '            $objConexion->commit();' . PHP_EOL;

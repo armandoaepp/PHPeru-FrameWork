@@ -29,6 +29,9 @@ switch($evento)
             $objConexion = new ClsConexion();
             $cnx = $objConexion->get_connection();
         
+            $personaCtrl = new PersonaController($cnx) ; 
+            $objConexion->beginTransaction();
+        
             $idpersona = $inputs->Idpersona;
             $nombre = $inputs->Nombre;
             $nacimiento = $inputs->Nacimiento;
@@ -40,9 +43,6 @@ switch($evento)
                $nacimiento,
                $tipo,
             ) ; 
-        
-            $personaCtrl = new PersonaController($cnx) ; 
-            $objConexion->beginTransaction();
         
             $data = $personaCtrl->set_persona($params) ;
         
@@ -72,6 +72,9 @@ switch($evento)
             $objConexion = new ClsConexion();
             $cnx = $objConexion->get_connection();
         
+            $personaCtrl = new PersonaController($cnx) ; 
+            $objConexion->beginTransaction();
+        
             $idpersona = $inputs->Idpersona;
             $nombre = $inputs->Nombre;
             $nacimiento = $inputs->Nacimiento;
@@ -84,7 +87,6 @@ switch($evento)
                $tipo,
             ) ; 
         
-            $personaCtrl = new PersonaController($cnx) ; 
             $data = $personaCtrl->upd_persona($params) ;
         
             $objConexion->commit();
