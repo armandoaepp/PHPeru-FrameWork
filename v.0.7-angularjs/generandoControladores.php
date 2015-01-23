@@ -26,10 +26,19 @@ function generandoControladores($atri, $tabla, $nameatri)
 
         $texto .= ' class '.ucwords($tabla).'Controller' . PHP_EOL;
         $texto  .= '{' . PHP_EOL;
+        # CONTRUCTOR
+        $texto  .= '    private $cnx;' . PHP_EOL;
+        $texto  .= '' . PHP_EOL;
+        $texto  .= '    public function __construct($cnx = null)' . PHP_EOL;
+        $texto  .= '    {' . PHP_EOL;
+        $texto  .= '        $this->$cnx = $cnx;' . PHP_EOL;
+        $texto  .= '    }' . PHP_EOL;
+        $texto  .= '    ' . PHP_EOL;
+
 
 
         # FUNCTION get
-        $texto  .= '    function get_'.$tabla.'()' . PHP_EOL;
+        $texto  .= '    public function get_'.$tabla.'()' . PHP_EOL;
         $texto  .= '    {' . PHP_EOL;
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
@@ -47,7 +56,7 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '' . PHP_EOL;
 
         # FUNCTION set
-        $texto  .= '    function set_'.$tabla.'($params = array() )' . PHP_EOL;
+        $texto  .= '    public function set_'.$tabla.'($params = array() )' . PHP_EOL;
         $texto  .= '    {' . PHP_EOL;
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
@@ -65,7 +74,7 @@ function generandoControladores($atri, $tabla, $nameatri)
                                 }
         $texto  .= '        ' . PHP_EOL;*/
 
-        $texto  .= '            $obj'.ucwords($tabla).'  = new Cls'.ucwords($tabla).'();' . PHP_EOL;
+        $texto  .= '            $obj'.ucwords($tabla).'  = new Cls'.ucwords($tabla).'($this->$cnx);' . PHP_EOL;
         $texto  .= '            $bean_'.($tabla).' = new Bean'.ucwords($tabla).'();' . PHP_EOL;
         $texto  .= '            ' . PHP_EOL;
 
@@ -90,7 +99,7 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '' . PHP_EOL;
 
         # FUNCTION get
-        $texto  .= '    function get_'.$tabla.'_by_id($id)' . PHP_EOL;
+        $texto  .= '    public function get_'.$tabla.'_by_id($id)' . PHP_EOL;
         $texto  .= '    {' . PHP_EOL;
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
@@ -112,7 +121,7 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '' . PHP_EOL;
 
         # FUNCTION upd
-        $texto  .= '    function upd_'.$tabla.'($params = array())' . PHP_EOL;
+        $texto  .= '    public function upd_'.$tabla.'($params = array())' . PHP_EOL;
         $texto  .= '    {' . PHP_EOL;
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
@@ -130,7 +139,7 @@ function generandoControladores($atri, $tabla, $nameatri)
                                 }
         $texto  .= '        ' . PHP_EOL;*/
 
-        $texto  .= '            $obj'.ucwords($tabla).'  = new Cls'.ucwords($tabla).'();' . PHP_EOL;
+        $texto  .= '            $obj'.ucwords($tabla).'  = new Cls'.ucwords($tabla).'($this->$cnx);' . PHP_EOL;
         $texto  .= '            $bean_'.($tabla).' = new Bean'.ucwords($tabla).'();' . PHP_EOL;
         $texto  .= '            ' . PHP_EOL;
 

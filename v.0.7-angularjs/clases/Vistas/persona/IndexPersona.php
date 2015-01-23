@@ -17,56 +17,85 @@ switch($evento)
 {
     case "list":
         $personaCtrl = new PersonaController() ; 
-        $data = $personaCtrl->get_persona() ;
-        $jsn  = json_encode($data);
+        $response = $personaCtrl->get_persona() ;
+        $jsn  = json_encode($response);
         print_r($jsn) ;
     break;
 
     case "set":
         
-        $idpersona = $inputs->Idpersona;
-        $nombre = $inputs->Nombre;
-        $nacimiento = $inputs->Nacimiento;
-        $tipo = $inputs->Tipo;
+        try
+        {
+            $objConexion = new ClsConexion();
+            $cnx = $objConexion->get_connection();
         
-        $params = array(
-           $idpersona,
-           $nombre,
-           $nacimiento,
-           $tipo,
-        ) ; 
+            $idpersona = $inputs->Idpersona;
+            $nombre = $inputs->Nombre;
+            $nacimiento = $inputs->Nacimiento;
+            $tipo = $inputs->Tipo;
         
-        $personaCtrl = new PersonaController() ; 
-        $data = $personaCtrl->set_persona($params) ;
-        $jsn  = json_encode($data);
+            $params = array(
+               $idpersona,
+               $nombre,
+               $nacimiento,
+               $tipo,
+            ) ; 
+        
+            $personaCtrl = new PersonaController($cnx) ; 
+            $objConexion->beginTransaction();
+        
+            $response = $personaCtrl->set_persona($params) ;
+        
+            $objConexion->commit();
+        }
+        catch (Exception $e)
+        {
+            $objConexion->rollback();
+            $response = array('msg' => $e->getMessage(), 'error' => true, 'data' => array());
+        }
+        
+        $jsn  = json_encode($response);
         print_r($jsn) ;
     break;
 
     case "getid":
         $id = $_GET["id"] ;
         $personaCtrl = new PersonaController() ; 
-        $data = $personaCtrl->get_persona_idpersona( $id) ;
-        $jsn  = json_encode($data);
+        $response = $personaCtrl->get_persona_idpersona( $id) ;
+        $jsn  = json_encode($response);
         print_r($jsn) ;
     break;
 
     case "upd":
+        try
+        {
+            $objConexion = new ClsConexion();
+            $cnx = $objConexion->get_connection();
         
-        $idpersona = $inputs->Idpersona;
-        $nombre = $inputs->Nombre;
-        $nacimiento = $inputs->Nacimiento;
-        $tipo = $inputs->Tipo;
+            $idpersona = $inputs->Idpersona;
+            $nombre = $inputs->Nombre;
+            $nacimiento = $inputs->Nacimiento;
+            $tipo = $inputs->Tipo;
         
-        $params = array(
-           $idpersona,
-           $nombre,
-           $nacimiento,
-           $tipo,
-        ) ; 
+            $params = array(
+               $idpersona,
+               $nombre,
+               $nacimiento,
+               $tipo,
+            ) ; 
         
-        $personaCtrl = new PersonaController() ; 
-        $data = $personaCtrl->upd_persona($params) ;
-        $jsn  = json_encode($data);
+            $personaCtrl = new PersonaController($cnx) ; 
+            $response = $personaCtrl->upd_persona($params) ;
+        
+            $objConexion->commit();
+        }
+        catch (Exception $e)
+        {
+            $objConexion->rollback();
+            $response = array('msg' => $e->getMessage(), 'error' => true, 'data' => array());
+        }
+        
+        $jsn  = json_encode($response);
         print_r($jsn) ;
     break;
 

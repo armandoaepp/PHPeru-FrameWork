@@ -21,7 +21,7 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         if (count($nameatri) > 0) {
                     for ($i = 0; $i < count($nameatri); $i++) {
                         if ($nameatri[$i] != "estado") {
-                            $paramss .= '           $'.strtolower($nameatri[$i]).','. PHP_EOL;
+                            $paramss .= '               $'.strtolower($nameatri[$i]).','. PHP_EOL;
                         }
                     }
                 }
@@ -59,8 +59,8 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         # EVENTE list
         $texto .= '    case "list":' . PHP_EOL;
         $texto .= '        $'.$tabla.'Ctrl = new '.ucwords($tabla).'Controller() ; ' . PHP_EOL;
-        $texto .= '        $data = $'.$tabla.'Ctrl->get_'.$tabla.'() ;' . PHP_EOL;
-        $texto .= '        $jsn  = json_encode($data);' . PHP_EOL;
+        $texto .= '        $response = $'.$tabla.'Ctrl->get_'.$tabla.'() ;' . PHP_EOL;
+        $texto .= '        $jsn  = json_encode($response);' . PHP_EOL;
         $texto .= '        print_r($jsn) ;' . PHP_EOL;
         $texto .= '    break;' . PHP_EOL;
         $texto .= "" . PHP_EOL;
@@ -68,28 +68,50 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         # EVENTE set
         $texto .= '    case "set":' . PHP_EOL;
         $texto  .= '        ' . PHP_EOL;
+        $texto  .= '        try' . PHP_EOL;
+        $texto  .= '        {' . PHP_EOL;
+        $texto  .= '            $objConexion = new ClsConexion();' . PHP_EOL;
+        $texto  .= '            $cnx = $objConexion->get_connection();' . PHP_EOL;
+        $texto  .= '        ' . PHP_EOL;
+
+
+
+
 
                 if (count($nameatri) > 0) {
                     for ($i = 0; $i < count($nameatri); $i++) {
                         if ($nameatri[$i] != "estado") {
-                            $texto .= '        $'.strtolower($nameatri[$i]).' = $inputs->'.ucwords($nameatri[$i]).';'. PHP_EOL;
+                            $texto .= '            $'.strtolower($nameatri[$i]).' = $inputs->'.ucwords($nameatri[$i]).';'. PHP_EOL;
                         }
                     }
                 }
         $texto  .= '        ' . PHP_EOL;
 
 
-        $texto  .= '        $params = array(' . PHP_EOL;
+        $texto  .= '            $params = array(' . PHP_EOL;
         $texto  .=  $paramss;
 
-        $texto  .= '        ) ; ' . PHP_EOL;
+        $texto  .= '            ) ; ' . PHP_EOL;
         $texto  .= '        ' . PHP_EOL;
 
 
-        $texto .= '        $'.$tabla.'Ctrl = new '.ucwords($tabla).'Controller() ; ' . PHP_EOL;
-        $texto .= '        $data = $'.$tabla.'Ctrl->set_'.$tabla.'($params) ;' . PHP_EOL;
-        $texto .= '        $jsn  = json_encode($data);' . PHP_EOL;
+        $texto .= '            $'.$tabla.'Ctrl = new '.ucwords($tabla).'Controller($cnx) ; ' . PHP_EOL;
+        $texto .= '            $objConexion->beginTransaction();' . PHP_EOL;
+        $texto .= '        ' . PHP_EOL;
+        $texto .= '            $response = $'.$tabla.'Ctrl->set_'.$tabla.'($params) ;' . PHP_EOL;
+        $texto .= '        ' . PHP_EOL;
+        $texto .= '            $objConexion->commit();' . PHP_EOL;
+        $texto .= '        }' . PHP_EOL;
+        $texto .= '        catch (Exception $e)' . PHP_EOL;
+        $texto .= '        {' . PHP_EOL;
+        $texto .= '            $objConexion->rollback();' . PHP_EOL;
+        $texto .= '            $response = array(\'msg\' => $e->getMessage(), \'error\' => true, \'data\' => array());' . PHP_EOL;
+        $texto .= '        }' . PHP_EOL;
+        $texto .= '        ' . PHP_EOL;
+
+        $texto .= '        $jsn  = json_encode($response);' . PHP_EOL;
         $texto .= '        print_r($jsn) ;' . PHP_EOL;
+
         $texto .= '    break;' . PHP_EOL;
         $texto .= "" . PHP_EOL;
 
@@ -97,8 +119,8 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto .= '    case "getid":' . PHP_EOL;
         $texto .= '        $id = $_GET["id"] ;' . PHP_EOL;
         $texto .= '        $'.$tabla.'Ctrl = new '.ucwords($tabla).'Controller() ; ' . PHP_EOL;
-        $texto .= '        $data = $'.$tabla.'Ctrl->get_'.$tabla.'_id'.$tabla.'( $id) ;' . PHP_EOL;
-        $texto .= '        $jsn  = json_encode($data);' . PHP_EOL;
+        $texto .= '        $response = $'.$tabla.'Ctrl->get_'.$tabla.'_id'.$tabla.'( $id) ;' . PHP_EOL;
+        $texto .= '        $jsn  = json_encode($response);' . PHP_EOL;
         $texto .= '        print_r($jsn) ;' . PHP_EOL;
         $texto .= '    break;' . PHP_EOL;
         $texto .= "" . PHP_EOL;
@@ -106,26 +128,41 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         # EVENTE upd
         $texto .= '    case "upd":' . PHP_EOL;
 
-         $texto  .= '        ' . PHP_EOL;
+        $texto  .= '        try' . PHP_EOL;
+        $texto  .= '        {' . PHP_EOL;
+        $texto  .= '            $objConexion = new ClsConexion();' . PHP_EOL;
+        $texto  .= '            $cnx = $objConexion->get_connection();' . PHP_EOL;
+        $texto  .= '        ' . PHP_EOL;
+
 
                 if (count($nameatri) > 0) {
                     for ($i = 0; $i < count($nameatri); $i++) {
                         if ($nameatri[$i] != "estado") {
-                            $texto .= '        $'.strtolower($nameatri[$i]).' = $inputs->'.ucwords($nameatri[$i]).';'. PHP_EOL;
+                            $texto .= '            $'.strtolower($nameatri[$i]).' = $inputs->'.ucwords($nameatri[$i]).';'. PHP_EOL;
                         }
                     }
                 }
         $texto  .= '        ' . PHP_EOL;
 
-        $texto  .= '        $params = array(' . PHP_EOL;
+        $texto  .= '            $params = array(' . PHP_EOL;
         $texto  .=  $paramss;
 
-        $texto  .= '        ) ; ' . PHP_EOL;
+        $texto  .= '            ) ; ' . PHP_EOL;
         $texto  .= '        ' . PHP_EOL;
 
-        $texto .= '        $'.$tabla.'Ctrl = new '.ucwords($tabla).'Controller() ; ' . PHP_EOL;
-        $texto .= '        $data = $'.$tabla.'Ctrl->upd_'.$tabla.'($params) ;' . PHP_EOL;
-        $texto .= '        $jsn  = json_encode($data);' . PHP_EOL;
+        $texto .= '            $'.$tabla.'Ctrl = new '.ucwords($tabla).'Controller($cnx) ; ' . PHP_EOL;
+        $texto .= '            $response = $'.$tabla.'Ctrl->upd_'.$tabla.'($params) ;' . PHP_EOL;
+        $texto .= '        ' . PHP_EOL;
+        $texto .= '            $objConexion->commit();' . PHP_EOL;
+        $texto .= '        }' . PHP_EOL;
+        $texto .= '        catch (Exception $e)' . PHP_EOL;
+        $texto .= '        {' . PHP_EOL;
+        $texto .= '            $objConexion->rollback();' . PHP_EOL;
+        $texto .= '            $response = array(\'msg\' => $e->getMessage(), \'error\' => true, \'data\' => array());' . PHP_EOL;
+        $texto .= '        }' . PHP_EOL;
+        $texto .= '        ' . PHP_EOL;
+
+        $texto .= '        $jsn  = json_encode($response);' . PHP_EOL;
         $texto .= '        print_r($jsn) ;' . PHP_EOL;
         $texto .= '    break;' . PHP_EOL;
         $texto .= "" . PHP_EOL;

@@ -2,7 +2,14 @@
 # Autor: Armando Enrique Pisfil Puemape tw: @armandoaepp
  class PersonaController
 {
-    function get_persona()
+    private $cnx;
+
+    public function __construct($cnx = null)
+    {
+        $this->$cnx = $cnx;
+    }
+    
+    public function get_persona()
     {
         try
         {
@@ -18,14 +25,14 @@
         return $rpta ;
     }
 
-    function set_persona($params = array() )
+    public function set_persona($params = array() )
     {
         try
         {
             
             extract($params) ; 
 
-            $objPersona  = new ClsPersona();
+            $objPersona  = new ClsPersona($this->$cnx);
             $bean_persona = new BeanPersona();
             
             $bean_persona->setidpersona($idpersona);
@@ -43,7 +50,7 @@
         return $rpta ;
     }
 
-    function get_persona_by_id($id)
+    public function get_persona_by_id($id)
     {
         try
         {
@@ -61,14 +68,14 @@
         return $rpta ;
     }
 
-    function upd_persona($params = array())
+    public function upd_persona($params = array())
     {
         try
         {
             
             extract($params) ; 
 
-            $objPersona  = new ClsPersona();
+            $objPersona  = new ClsPersona($this->$cnx);
             $bean_persona = new BeanPersona();
             
             $bean_persona->setidpersona($idpersona);
