@@ -26,46 +26,48 @@ function generandoControladores($atri, $tabla, $nameatri)
 
         $texto .= ' class '.ucwords($tabla).'Controller' . PHP_EOL;
         $texto  .= '{' . PHP_EOL;
+        # CONTRUCTOR
+        $texto  .= '    private $cnx;' . PHP_EOL;
+        $texto  .= '' . PHP_EOL;
+        $texto  .= '    public function __construct($cnx = null)' . PHP_EOL;
+        $texto  .= '    {' . PHP_EOL;
+        $texto  .= '        $this->$cnx = $cnx;' . PHP_EOL;
+        $texto  .= '    }' . PHP_EOL;
+        $texto  .= '    ' . PHP_EOL;
+
 
 
         # FUNCTION get
-        $texto  .= '    function get_'.$tabla.'()' . PHP_EOL;
+        $texto  .= '    public function get_'.$tabla.'()' . PHP_EOL;
         $texto  .= '    {' . PHP_EOL;
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
         $texto  .= '            $obj'.ucwords($tabla).'  = new Cls'.ucwords($tabla).'();' . PHP_EOL;
         $texto  .= '' . PHP_EOL;
         $texto  .= '            $data = $obj'.ucwords($tabla).'->get_'.$tabla.'() ;' . PHP_EOL;
-        $texto  .= '            $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);'. PHP_EOL;
+        $texto  .= '            return $data ;'. PHP_EOL;
+        // $texto  .= '            $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);'. PHP_EOL;
         $texto  .= '        }' . PHP_EOL;
         $texto  .= '        catch (Exception $e)' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
-        $texto  .= '            $rpta = array("msg" => $e->getMessage(), "error" => true, "data" => array());' . PHP_EOL;
+        $texto  .= '            throw new Exception($e->getMessage());' . PHP_EOL;
+        // $texto  .= '            $rpta = array("msg" => $e->getMessage(), "error" => true, "data" => array());' . PHP_EOL;
         $texto  .= '        }' . PHP_EOL;
-        $texto  .= '        return $rpta ;' . PHP_EOL;
+        // $texto  .= '        return $rpta ;' . PHP_EOL;
         $texto  .= '    }' . PHP_EOL;
         $texto  .= '' . PHP_EOL;
 
         # FUNCTION set
-        $texto  .= '    function set_'.$tabla.'($params = array() )' . PHP_EOL;
+        $texto  .= '    public function set_'.$tabla.'($params = array() )' . PHP_EOL;
         $texto  .= '    {' . PHP_EOL;
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
         $texto  .= '            ' . PHP_EOL;
         $texto  .= '            extract($params) ; ' . PHP_EOL;
-        // $texto  .= '            $inputs = json_decode(file_get_contents("php://input"));' . PHP_EOL;
         $texto  .= '' . PHP_EOL;
-/*
-                                if (count($nameatri) > 0) {
-                                    for ($i = 0; $i < count($nameatri); $i++) {
-                                        if ($nameatri[$i] != "estado") {
-                                            $texto .= '            $'.strtolower($nameatri[$i]).' = $inputs->'.$nameatri[$i].';'. PHP_EOL;
-                                        }
-                                    }
-                                }
-        $texto  .= '        ' . PHP_EOL;*/
 
-        $texto  .= '            $obj'.ucwords($tabla).'  = new Cls'.ucwords($tabla).'();' . PHP_EOL;
+
+        $texto  .= '            $obj'.ucwords($tabla).'  = new Cls'.ucwords($tabla).'($this->$cnx);' . PHP_EOL;
         $texto  .= '            $bean_'.($tabla).' = new Bean'.ucwords($tabla).'();' . PHP_EOL;
         $texto  .= '            ' . PHP_EOL;
 
@@ -79,18 +81,20 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '            ' . PHP_EOL;
 
         $texto  .= '            $data = $obj'.ucwords($tabla).'->get_'.$tabla.'($bean'.ucwords($tabla).') ;' . PHP_EOL;
-        $texto  .= '            $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);'. PHP_EOL;
+        $texto  .= '            return $data ;'. PHP_EOL;
+        // $texto  .= '            $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);'. PHP_EOL;
         $texto  .= '        }' . PHP_EOL;
         $texto  .= '        catch (Exception $e)' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
-        $texto  .= '            $rpta = array("msg" => $e->getMessage(), "error" => true, "data" => array());' . PHP_EOL;
+        $texto  .= '            throw new Exception($e->getMessage());' . PHP_EOL;
+        // $texto  .= '            $rpta = array("msg" => $e->getMessage(), "error" => true, "data" => array());' . PHP_EOL;
         $texto  .= '        }' . PHP_EOL;
-        $texto  .= '        return $rpta ;' . PHP_EOL;
+        // $texto  .= '        return $rpta ;' . PHP_EOL;
         $texto  .= '    }' . PHP_EOL;
         $texto  .= '' . PHP_EOL;
 
         # FUNCTION get
-        $texto  .= '    function get_'.$tabla.'_by_id($id)' . PHP_EOL;
+        $texto  .= '    public function get_'.$tabla.'_by_id($id)' . PHP_EOL;
         $texto  .= '    {' . PHP_EOL;
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
@@ -101,36 +105,28 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '            $bean_'.($tabla).'->setId($id);' . PHP_EOL;
 
         $texto  .= '            $data = $obj'.ucwords($tabla).'->get_'.$tabla.'() ;' . PHP_EOL;
-        $texto  .= '            $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);'. PHP_EOL;
+        $texto  .= '            return $data;'. PHP_EOL;
+        // $texto  .= '            $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);'. PHP_EOL;
         $texto  .= '        }' . PHP_EOL;
         $texto  .= '        catch (Exception $e)' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
-        $texto  .= '            $rpta = array("msg" => $e->getMessage(), "error" => true, "data" => array());' . PHP_EOL;
+         $texto  .= '            throw new Exception($e->getMessage());' . PHP_EOL;
+        // $texto  .= '            $rpta = array("msg" => $e->getMessage(), "error" => true, "data" => array());' . PHP_EOL;
         $texto  .= '        }' . PHP_EOL;
-        $texto  .= '        return $rpta ;' . PHP_EOL;
+        // $texto  .= '        return $rpta ;' . PHP_EOL;
         $texto  .= '    }' . PHP_EOL;
         $texto  .= '' . PHP_EOL;
 
         # FUNCTION upd
-        $texto  .= '    function upd_'.$tabla.'($params = array())' . PHP_EOL;
+        $texto  .= '    public function upd_'.$tabla.'($params = array())' . PHP_EOL;
         $texto  .= '    {' . PHP_EOL;
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
         $texto  .= '            ' . PHP_EOL;
         $texto  .= '            extract($params) ; ' . PHP_EOL;
-        // $texto  .= '            $inputs = json_decode(file_get_contents("php://input"));' . PHP_EOL;
         $texto  .= '' . PHP_EOL;
-/*
-                                if (count($nameatri) > 0) {
-                                    for ($i = 0; $i < count($nameatri); $i++) {
-                                        if ($nameatri[$i] != "estado") {
-                                            $texto .= '            $'.strtolower($nameatri[$i]).' = $inputs->'.$nameatri[$i].';'. PHP_EOL;
-                                        }
-                                    }
-                                }
-        $texto  .= '        ' . PHP_EOL;*/
 
-        $texto  .= '            $obj'.ucwords($tabla).'  = new Cls'.ucwords($tabla).'();' . PHP_EOL;
+        $texto  .= '            $obj'.ucwords($tabla).'  = new Cls'.ucwords($tabla).'($this->$cnx);' . PHP_EOL;
         $texto  .= '            $bean_'.($tabla).' = new Bean'.ucwords($tabla).'();' . PHP_EOL;
         $texto  .= '            ' . PHP_EOL;
 
@@ -144,13 +140,13 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '            ' . PHP_EOL;
 
         $texto  .= '            $data = $obj'.ucwords($tabla).'->upd_'.$tabla.'($bean'.ucwords($tabla).') ;' . PHP_EOL;
-        $texto  .= '            $rpta = array("msg" => "Listado correcto", "error" => false, "data" => $data);'. PHP_EOL;
+        $texto  .= '            return $data;'. PHP_EOL;
         $texto  .= '        }' . PHP_EOL;
         $texto  .= '        catch (Exception $e)' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
-        $texto  .= '            $rpta = array("msg" => $e->getMessage(), "error" => true, "data" => array());' . PHP_EOL;
+        $texto  .= '           throw new Exception($e->getMessage());' . PHP_EOL;
         $texto  .= '        }' . PHP_EOL;
-        $texto  .= '        return $rpta ;' . PHP_EOL;
+        // $texto  .= '        return $rpta ;' . PHP_EOL;
 
         $texto  .= '    }' . PHP_EOL;
         $texto  .= '' . PHP_EOL;
