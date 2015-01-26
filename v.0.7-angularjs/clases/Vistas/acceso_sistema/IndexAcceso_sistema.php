@@ -1,4 +1,4 @@
-<?php 
+<?php
 # Autor: Armando Enrique Pisfil Puemape tw: @armandoaepp
     header('content-type: application/json; charset=utf-8');
     require_once '../../autoload.php';
@@ -16,38 +16,47 @@ elseif (isset($_POST))
 switch($evento)
 {
     case "list":
-        $acceso_sistemaCtrl = new Acceso_sistemaController() ; 
-        $data = $acceso_sistemaCtrl->get_acceso_sistema() ;
+        try
+        {
+            $acceso_sistemaCtrl = new Acceso_sistemaController() ;
+            $data = $acceso_sistemaCtrl->get_acceso_sistema() ;
+            $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => $data);
+        }
+        catch (Exception $e)
+        {
+            $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => array());
+        }
+
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
 
     case "set":
-        
+
         try
         {
             $objConexion = new ClsConexion();
             $cnx = $objConexion->get_connection();
-        
-            $acceso_sistemaCtrl = new Acceso_sistemaController($cnx) ; 
+
+            $acceso_sistemaCtrl = new Acceso_sistemaController($cnx) ;
             $objConexion->beginTransaction();
-        
+
             $idaccesosistema = $inputs->IdAccesoSistema;
             $idusuario = $inputs->IdUsuario;
             $idcontrol = $inputs->IdControl;
             $referencia = $inputs->Referencia;
             $estado = $inputs->Estado;
-        
+
             $params = array(
                $idaccesosistema,
                $idusuario,
                $idcontrol,
                $referencia,
                $estado,
-            ) ; 
-        
+            ) ;
+
             $data = $acceso_sistemaCtrl->set_acceso_sistema($params) ;
-        
+
             $objConexion->commit();
         }
         catch (Exception $e)
@@ -55,15 +64,24 @@ switch($evento)
             $objConexion->rollback();
             $data = array('msg' => $e->getMessage(), 'error' => true, 'data' => array());
         }
-        
+
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
 
     case "getid":
-        $id = $_GET["id"] ;
-        $acceso_sistemaCtrl = new Acceso_sistemaController() ; 
-        $data = $acceso_sistemaCtrl->get_acceso_sistema_idacceso_sistema( $id) ;
+        try
+        {
+            $id = $_GET["id"] ;
+            $acceso_sistemaCtrl = new Acceso_sistemaController() ;
+            $data = $acceso_sistemaCtrl->get_acceso_sistema_idacceso_sistema( $id) ;
+            $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => $data);
+        }
+        catch (Exception $e)
+        {
+            $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => array());
+        }
+
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
@@ -73,26 +91,26 @@ switch($evento)
         {
             $objConexion = new ClsConexion();
             $cnx = $objConexion->get_connection();
-        
-            $acceso_sistemaCtrl = new Acceso_sistemaController($cnx) ; 
+
+            $acceso_sistemaCtrl = new Acceso_sistemaController($cnx) ;
             $objConexion->beginTransaction();
-        
+
             $idaccesosistema = $inputs->IdAccesoSistema;
             $idusuario = $inputs->IdUsuario;
             $idcontrol = $inputs->IdControl;
             $referencia = $inputs->Referencia;
             $estado = $inputs->Estado;
-        
+
             $params = array(
                $idaccesosistema,
                $idusuario,
                $idcontrol,
                $referencia,
                $estado,
-            ) ; 
-        
+            ) ;
+
             $data = $acceso_sistemaCtrl->upd_acceso_sistema($params) ;
-        
+
             $objConexion->commit();
         }
         catch (Exception $e)
@@ -100,7 +118,7 @@ switch($evento)
             $objConexion->rollback();
             $data = array('msg' => $e->getMessage(), 'error' => true, 'data' => array());
         }
-        
+
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;

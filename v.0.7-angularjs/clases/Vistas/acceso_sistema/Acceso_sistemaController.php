@@ -6,7 +6,7 @@
 
     public function __construct($cnx = null)
     {
-        $this->$cnx = $cnx;
+        $this->cnx = $cnx;
     }
     
     public function get_acceso_sistema()
