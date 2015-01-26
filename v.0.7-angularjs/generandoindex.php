@@ -58,8 +58,18 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
 
         # EVENTE list
         $texto .= '    case "list":' . PHP_EOL;
-        $texto .= '        $'.$tabla.'Ctrl = new '.ucwords($tabla).'Controller() ; ' . PHP_EOL;
-        $texto .= '        $data = $'.$tabla.'Ctrl->get_'.$tabla.'() ;' . PHP_EOL;
+        $texto .= '        try' . PHP_EOL;
+        $texto .= '        {' . PHP_EOL;
+        $texto .= '            $'.$tabla.'Ctrl = new '.ucwords($tabla).'Controller() ; ' . PHP_EOL;
+        $texto .= '            $data = $'.$tabla.'Ctrl->get_'.$tabla.'() ;' . PHP_EOL;
+        $texto .= '            $data = array(\'msg\' => \'Se encontraron registros\', \'error\' => false, \'data\' => $data);' . PHP_EOL;
+
+        $texto .= '        }' . PHP_EOL;
+        $texto .= '        catch (Exception $e)' . PHP_EOL;
+        $texto .= '        {' . PHP_EOL;
+        $texto  .= '            $data = array(\'msg\' => \'Se encontraron registros\', \'error\' => false, \'data\' => array());' . PHP_EOL;
+        $texto .= '        }' . PHP_EOL;
+        $texto .= '        ' . PHP_EOL;
         $texto .= '        $jsn  = json_encode($data);' . PHP_EOL;
         $texto .= '        print_r($jsn) ;' . PHP_EOL;
         $texto .= '    break;' . PHP_EOL;

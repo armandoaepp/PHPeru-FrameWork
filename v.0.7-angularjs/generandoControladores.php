@@ -31,7 +31,7 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '' . PHP_EOL;
         $texto  .= '    public function __construct($cnx = null)' . PHP_EOL;
         $texto  .= '    {' . PHP_EOL;
-        $texto  .= '        $this->$cnx = $cnx;' . PHP_EOL;
+        $texto  .= '        $this->cnx = $cnx;' . PHP_EOL;
         $texto  .= '    }' . PHP_EOL;
         $texto  .= '    ' . PHP_EOL;
 
