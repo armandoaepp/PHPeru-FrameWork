@@ -60,7 +60,7 @@ if (isset($_POST["btenviar"])) {
         echo generarprocedure($atributos, $consulta, $tabla) . "<br/>";
 
        echo  generandoServiceJS($atributos, $tabla,$arraycabeza) ;
-        echo '<a href="index.php" > <<Regresar</a>';
+        echo '<br> <a href="index.php" > <<Regresar</a>';
 
     }
 }

@@ -1,0 +1,38 @@
+<div id="div_control">
+<form id="frm_control" name="frm_control" class="hform"  ng-submit="setControl()">
+<fieldset> <legend> Nuevo Control</legend>
+    <fieldset>
+        <label for="IdControl">IdControl : </label>
+        <input type="text" name="IdControl" ng-model="control.IdControl" />
+    </fieldset>
+    <fieldset>
+        <label for="IdControlPadre">IdControlPadre : </label>
+        <input type="text" name="IdControlPadre" ng-model="control.IdControlPadre" />
+    </fieldset>
+    <fieldset>
+        <label for="IdIipoControl">IdIipoControl : </label>
+        <input type="text" name="IdIipoControl" ng-model="control.IdIipoControl" />
+    </fieldset>
+    <fieldset>
+        <label for="Jerarquia">Jerarquia : </label>
+        <input type="text" name="Jerarquia" ng-model="control.Jerarquia" />
+    </fieldset>
+    <fieldset>
+        <label for="Nombre">Nombre : </label>
+        <input type="text" name="Nombre" ng-model="control.Nombre" />
+    </fieldset>
+    <fieldset>
+        <label for="Valor">Valor : </label>
+        <input type="text" name="Valor" ng-model="control.Valor" />
+    </fieldset>
+    <fieldset>
+        <label for="Descripcion">Descripcion : </label>
+        <input type="text" name="Descripcion" ng-model="control.Descripcion" />
+    </fieldset>
+     <fieldset class="text-right">
+        <button  type="button" id="btnCancelar" onclick="location.href='#/control/listar';">Cancelar </button>
+        <button id="btregistrar" ng-disabled="frm_control.$invalid"  >Registrar </button>
+    </fieldset>
+</fieldset>
+</form>
+</div>

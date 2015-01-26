@@ -1,0 +1,18 @@
+<div id="div_rol">
+<form id="frm_rol" name="frm_rol" class="hform"  ng-submit="updRol()">
+<fieldset> <legend> Editar Rol</legend>
+    <fieldset>
+        <label for="IdRol">IdRol : </label>
+        <input type="text" name="IdRol" ng-model="rol.IdRol"  value="{{IdRol}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Nombre">Nombre : </label>
+        <input type="text" name="Nombre" ng-model="rol.Nombre"  value="{{Nombre}}" />
+    </fieldset>
+     <fieldset class="text-right">
+        <button  type="button" id="btnCancelar" onclick="location.href='#/rol/listar';">Cancelar </button>
+        <button id="btregistrar" ng-disabled="frm_rol.$invalid"  >Registrar </button>
+    </fieldset>
+</fieldset>
+</form>
+</div>

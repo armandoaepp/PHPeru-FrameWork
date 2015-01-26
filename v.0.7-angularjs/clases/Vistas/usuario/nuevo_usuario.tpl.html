@@ -1,0 +1,38 @@
+<div id="div_usuario">
+<form id="frm_usuario" name="frm_usuario" class="hform"  ng-submit="setUsuario()">
+<fieldset> <legend> Nuevo Usuario</legend>
+    <fieldset>
+        <label for="IdUsuario">IdUsuario : </label>
+        <input type="text" name="IdUsuario" ng-model="usuario.IdUsuario" />
+    </fieldset>
+    <fieldset>
+        <label for="IdPersona">IdPersona : </label>
+        <input type="text" name="IdPersona" ng-model="usuario.IdPersona" />
+    </fieldset>
+    <fieldset>
+        <label for="IdRol">IdRol : </label>
+        <input type="text" name="IdRol" ng-model="usuario.IdRol" />
+    </fieldset>
+    <fieldset>
+        <label for="IdTipoRelacion">IdTipoRelacion : </label>
+        <input type="text" name="IdTipoRelacion" ng-model="usuario.IdTipoRelacion" />
+    </fieldset>
+    <fieldset>
+        <label for="Usuario">Usuario : </label>
+        <input type="text" name="Usuario" ng-model="usuario.Usuario" />
+    </fieldset>
+    <fieldset>
+        <label for="Clave">Clave : </label>
+        <input type="text" name="Clave" ng-model="usuario.Clave" />
+    </fieldset>
+    <fieldset>
+        <label for="Fecha">Fecha : </label>
+        <input type="text" name="Fecha" ng-model="usuario.Fecha" />
+    </fieldset>
+     <fieldset class="text-right">
+        <button  type="button" id="btnCancelar" onclick="location.href='#/usuario/listar';">Cancelar </button>
+        <button id="btregistrar" ng-disabled="frm_usuario.$invalid"  >Registrar </button>
+    </fieldset>
+</fieldset>
+</form>
+</div>

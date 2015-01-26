@@ -1,0 +1,24 @@
+<div id="div_rol_control">
+<form id="frm_rol_control" name="frm_rol_control" class="hform"  ng-submit="updRol_control()">
+<table class="table" >
+ <caption>LISTA DE ROL_CONTROL </caption>
+<thead>
+    <tr>
+        <th>IdRolControl </th>
+        <th>IdRrol </th>
+        <th>IdControl </th>
+        <th>Referencia </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="rol_control in rol_controls">
+        <th>rol_control.IdRolControl </th>
+        <th>rol_control.IdRrol </th>
+        <th>rol_control.IdControl </th>
+        <th>rol_control.Referencia </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

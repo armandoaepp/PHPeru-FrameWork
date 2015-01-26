@@ -1,0 +1,26 @@
+<div id="div_acceso_sistema">
+<form id="frm_acceso_sistema" name="frm_acceso_sistema" class="hform"  ng-submit="setAcceso_sistema()">
+<fieldset> <legend> Nuevo Acceso_sistema</legend>
+    <fieldset>
+        <label for="IdAccesoSistema">IdAccesoSistema : </label>
+        <input type="text" name="IdAccesoSistema" ng-model="acceso_sistema.IdAccesoSistema" />
+    </fieldset>
+    <fieldset>
+        <label for="IdUsuario">IdUsuario : </label>
+        <input type="text" name="IdUsuario" ng-model="acceso_sistema.IdUsuario" />
+    </fieldset>
+    <fieldset>
+        <label for="IdControl">IdControl : </label>
+        <input type="text" name="IdControl" ng-model="acceso_sistema.IdControl" />
+    </fieldset>
+    <fieldset>
+        <label for="Referencia">Referencia : </label>
+        <input type="text" name="Referencia" ng-model="acceso_sistema.Referencia" />
+    </fieldset>
+     <fieldset class="text-right">
+        <button  type="button" id="btnCancelar" onclick="location.href='#/acceso_sistema/listar';">Cancelar </button>
+        <button id="btregistrar" ng-disabled="frm_acceso_sistema.$invalid"  >Registrar </button>
+    </fieldset>
+</fieldset>
+</form>
+</div>

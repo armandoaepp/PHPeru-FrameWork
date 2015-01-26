@@ -27,9 +27,9 @@ function generarmodelo($atri, $cListar, $tabla, $name_set_get)
         # contructor
         $texto .= '# CONSTRUCT ' . PHP_EOL;
         $texto .= '    public function __construct($cnx  = null)' . PHP_EOL;
-        $texto .= '     {' . PHP_EOL;
-        $texto .= '         $this->conn = $cnx;' . PHP_EOL;
-        $texto .= '     }' . PHP_EOL;
+        $texto .= '    {' . PHP_EOL;
+        $texto .= '        $this->conn = $cnx;' . PHP_EOL;
+        $texto .= '    }' . PHP_EOL;
 
         // $texto .= '//Métodos' . PHP_EOL;
         $texto .= '# Método Insertar' . PHP_EOL;

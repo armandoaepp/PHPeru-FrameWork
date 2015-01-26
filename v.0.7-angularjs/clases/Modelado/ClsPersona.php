@@ -1,11 +1,11 @@
-<?php 
-# Clase Generada desde PlaneaTec-PHP - Creado por @armandaepp 
+<?php
+# Clase Generada desde PlaneaTec-PHP - Creado por @armandaepp
 class ClsPersona extends ClsConexion {
-# CONSTRUCT 
+# CONSTRUCT
     public function __construct($cnx  = null)
-     {
-         $this->conn = $cnx;
-     }
+    {
+        $this->conn = $cnx;
+    }
 # Método Insertar
     public function set_persona($bean_persona)
     {
@@ -57,7 +57,7 @@ class ClsPersona extends ClsConexion {
         $data = $this->rows ;
         return $data;
     }
-# Método get Seleccionar todos 
+# Método get Seleccionar todos
     public function get_persona()
     {
         $this->query = "CALL usp_get_persona()";

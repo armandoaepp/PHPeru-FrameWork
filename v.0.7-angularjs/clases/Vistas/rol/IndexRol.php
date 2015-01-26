@@ -1,4 +1,4 @@
-<?php
+<?php 
 # Autor: Armando Enrique Pisfil Puemape tw: @armandoaepp
     header('content-type: application/json; charset=utf-8');
     require_once '../../autoload.php';
@@ -16,56 +16,52 @@ elseif (isset($_POST))
 switch($evento)
 {
     case "list":
-        $personaCtrl = new PersonaController() ;
-        $data = $personaCtrl->get_persona() ;
+        $rolCtrl = new RolController() ; 
+        $data = $rolCtrl->get_rol() ;
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
 
     case "set":
-
-        $idpersona = $inputs->Idpersona;
+        
+        $idrol = $inputs->IdRol;
         $nombre = $inputs->Nombre;
-        $nacimiento = $inputs->Nacimiento;
-        $tipo = $inputs->Tipo;
-
+        $estado = $inputs->Estado;
+        
         $params = array(
-           $idpersona,
+           $idrol,
            $nombre,
-           $nacimiento,
-           $tipo,
-        ) ;
-
-        $personaCtrl = new PersonaController() ;
-        $data = $personaCtrl->set_persona($params) ;
+           $estado,
+        ) ; 
+        
+        $rolCtrl = new RolController() ; 
+        $data = $rolCtrl->set_rol($params) ;
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
 
     case "getid":
         $id = $_GET["id"] ;
-        $personaCtrl = new PersonaController() ;
-        $data = $personaCtrl->get_persona_idpersona( $id) ;
+        $rolCtrl = new RolController() ; 
+        $data = $rolCtrl->get_rol_idrol( $id) ;
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
 
     case "upd":
-
-        $idpersona = $inputs->Idpersona;
+        
+        $idrol = $inputs->IdRol;
         $nombre = $inputs->Nombre;
-        $nacimiento = $inputs->Nacimiento;
-        $tipo = $inputs->Tipo;
-
+        $estado = $inputs->Estado;
+        
         $params = array(
-           $idpersona,
+           $idrol,
            $nombre,
-           $nacimiento,
-           $tipo,
-        ) ;
-
-        $personaCtrl = new PersonaController() ;
-        $data = $personaCtrl->upd_persona($params) ;
+           $estado,
+        ) ; 
+        
+        $rolCtrl = new RolController() ; 
+        $data = $rolCtrl->upd_rol($params) ;
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
