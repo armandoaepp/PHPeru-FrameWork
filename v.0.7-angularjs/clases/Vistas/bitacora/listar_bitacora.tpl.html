@@ -1,0 +1,26 @@
+<div id="div_bitacora">
+<form id="frm_bitacora" name="frm_bitacora" class="hform"  ng-submit="updBitacora()">
+<table class="table" >
+ <caption>LISTA DE BITACORA </caption>
+<thead>
+    <tr>
+        <th>Idbitacora </th>
+        <th>Idusuario </th>
+        <th>Idtipooperacion </th>
+        <th>Registro </th>
+        <th>Referencia </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="bitacora in bitacoras">
+        <th>bitacora.idbitacora </th>
+        <th>bitacora.idusuario </th>
+        <th>bitacora.idtipooperacion </th>
+        <th>bitacora.registro </th>
+        <th>bitacora.referencia </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

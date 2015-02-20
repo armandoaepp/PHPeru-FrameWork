@@ -61,7 +61,7 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto .= '        try' . PHP_EOL;
         $texto .= '        {' . PHP_EOL;
         $texto .= '            $'.$tabla.'Ctrl = new '.ucwords($tabla).'Controller() ; ' . PHP_EOL;
-        $texto .= '            $data = $'.$tabla.'Ctrl->get_'.$tabla.'() ;' . PHP_EOL;
+        $texto .= '            $data = $'.$tabla.'Ctrl->ctrl_get_'.$tabla.'() ;' . PHP_EOL;
         $texto .= '            $data = array(\'msg\' => \'Se encontraron registros\', \'error\' => false, \'data\' => $data);' . PHP_EOL;
 
         $texto .= '        }' . PHP_EOL;
@@ -108,7 +108,7 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
 
 
 
-        $texto .= '            $data = $'.$tabla.'Ctrl->set_'.$tabla.'($params) ;' . PHP_EOL;
+        $texto .= '            $data = $'.$tabla.'Ctrl->ctrl_set_'.$tabla.'($params) ;' . PHP_EOL;
         $texto .= '        ' . PHP_EOL;
         $texto .= '            $objConexion->commit();' . PHP_EOL;
         $texto .= '        }' . PHP_EOL;
@@ -131,7 +131,7 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto .= '        {' . PHP_EOL;
         $texto .= '            $id = $_GET["id"] ;' . PHP_EOL;
         $texto .= '            $'.$tabla.'Ctrl = new '.ucwords($tabla).'Controller() ; ' . PHP_EOL;
-        $texto .= '            $data = $'.$tabla.'Ctrl->get_'.$tabla.'_id'.$tabla.'( $id) ;' . PHP_EOL;
+        $texto .= '            $data = $'.$tabla.'Ctrl->ctrl_get_'.$tabla.'_id'.$tabla.'( $id) ;' . PHP_EOL;
         $texto .= '            $data = array(\'msg\' => \'Se encontraron registros\', \'error\' => false, \'data\' => $data);' . PHP_EOL;
 
         $texto .= '        }' . PHP_EOL;
@@ -173,7 +173,7 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto  .= '            ) ; ' . PHP_EOL;
         $texto  .= '        ' . PHP_EOL;
 
-        $texto .= '            $data = $'.$tabla.'Ctrl->upd_'.$tabla.'($params) ;' . PHP_EOL;
+        $texto .= '            $data = $'.$tabla.'Ctrl->ctrl_upd_'.$tabla.'($params) ;' . PHP_EOL;
         $texto .= '        ' . PHP_EOL;
         $texto .= '            $objConexion->commit();' . PHP_EOL;
         $texto .= '        }' . PHP_EOL;

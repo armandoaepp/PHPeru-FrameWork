@@ -37,7 +37,7 @@ function generandoServiceJS($atri, $tabla, $nameatri)
         $texto  .= '        var params_   = {\'params\': {\'accion\': \'list\'}};'. PHP_EOL;
         $texto  .= '        '. PHP_EOL;
 
-        $texto  .= '        return $http.get(url_, {\'params\': params_});'. PHP_EOL;
+        $texto  .= '        return $http.get(url_,  params_);'. PHP_EOL;
         $texto  .= '    };'. PHP_EOL;
         $texto  .= ''. PHP_EOL;
 
@@ -60,7 +60,7 @@ function generandoServiceJS($atri, $tabla, $nameatri)
         $texto  .= '        var params_   = {\'params\': {\'accion\': \'list\', \'id\': id}};'. PHP_EOL;
         $texto  .= ''. PHP_EOL;
 
-        $texto  .= '        return $http.get(url_, {\'params\': params_});'. PHP_EOL;
+        $texto  .= '        return $http.get(url_, params_);'. PHP_EOL;
         $texto  .= '    };'. PHP_EOL;
         $texto  .= ''. PHP_EOL;
 
