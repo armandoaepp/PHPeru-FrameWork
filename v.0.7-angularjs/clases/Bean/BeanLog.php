@@ -8,7 +8,6 @@ class BeanLog{
     private $fecha;
     private $idusuario;
     private $ocurrencia;
-    private $referencia;
 # METODOS
     public function setIdLog($idlog_){ $this->idlog=$idlog_;}
     public function getIdLog(){ return $this->idlog;}
@@ -18,7 +17,5 @@ class BeanLog{
     public function getIdUsuario(){ return $this->idusuario;}
     public function setOcurrencia($ocurrencia_){ $this->ocurrencia=$ocurrencia_;}
     public function getOcurrencia(){ return $this->ocurrencia;}
-    public function setReferencia($referencia_){ $this->referencia=$referencia_;}
-    public function getReferencia(){ return $this->referencia;}
 }
 ?>

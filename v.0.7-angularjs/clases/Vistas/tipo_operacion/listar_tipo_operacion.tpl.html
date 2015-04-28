@@ -1,0 +1,20 @@
+<div id="div_tipo_operacion">
+<form id="frm_tipo_operacion" name="frm_tipo_operacion" class="hform"  ng-submit="updTipo_operacion()">
+<table class="table" >
+ <caption>LISTA DE TIPO_OPERACION </caption>
+<thead>
+    <tr>
+        <th>IdTipoOperacion </th>
+        <th>Descripcion </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="tipo_operacion in tipo_operacions">
+        <th>tipo_operacion.IdTipoOperacion </th>
+        <th>tipo_operacion.Descripcion </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

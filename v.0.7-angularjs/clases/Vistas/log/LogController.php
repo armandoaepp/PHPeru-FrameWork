@@ -9,7 +9,7 @@
         $this->cnx = $cnx;
     }
     
-    public function get_log()
+    public function ctrl_get_log()
     {
         try
         {
@@ -24,23 +24,22 @@
         }
     }
 
-    public function set_log($params = array() )
+    public function ctrl_set_log($params = array() )
     {
         try
         {
             
             extract($params) ; 
 
-            $objLog  = new ClsLog($this->$cnx);
+            $objLog  = new ClsLog($this->cnx);
             $bean_log = new BeanLog();
             
             $bean_log->setIdLog($idlog);
             $bean_log->setFecha($fecha);
             $bean_log->setIdUsuario($idusuario);
             $bean_log->setOcurrencia($ocurrencia);
-            $bean_log->setReferencia($referencia);
             
-            $data = $objLog->get_log($beanLog) ;
+            $data = $objLog->set_log($bean_log) ;
             return $data ;
         }
         catch (Exception $e)
@@ -49,7 +48,7 @@
         }
     }
 
-    public function get_log_by_id($id)
+    public function ctrl_get_log_by_id($id)
     {
         try
         {
@@ -66,23 +65,22 @@
         }
     }
 
-    public function upd_log($params = array())
+    public function ctrl_upd_log($params = array())
     {
         try
         {
             
             extract($params) ; 
 
-            $objLog  = new ClsLog($this->$cnx);
+            $objLog  = new ClsLog($this->cnx);
             $bean_log = new BeanLog();
             
             $bean_log->setIdLog($idlog);
             $bean_log->setFecha($fecha);
             $bean_log->setIdUsuario($idusuario);
             $bean_log->setOcurrencia($ocurrencia);
-            $bean_log->setReferencia($referencia);
             
-            $data = $objLog->upd_log($beanLog) ;
+            $data = $objLog->upd_log($bean_log) ;
             return $data;
         }
         catch (Exception $e)

@@ -13,9 +13,8 @@ class ClsLog extends ClsConexion {
         $fecha = $bean_log->getFecha();
         $idusuario = $bean_log->getIdUsuario();
         $ocurrencia = $bean_log->getOcurrencia();
-        $referencia = $bean_log->getReferencia();
 
-        $this->query = "CALL usp_set_log('$idlog','$fecha','$idusuario','$ocurrencia','$referencia')";
+        $this->query = "CALL usp_set_log('$idlog','$fecha','$idusuario','$ocurrencia')";
         $this->execute_query();
         $data = $this->rows ;
         return $data;
@@ -28,9 +27,8 @@ class ClsLog extends ClsConexion {
         $fecha = $bean_log->getFecha();
         $idusuario = $bean_log->getIdUsuario();
         $ocurrencia = $bean_log->getOcurrencia();
-        $referencia = $bean_log->getReferencia();
 
-        $this->query = "CALL usp_upd_log('$idlog','$fecha','$idusuario','$ocurrencia','$referencia')";
+        $this->query = "CALL usp_upd_log('$idlog','$fecha','$idusuario','$ocurrencia')";
         $this->execute_query();
         $data = $this->rows ;
         return $data;
@@ -40,9 +38,9 @@ class ClsLog extends ClsConexion {
     public function upd_log_estado($bean_log)
     {
         $idlog = $bean_log->getIdLog();
-        $referencia = $bean_log->getReferencia();
+        $ocurrencia = $bean_log->getOcurrencia();
 
-        $this->query = "CALL usp_upd_log_estado('$idlog','$referencia')";
+        $this->query = "CALL usp_upd_log_estado('$idlog','$ocurrencia')";
         $this->execute_query();
         $data = $this->rows ;
         return $data;

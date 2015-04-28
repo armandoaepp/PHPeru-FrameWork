@@ -1,42 +1,39 @@
 /* Procedures Generada desde Cix-PHP - by power @armandoaepp */
 DELIMITER ;;
-CREATE PROCEDURE usp_set_log( idlog bigint(20),fecha datetime,idusuario bigint(20),ocurrencia text,referencia varchar(255) ) 
+CREATE PROCEDURE usp_set_log( idlog bigint(20),fecha datetime,idusuario bigint(20),ocurrencia text ) 
 BEGIN
 	INSERT INTO  log(
 		log.idlog,
 		log.fecha,
 		log.idusuario,
-		log.ocurrencia,
-		log.referencia
+		log.ocurrencia
 	)
 	VALUES(
 		idlog,
 		fecha,
 		idusuario,
-		ocurrencia,
-		referencia
+		ocurrencia
 	);
 END;;
 DELIMITER ;;
 
 DELIMITER ;;
-CREATE PROCEDURE usp_upd_log( idlog bigint(20),fecha datetime,idusuario bigint(20),ocurrencia text,referencia varchar(255) ) 
+CREATE PROCEDURE usp_upd_log( idlog bigint(20),fecha datetime,idusuario bigint(20),ocurrencia text ) 
 BEGIN
 	UPDATE log SET
 		log.idlog = idlog,
 		log.fecha = fecha,
 		log.idusuario = idusuario,
-		log.ocurrencia = ocurrencia,
-		log.referencia = referencia
+		log.ocurrencia = ocurrencia
 	WHERE log.idlog = idlog;
 END;;
 DELIMITER ;;
 
 DELIMITER ;;
-CREATE PROCEDURE usp_upd_log_estado(idlog bigint(20),referencia varchar(255)) 
+CREATE PROCEDURE usp_upd_log_estado(idlog bigint(20),ocurrencia text) 
 BEGIN
 	UPDATE log SET
-		log.referencia = referencia
+		log.ocurrencia = ocurrencia
 	WHERE log.idlog = idlog;
 END;;
 DELIMITER ;;
@@ -48,8 +45,7 @@ BEGIN
 		log.idlog,
 		log.fecha,
 		log.idusuario,
-		log.ocurrencia,
-		log.referencia
+		log.ocurrencia
 	FROM log
 	WHERE  log.idlog = idlog;
 END;;
@@ -62,8 +58,7 @@ BEGIN
 		log.idlog,
 		log.fecha,
 		log.idusuario,
-		log.ocurrencia,
-		log.referencia
+		log.ocurrencia
 	FROM log;
 END;;
 DELIMITER ;;

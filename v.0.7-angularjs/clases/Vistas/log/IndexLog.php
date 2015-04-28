@@ -19,7 +19,7 @@ switch($evento)
         try
         {
             $logCtrl = new LogController() ; 
-            $data = $logCtrl->get_log() ;
+            $data = $logCtrl->ctrl_get_log() ;
             $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => $data);
         }
         catch (Exception $e)
@@ -45,17 +45,15 @@ switch($evento)
             $fecha = $inputs->Fecha;
             $idusuario = $inputs->IdUsuario;
             $ocurrencia = $inputs->Ocurrencia;
-            $referencia = $inputs->Referencia;
         
             $params = array(
                $idlog,
                $fecha,
                $idusuario,
                $ocurrencia,
-               $referencia,
             ) ; 
         
-            $data = $logCtrl->set_log($params) ;
+            $data = $logCtrl->ctrl_set_log($params) ;
         
             $objConexion->commit();
         }
@@ -74,7 +72,7 @@ switch($evento)
         {
             $id = $_GET["id"] ;
             $logCtrl = new LogController() ; 
-            $data = $logCtrl->get_log_idlog( $id) ;
+            $data = $logCtrl->ctrl_get_log_idlog( $id) ;
             $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => $data);
         }
         catch (Exception $e)
@@ -99,17 +97,15 @@ switch($evento)
             $fecha = $inputs->Fecha;
             $idusuario = $inputs->IdUsuario;
             $ocurrencia = $inputs->Ocurrencia;
-            $referencia = $inputs->Referencia;
         
             $params = array(
                $idlog,
                $fecha,
                $idusuario,
                $ocurrencia,
-               $referencia,
             ) ; 
         
-            $data = $logCtrl->upd_log($params) ;
+            $data = $logCtrl->ctrl_upd_log($params) ;
         
             $objConexion->commit();
         }

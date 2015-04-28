@@ -1,0 +1,26 @@
+<div id="div_comision">
+<form id="frm_comision" name="frm_comision" class="hform"  ng-submit="updComision()">
+<table class="table" >
+ <caption>LISTA DE COMISION </caption>
+<thead>
+    <tr>
+        <th>IdComision </th>
+        <th>Gc </th>
+        <th>GcUrg </th>
+        <th>Tra </th>
+        <th>Igv </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="comision in comisions">
+        <th>comision.IdComision </th>
+        <th>comision.Gc </th>
+        <th>comision.GcUrg </th>
+        <th>comision.Tra </th>
+        <th>comision.Igv </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

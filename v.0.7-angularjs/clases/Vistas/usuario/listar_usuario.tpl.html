@@ -1,0 +1,40 @@
+<div id="div_usuario">
+<form id="frm_usuario" name="frm_usuario" class="hform"  ng-submit="updUsuario()">
+<table class="table" >
+ <caption>LISTA DE USUARIO </caption>
+<thead>
+    <tr>
+        <th>IdUsuario </th>
+        <th>Nombres </th>
+        <th>NomUsuario </th>
+        <th>PassUsuario </th>
+        <th>Telefono1 </th>
+        <th>Telefono2 </th>
+        <th>Telefono3 </th>
+        <th>Email </th>
+        <th>Ubigeo </th>
+        <th>FechaReg </th>
+        <th>IdCliente </th>
+        <th>SuperUsuario </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="usuario in usuarios">
+        <th>usuario.IdUsuario </th>
+        <th>usuario.Nombres </th>
+        <th>usuario.NomUsuario </th>
+        <th>usuario.PassUsuario </th>
+        <th>usuario.Telefono1 </th>
+        <th>usuario.Telefono2 </th>
+        <th>usuario.Telefono3 </th>
+        <th>usuario.Email </th>
+        <th>usuario.Ubigeo </th>
+        <th>usuario.FechaReg </th>
+        <th>usuario.IdCliente </th>
+        <th>usuario.SuperUsuario </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>
