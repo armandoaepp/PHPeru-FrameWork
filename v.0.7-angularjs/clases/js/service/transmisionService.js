@@ -1,34 +1,34 @@
 
 // Autor: Armando Enrique Pisfil Puemape tw: @armandoaepp
 'use strinct';
-app.service('logService', function($http){
-    this.getLogs = function()
+app.service('transmisionService', function($http){
+    this.getTransmisions = function()
     {
-        var url_    = 'data/ajax/log/indexLog.php';
+        var url_    = 'data/ajax/transmision/indexTransmision.php';
         var params_   = {'params': {'accion': 'list'}};
         
         return $http.get(url_,  params_);
     };
 
-    this.setLog = function(params_)
+    this.setTransmision = function(params_)
     {
-        var url_    = 'data/ajax/log/indexLog.php';
+        var url_    = 'data/ajax/transmision/indexTransmision.php';
         params_.accion = 'set';
        
         return $http.post(url_, params_ );
     };
 
-    this.getLogById = function(params_)
+    this.getTransmisionById = function(params_)
     {
-        var url_    = 'data/ajax/log/indexLog.php';
+        var url_    = 'data/ajax/transmision/indexTransmision.php';
         var params_   = {'params': {'accion': 'list', 'id': id}};
 
         return $http.get(url_, params_);
     };
 
-    this.updLog = function(params_)
+    this.updTransmision = function(params_)
     {
-        var url_    = 'data/ajax/log/indexLog.php';
+        var url_    = 'data/ajax/transmision/indexTransmision.php';
         params_.accion = 'upd';
        
         return $http.post(url_, params_ );

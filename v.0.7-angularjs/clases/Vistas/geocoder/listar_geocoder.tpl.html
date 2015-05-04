@@ -1,0 +1,28 @@
+<div id="div_geocoder">
+<form id="frm_geocoder" name="frm_geocoder" class="hform"  ng-submit="updGeocoder()">
+<table class="table" >
+ <caption>LISTA DE GEOCODER </caption>
+<thead>
+    <tr>
+        <th>IdGeocoder </th>
+        <th>IdCellocator </th>
+        <th>Longuitud </th>
+        <th>Latidud </th>
+        <th>Address </th>
+        <th>Referencia </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="geocoder in geocoders">
+        <th>geocoder.IdGeocoder </th>
+        <th>geocoder.IdCellocator </th>
+        <th>geocoder.Longuitud </th>
+        <th>geocoder.Latidud </th>
+        <th>geocoder.Address </th>
+        <th>geocoder.Referencia </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

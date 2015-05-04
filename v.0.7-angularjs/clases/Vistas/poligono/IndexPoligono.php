@@ -19,7 +19,7 @@ switch($evento)
         try
         {
             $poligonoCtrl = new PoligonoController() ; 
-            $data = $poligonoCtrl->get_poligono() ;
+            $data = $poligonoCtrl->ctrl_get_poligono() ;
             $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => $data);
         }
         catch (Exception $e)
@@ -63,7 +63,7 @@ switch($evento)
                $estado,
             ) ; 
         
-            $data = $poligonoCtrl->set_poligono($params) ;
+            $data = $poligonoCtrl->ctrl_set_poligono($params) ;
         
             $objConexion->commit();
         }
@@ -82,7 +82,7 @@ switch($evento)
         {
             $id = $_GET["id"] ;
             $poligonoCtrl = new PoligonoController() ; 
-            $data = $poligonoCtrl->get_poligono_idpoligono( $id) ;
+            $data = $poligonoCtrl->ctrl_get_poligono_idpoligono( $id) ;
             $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => $data);
         }
         catch (Exception $e)
@@ -125,7 +125,7 @@ switch($evento)
                $estado,
             ) ; 
         
-            $data = $poligonoCtrl->upd_poligono($params) ;
+            $data = $poligonoCtrl->ctrl_upd_poligono($params) ;
         
             $objConexion->commit();
         }

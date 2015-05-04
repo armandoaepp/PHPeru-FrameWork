@@ -9,7 +9,7 @@
         $this->cnx = $cnx;
     }
     
-    public function get_poligono()
+    public function ctrl_get_poligono()
     {
         try
         {
@@ -24,14 +24,14 @@
         }
     }
 
-    public function set_poligono($params = array() )
+    public function ctrl_set_poligono($params = array() )
     {
         try
         {
             
             extract($params) ; 
 
-            $objPoligono  = new ClsPoligono($this->$cnx);
+            $objPoligono  = new ClsPoligono($this->cnx);
             $bean_poligono = new BeanPoligono();
             
             $bean_poligono->setIdPoligono($idpoligono);
@@ -44,7 +44,7 @@
             $bean_poligono->setReferencia($referencia);
             $bean_poligono->setEstado($estado);
             
-            $data = $objPoligono->get_poligono($beanPoligono) ;
+            $data = $objPoligono->set_poligono($bean_poligono) ;
             return $data ;
         }
         catch (Exception $e)
@@ -53,7 +53,7 @@
         }
     }
 
-    public function get_poligono_by_id($id)
+    public function ctrl_get_poligono_by_id($id)
     {
         try
         {
@@ -70,14 +70,14 @@
         }
     }
 
-    public function upd_poligono($params = array())
+    public function ctrl_upd_poligono($params = array())
     {
         try
         {
             
             extract($params) ; 
 
-            $objPoligono  = new ClsPoligono($this->$cnx);
+            $objPoligono  = new ClsPoligono($this->cnx);
             $bean_poligono = new BeanPoligono();
             
             $bean_poligono->setIdPoligono($idpoligono);
@@ -90,7 +90,7 @@
             $bean_poligono->setReferencia($referencia);
             $bean_poligono->setEstado($estado);
             
-            $data = $objPoligono->upd_poligono($beanPoligono) ;
+            $data = $objPoligono->upd_poligono($bean_poligono) ;
             return $data;
         }
         catch (Exception $e)

@@ -24,7 +24,7 @@ switch($evento)
         }
         catch (Exception $e)
         {
-            $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => array());
+            $data = array('msg' => 'Error al consultar datos'. $e->getMessage(), 'error' => false, 'data' => array());
         }
         
         $jsn  = json_encode($data);
@@ -62,7 +62,7 @@ switch($evento)
         catch (Exception $e)
         {
             $objConexion->rollback();
-            $data = array('msg' => $e->getMessage(), 'error' => true, 'data' => array());
+            $data = array('msg' => 'Error al consultar datos'. $e->getMessage(), 'error' => true, 'data' => array());
         }
         
         $jsn  = json_encode($data);
@@ -79,7 +79,7 @@ switch($evento)
         }
         catch (Exception $e)
         {
-            $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => array());
+            $data = array('msg' => 'Error al consultar datos'. $e->getMessage(), 'error' => treu, 'data' => array());
         }
         
         $jsn  = json_encode($data);
@@ -116,7 +116,7 @@ switch($evento)
         catch (Exception $e)
         {
             $objConexion->rollback();
-            $data = array('msg' => $e->getMessage(), 'error' => true, 'data' => array());
+            $data = array('msg' => 'Error al consultar datos'. $e->getMessage(), 'error' => true, 'data' => array());
         }
         
         $jsn  = json_encode($data);

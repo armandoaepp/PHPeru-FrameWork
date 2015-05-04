@@ -18,8 +18,8 @@ switch($evento)
     case "list":
         try
         {
-            $vehiculo_alertaCtrl = new Vehiculo_alertaController() ; 
-            $data = $vehiculo_alertaCtrl->get_vehiculo_alerta() ;
+            $geocoderCtrl = new GeocoderController() ; 
+            $data = $geocoderCtrl->ctrl_get_geocoder() ;
             $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => $data);
         }
         catch (Exception $e)
@@ -38,42 +38,26 @@ switch($evento)
             $objConexion = new ClsConexion();
             $cnx = $objConexion->get_connection();
         
-            $vehiculo_alertaCtrl = new Vehiculo_alertaController($cnx) ; 
+            $geocoderCtrl = new GeocoderController($cnx) ; 
             $objConexion->beginTransaction();
         
-            $idvehiculoalerta = $inputs->IdVehiculoAlerta;
-            $idvehiculo = $inputs->IdVehiculo;
-            $idccellocator = $inputs->IdCcellocator;
-            $rmuid = $inputs->RMUId;
-            $gpsx = $inputs->GPSX;
-            $gpsy = $inputs->GPSY;
-            $speed = $inputs->Speed;
-            $direction = $inputs->Direction;
-            $utctime = $inputs->UTCTime;
-            $fecharegistro = $inputs->FechaRegistro;
-            $inputvoltage = $inputs->InputVoltage;
-            $idtipoalerta = $inputs->IdTipoAlerta;
+            $idgeocoder = $inputs->IdGeocoder;
+            $idcellocator = $inputs->IdCellocator;
+            $longuitud = $inputs->Longuitud;
+            $latidud = $inputs->Latidud;
+            $address = $inputs->Address;
             $referencia = $inputs->Referencia;
-            $estado = $inputs->Estado;
         
             $params = array(
-               $idvehiculoalerta,
-               $idvehiculo,
-               $idccellocator,
-               $rmuid,
-               $gpsx,
-               $gpsy,
-               $speed,
-               $direction,
-               $utctime,
-               $fecharegistro,
-               $inputvoltage,
-               $idtipoalerta,
+               $idgeocoder,
+               $idcellocator,
+               $longuitud,
+               $latidud,
+               $address,
                $referencia,
-               $estado,
             ) ; 
         
-            $data = $vehiculo_alertaCtrl->set_vehiculo_alerta($params) ;
+            $data = $geocoderCtrl->ctrl_set_geocoder($params) ;
         
             $objConexion->commit();
         }
@@ -91,8 +75,8 @@ switch($evento)
         try
         {
             $id = $_GET["id"] ;
-            $vehiculo_alertaCtrl = new Vehiculo_alertaController() ; 
-            $data = $vehiculo_alertaCtrl->get_vehiculo_alerta_idvehiculo_alerta( $id) ;
+            $geocoderCtrl = new GeocoderController() ; 
+            $data = $geocoderCtrl->ctrl_get_geocoder_idgeocoder( $id) ;
             $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => $data);
         }
         catch (Exception $e)
@@ -110,42 +94,26 @@ switch($evento)
             $objConexion = new ClsConexion();
             $cnx = $objConexion->get_connection();
         
-            $vehiculo_alertaCtrl = new Vehiculo_alertaController($cnx) ; 
+            $geocoderCtrl = new GeocoderController($cnx) ; 
             $objConexion->beginTransaction();
         
-            $idvehiculoalerta = $inputs->IdVehiculoAlerta;
-            $idvehiculo = $inputs->IdVehiculo;
-            $idccellocator = $inputs->IdCcellocator;
-            $rmuid = $inputs->RMUId;
-            $gpsx = $inputs->GPSX;
-            $gpsy = $inputs->GPSY;
-            $speed = $inputs->Speed;
-            $direction = $inputs->Direction;
-            $utctime = $inputs->UTCTime;
-            $fecharegistro = $inputs->FechaRegistro;
-            $inputvoltage = $inputs->InputVoltage;
-            $idtipoalerta = $inputs->IdTipoAlerta;
+            $idgeocoder = $inputs->IdGeocoder;
+            $idcellocator = $inputs->IdCellocator;
+            $longuitud = $inputs->Longuitud;
+            $latidud = $inputs->Latidud;
+            $address = $inputs->Address;
             $referencia = $inputs->Referencia;
-            $estado = $inputs->Estado;
         
             $params = array(
-               $idvehiculoalerta,
-               $idvehiculo,
-               $idccellocator,
-               $rmuid,
-               $gpsx,
-               $gpsy,
-               $speed,
-               $direction,
-               $utctime,
-               $fecharegistro,
-               $inputvoltage,
-               $idtipoalerta,
+               $idgeocoder,
+               $idcellocator,
+               $longuitud,
+               $latidud,
+               $address,
                $referencia,
-               $estado,
             ) ; 
         
-            $data = $vehiculo_alertaCtrl->upd_vehiculo_alerta($params) ;
+            $data = $geocoderCtrl->ctrl_upd_geocoder($params) ;
         
             $objConexion->commit();
         }

@@ -18,8 +18,8 @@ switch($evento)
     case "list":
         try
         {
-            $logCtrl = new LogController() ; 
-            $data = $logCtrl->get_log() ;
+            $transmisionCtrl = new TransmisionController() ; 
+            $data = $transmisionCtrl->ctrl_get_transmision() ;
             $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => $data);
         }
         catch (Exception $e)
@@ -38,24 +38,34 @@ switch($evento)
             $objConexion = new ClsConexion();
             $cnx = $objConexion->get_connection();
         
-            $logCtrl = new LogController($cnx) ; 
+            $transmisionCtrl = new TransmisionController($cnx) ; 
             $objConexion->beginTransaction();
         
-            $idlog = $inputs->IdLog;
-            $fecha = $inputs->Fecha;
-            $idusuario = $inputs->IdUsuario;
-            $ocurrencia = $inputs->Ocurrencia;
-            $referencia = $inputs->Referencia;
+            $idtransmision = $inputs->IdTransmision;
+            $idpersonajuridica = $inputs->IdPersonaJuridica;
+            $placa = $inputs->Placa;
+            $longitud = $inputs->Longitud;
+            $latitud = $inputs->Latitud;
+            $direccion = $inputs->Direccion;
+            $velocidad = $inputs->Velocidad;
+            $gpstime = $inputs->GpsTime;
+            $panico = $inputs->Panico;
+            $estado = $inputs->Estado;
         
             $params = array(
-               $idlog,
-               $fecha,
-               $idusuario,
-               $ocurrencia,
-               $referencia,
+               $idtransmision,
+               $idpersonajuridica,
+               $placa,
+               $longitud,
+               $latitud,
+               $direccion,
+               $velocidad,
+               $gpstime,
+               $panico,
+               $estado,
             ) ; 
         
-            $data = $logCtrl->set_log($params) ;
+            $data = $transmisionCtrl->ctrl_set_transmision($params) ;
         
             $objConexion->commit();
         }
@@ -73,8 +83,8 @@ switch($evento)
         try
         {
             $id = $_GET["id"] ;
-            $logCtrl = new LogController() ; 
-            $data = $logCtrl->get_log_idlog( $id) ;
+            $transmisionCtrl = new TransmisionController() ; 
+            $data = $transmisionCtrl->ctrl_get_transmision_idtransmision( $id) ;
             $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => $data);
         }
         catch (Exception $e)
@@ -92,24 +102,34 @@ switch($evento)
             $objConexion = new ClsConexion();
             $cnx = $objConexion->get_connection();
         
-            $logCtrl = new LogController($cnx) ; 
+            $transmisionCtrl = new TransmisionController($cnx) ; 
             $objConexion->beginTransaction();
         
-            $idlog = $inputs->IdLog;
-            $fecha = $inputs->Fecha;
-            $idusuario = $inputs->IdUsuario;
-            $ocurrencia = $inputs->Ocurrencia;
-            $referencia = $inputs->Referencia;
+            $idtransmision = $inputs->IdTransmision;
+            $idpersonajuridica = $inputs->IdPersonaJuridica;
+            $placa = $inputs->Placa;
+            $longitud = $inputs->Longitud;
+            $latitud = $inputs->Latitud;
+            $direccion = $inputs->Direccion;
+            $velocidad = $inputs->Velocidad;
+            $gpstime = $inputs->GpsTime;
+            $panico = $inputs->Panico;
+            $estado = $inputs->Estado;
         
             $params = array(
-               $idlog,
-               $fecha,
-               $idusuario,
-               $ocurrencia,
-               $referencia,
+               $idtransmision,
+               $idpersonajuridica,
+               $placa,
+               $longitud,
+               $latitud,
+               $direccion,
+               $velocidad,
+               $gpstime,
+               $panico,
+               $estado,
             ) ; 
         
-            $data = $logCtrl->upd_log($params) ;
+            $data = $transmisionCtrl->ctrl_upd_transmision($params) ;
         
             $objConexion->commit();
         }
