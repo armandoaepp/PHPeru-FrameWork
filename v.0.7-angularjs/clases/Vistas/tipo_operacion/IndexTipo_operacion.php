@@ -24,7 +24,7 @@ switch($evento)
         }
         catch (Exception $e)
         {
-            $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => array());
+            $data = array('msg' => 'Error al consultar datos'. $e->getMessage(), 'error' => false, 'data' => array());
         }
         
         $jsn  = json_encode($data);
@@ -45,8 +45,8 @@ switch($evento)
             $descripcion = $inputs->Descripcion;
         
             $params = array(
-               $idtipooperacion,
-               $descripcion,
+               'idtipooperacion'=> $idtipooperacion,
+               'descripcion'=> $descripcion,
             ) ; 
         
             $data = $tipo_operacionCtrl->ctrl_set_tipo_operacion($params) ;
@@ -56,7 +56,7 @@ switch($evento)
         catch (Exception $e)
         {
             $objConexion->rollback();
-            $data = array('msg' => $e->getMessage(), 'error' => true, 'data' => array());
+            $data = array('msg' => 'Error al consultar datos'. $e->getMessage(), 'error' => true, 'data' => array());
         }
         
         $jsn  = json_encode($data);
@@ -73,7 +73,7 @@ switch($evento)
         }
         catch (Exception $e)
         {
-            $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => array());
+            $data = array('msg' => 'Error al consultar datos'. $e->getMessage(), 'error' => treu, 'data' => array());
         }
         
         $jsn  = json_encode($data);
@@ -93,8 +93,8 @@ switch($evento)
             $descripcion = $inputs->Descripcion;
         
             $params = array(
-               $idtipooperacion,
-               $descripcion,
+               'idtipooperacion'=> $idtipooperacion,
+               'descripcion'=> $descripcion,
             ) ; 
         
             $data = $tipo_operacionCtrl->ctrl_upd_tipo_operacion($params) ;
@@ -104,7 +104,7 @@ switch($evento)
         catch (Exception $e)
         {
             $objConexion->rollback();
-            $data = array('msg' => $e->getMessage(), 'error' => true, 'data' => array());
+            $data = array('msg' => 'Error al consultar datos'. $e->getMessage(), 'error' => true, 'data' => array());
         }
         
         $jsn  = json_encode($data);

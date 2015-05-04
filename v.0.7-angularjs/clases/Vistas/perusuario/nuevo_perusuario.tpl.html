@@ -1,0 +1,34 @@
+<div id="div_perusuario">
+<form id="frm_perusuario" name="frm_perusuario" class="hform"  ng-submit="setPerusuario()">
+<fieldset> <legend> Nuevo Perusuario</legend>
+    <fieldset>
+        <label for="IdPerUsuario">IdPerUsuario : </label>
+        <input type="text" name="IdPerUsuario" ng-model="perusuario.IdPerUsuario" />
+    </fieldset>
+    <fieldset>
+        <label for="PerApellidos">PerApellidos : </label>
+        <input type="text" name="PerApellidos" ng-model="perusuario.PerApellidos" />
+    </fieldset>
+    <fieldset>
+        <label for="PerNombre">PerNombre : </label>
+        <input type="text" name="PerNombre" ng-model="perusuario.PerNombre" />
+    </fieldset>
+    <fieldset>
+        <label for="PerUsuario">PerUsuario : </label>
+        <input type="text" name="PerUsuario" ng-model="perusuario.PerUsuario" />
+    </fieldset>
+    <fieldset>
+        <label for="PerPassword">PerPassword : </label>
+        <input type="text" name="PerPassword" ng-model="perusuario.PerPassword" />
+    </fieldset>
+    <fieldset>
+        <label for="FechaReg">FechaReg : </label>
+        <input type="text" name="FechaReg" ng-model="perusuario.FechaReg" />
+    </fieldset>
+     <fieldset class="text-right">
+        <button  type="button" id="btnCancelar" onclick="location.href='#/perusuario/listar';">Cancelar </button>
+        <button id="btregistrar" ng-disabled="frm_perusuario.$invalid"  >Registrar </button>
+    </fieldset>
+</fieldset>
+</form>
+</div>

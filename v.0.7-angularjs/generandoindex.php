@@ -67,7 +67,7 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto .= '        }' . PHP_EOL;
         $texto .= '        catch (Exception $e)' . PHP_EOL;
         $texto .= '        {' . PHP_EOL;
-        $texto  .= '            $data = array(\'msg\' => \'Error al consultar datos\'. $e->getMessage(), \'error\' => false, \'data\' => array());' . PHP_EOL;
+        $texto  .= '            $data = array(\'msg\' => \'Error al consultar datos\'. $e->getMessage(), \'error\' => true, \'data\' => array());' . PHP_EOL;
         $texto .= '        }' . PHP_EOL;
         $texto .= '        ' . PHP_EOL;
         $texto .= '        $jsn  = json_encode($data);' . PHP_EOL;
@@ -137,7 +137,7 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto .= '        }' . PHP_EOL;
         $texto .= '        catch (Exception $e)' . PHP_EOL;
         $texto .= '        {' . PHP_EOL;
-        $texto  .= '            $data = array(\'msg\' => \'Error al consultar datos\'. $e->getMessage(), \'error\' => treu, \'data\' => array());' . PHP_EOL;
+        $texto  .= '            $data = array(\'msg\' => \'Error al consultar datos\'. $e->getMessage(), \'error\' => true, \'data\' => array());' . PHP_EOL;
         $texto .= '        }' . PHP_EOL;
         $texto .= '        ' . PHP_EOL;
         $texto .= '        $jsn  = json_encode($data);' . PHP_EOL;
