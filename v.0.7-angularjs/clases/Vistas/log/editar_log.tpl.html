@@ -1,0 +1,26 @@
+<div id="div_log">
+<form id="frm_log" name="frm_log" class="hform"  ng-submit="updLog()">
+<fieldset> <legend> Editar Log</legend>
+    <fieldset>
+        <label for="IdLog">IdLog : </label>
+        <input type="text" name="IdLog" ng-model="log.IdLog"  value="{{IdLog}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Fecha">Fecha : </label>
+        <input type="text" name="Fecha" ng-model="log.Fecha"  value="{{Fecha}}" />
+    </fieldset>
+    <fieldset>
+        <label for="IdUsuario">IdUsuario : </label>
+        <input type="text" name="IdUsuario" ng-model="log.IdUsuario"  value="{{IdUsuario}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Ocurrencia">Ocurrencia : </label>
+        <input type="text" name="Ocurrencia" ng-model="log.Ocurrencia"  value="{{Ocurrencia}}" />
+    </fieldset>
+     <fieldset class="text-right">
+        <button  type="button" id="btnCancelar" onclick="location.href='#/log/listar';">Cancelar </button>
+        <button id="btregistrar" ng-disabled="frm_log.$invalid"  >Registrar </button>
+    </fieldset>
+</fieldset>
+</form>
+</div>

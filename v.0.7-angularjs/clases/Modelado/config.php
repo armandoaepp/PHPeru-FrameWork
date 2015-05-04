@@ -13,7 +13,12 @@ public $basededatos_="bd_rastreo";
 public $servidor_="127.0.0.1";
 public $usuario_="root";
 public $pass_="";
+<<<<<<< HEAD
 public $basededatos_="bd_rastreo";*/
+=======
+public $basededatos_="db_transcarga";
+// public $basededatos_="bd_rastreo";
+>>>>>>> 2414869aa375932485252e971d3a9db69f9f4429
 
 }
 ?>

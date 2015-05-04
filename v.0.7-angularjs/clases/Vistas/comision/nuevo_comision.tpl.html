@@ -1,0 +1,30 @@
+<div id="div_comision">
+<form id="frm_comision" name="frm_comision" class="hform"  ng-submit="setComision()">
+<fieldset> <legend> Nuevo Comision</legend>
+    <fieldset>
+        <label for="IdComision">IdComision : </label>
+        <input type="text" name="IdComision" ng-model="comision.IdComision" />
+    </fieldset>
+    <fieldset>
+        <label for="Gc">Gc : </label>
+        <input type="text" name="Gc" ng-model="comision.Gc" />
+    </fieldset>
+    <fieldset>
+        <label for="GcUrg">GcUrg : </label>
+        <input type="text" name="GcUrg" ng-model="comision.GcUrg" />
+    </fieldset>
+    <fieldset>
+        <label for="Tra">Tra : </label>
+        <input type="text" name="Tra" ng-model="comision.Tra" />
+    </fieldset>
+    <fieldset>
+        <label for="Igv">Igv : </label>
+        <input type="text" name="Igv" ng-model="comision.Igv" />
+    </fieldset>
+     <fieldset class="text-right">
+        <button  type="button" id="btnCancelar" onclick="location.href='#/comision/listar';">Cancelar </button>
+        <button id="btregistrar" ng-disabled="frm_comision.$invalid"  >Registrar </button>
+    </fieldset>
+</fieldset>
+</form>
+</div>

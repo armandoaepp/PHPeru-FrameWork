@@ -1,0 +1,18 @@
+<div id="div_tipo_operacion">
+<form id="frm_tipo_operacion" name="frm_tipo_operacion" class="hform"  ng-submit="updTipo_operacion()">
+<fieldset> <legend> Editar Tipo_operacion</legend>
+    <fieldset>
+        <label for="IdTipoOperacion">IdTipoOperacion : </label>
+        <input type="text" name="IdTipoOperacion" ng-model="tipo_operacion.IdTipoOperacion"  value="{{IdTipoOperacion}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Descripcion">Descripcion : </label>
+        <input type="text" name="Descripcion" ng-model="tipo_operacion.Descripcion"  value="{{Descripcion}}" />
+    </fieldset>
+     <fieldset class="text-right">
+        <button  type="button" id="btnCancelar" onclick="location.href='#/tipo_operacion/listar';">Cancelar </button>
+        <button id="btregistrar" ng-disabled="frm_tipo_operacion.$invalid"  >Registrar </button>
+    </fieldset>
+</fieldset>
+</form>
+</div>

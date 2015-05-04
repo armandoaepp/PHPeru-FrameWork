@@ -1,34 +1,34 @@
 
 // Autor: Armando Enrique Pisfil Puemape tw: @armandoaepp
 'use strinct';
-app.service('bitacoraService', function($http){
-    this.getBitacoras = function()
+app.service('gcService', function($http){
+    this.getGcs = function()
     {
-        var url_    = 'data/ajax/bitacora/indexBitacora.php';
+        var url_    = 'data/ajax/gc/indexGc.php';
         var params_   = {'params': {'accion': 'list'}};
         
         return $http.get(url_,  params_);
     };
 
-    this.setBitacora = function(params_)
+    this.setGc = function(params_)
     {
-        var url_    = 'data/ajax/bitacora/indexBitacora.php';
+        var url_    = 'data/ajax/gc/indexGc.php';
         params_.accion = 'set';
        
         return $http.post(url_, params_ );
     };
 
-    this.getBitacoraById = function(params_)
+    this.getGcById = function(params_)
     {
-        var url_    = 'data/ajax/bitacora/indexBitacora.php';
+        var url_    = 'data/ajax/gc/indexGc.php';
         var params_   = {'params': {'accion': 'list', 'id': id}};
 
         return $http.get(url_, params_);
     };
 
-    this.updBitacora = function(params_)
+    this.updGc = function(params_)
     {
-        var url_    = 'data/ajax/bitacora/indexBitacora.php';
+        var url_    = 'data/ajax/gc/indexGc.php';
         params_.accion = 'upd';
        
         return $http.post(url_, params_ );

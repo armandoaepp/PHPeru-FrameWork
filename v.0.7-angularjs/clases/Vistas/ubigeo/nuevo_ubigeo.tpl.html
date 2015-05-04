@@ -1,0 +1,26 @@
+<div id="div_ubigeo">
+<form id="frm_ubigeo" name="frm_ubigeo" class="hform"  ng-submit="setUbigeo()">
+<fieldset> <legend> Nuevo Ubigeo</legend>
+    <fieldset>
+        <label for="CodUbigeo">CodUbigeo : </label>
+        <input type="text" name="CodUbigeo" ng-model="ubigeo.CodUbigeo" />
+    </fieldset>
+    <fieldset>
+        <label for="Lugar">Lugar : </label>
+        <input type="text" name="Lugar" ng-model="ubigeo.Lugar" />
+    </fieldset>
+    <fieldset>
+        <label for="Longitud">Longitud : </label>
+        <input type="text" name="Longitud" ng-model="ubigeo.Longitud" />
+    </fieldset>
+    <fieldset>
+        <label for="Latitud">Latitud : </label>
+        <input type="text" name="Latitud" ng-model="ubigeo.Latitud" />
+    </fieldset>
+     <fieldset class="text-right">
+        <button  type="button" id="btnCancelar" onclick="location.href='#/ubigeo/listar';">Cancelar </button>
+        <button id="btregistrar" ng-disabled="frm_ubigeo.$invalid"  >Registrar </button>
+    </fieldset>
+</fieldset>
+</form>
+</div>

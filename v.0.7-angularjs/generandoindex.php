@@ -21,7 +21,7 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         if (count($nameatri) > 0) {
                     for ($i = 0; $i < count($nameatri); $i++) {
                         if ($nameatri[$i] != "estado") {
-                            $paramss .= '               $'.strtolower($nameatri[$i]).','. PHP_EOL;
+                            $paramss .= '               \''.strtolower($nameatri[$i]).'\'=> $'.strtolower($nameatri[$i]).','. PHP_EOL;
                         }
                     }
                 }
@@ -188,6 +188,7 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto .= '        print_r($jsn) ;' . PHP_EOL;
         $texto .= '    break;' . PHP_EOL;
         $texto .= "" . PHP_EOL;
+
 
         $texto .= '}' . PHP_EOL;
         // $texto .= 'ob_flush();' . PHP_EOL;

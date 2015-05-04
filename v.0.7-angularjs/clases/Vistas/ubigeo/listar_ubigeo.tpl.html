@@ -1,0 +1,24 @@
+<div id="div_ubigeo">
+<form id="frm_ubigeo" name="frm_ubigeo" class="hform"  ng-submit="updUbigeo()">
+<table class="table" >
+ <caption>LISTA DE UBIGEO </caption>
+<thead>
+    <tr>
+        <th>CodUbigeo </th>
+        <th>Lugar </th>
+        <th>Longitud </th>
+        <th>Latitud </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="ubigeo in ubigeos">
+        <th>ubigeo.CodUbigeo </th>
+        <th>ubigeo.Lugar </th>
+        <th>ubigeo.Longitud </th>
+        <th>ubigeo.Latitud </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

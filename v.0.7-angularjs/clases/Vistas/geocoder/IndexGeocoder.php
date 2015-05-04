@@ -18,8 +18,13 @@ switch($evento)
     case "list":
         try
         {
+<<<<<<< HEAD:v.0.7-angularjs/clases/Vistas/geocoder/IndexGeocoder.php
             $geocoderCtrl = new GeocoderController() ; 
             $data = $geocoderCtrl->ctrl_get_geocoder() ;
+=======
+            $logCtrl = new LogController() ; 
+            $data = $logCtrl->ctrl_get_log() ;
+>>>>>>> 2414869aa375932485252e971d3a9db69f9f4429:v.0.7-angularjs/clases/Vistas/log/IndexLog.php
             $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => $data);
         }
         catch (Exception $e)
@@ -41,6 +46,7 @@ switch($evento)
             $geocoderCtrl = new GeocoderController($cnx) ; 
             $objConexion->beginTransaction();
         
+<<<<<<< HEAD:v.0.7-angularjs/clases/Vistas/geocoder/IndexGeocoder.php
             $idgeocoder = $inputs->IdGeocoder;
             $idcellocator = $inputs->IdCellocator;
             $longuitud = $inputs->Longuitud;
@@ -58,6 +64,21 @@ switch($evento)
             ) ; 
         
             $data = $geocoderCtrl->ctrl_set_geocoder($params) ;
+=======
+            $idlog = $inputs->IdLog;
+            $fecha = $inputs->Fecha;
+            $idusuario = $inputs->IdUsuario;
+            $ocurrencia = $inputs->Ocurrencia;
+        
+            $params = array(
+               $idlog,
+               $fecha,
+               $idusuario,
+               $ocurrencia,
+            ) ; 
+        
+            $data = $logCtrl->ctrl_set_log($params) ;
+>>>>>>> 2414869aa375932485252e971d3a9db69f9f4429:v.0.7-angularjs/clases/Vistas/log/IndexLog.php
         
             $objConexion->commit();
         }
@@ -75,8 +96,13 @@ switch($evento)
         try
         {
             $id = $_GET["id"] ;
+<<<<<<< HEAD:v.0.7-angularjs/clases/Vistas/geocoder/IndexGeocoder.php
             $geocoderCtrl = new GeocoderController() ; 
             $data = $geocoderCtrl->ctrl_get_geocoder_idgeocoder( $id) ;
+=======
+            $logCtrl = new LogController() ; 
+            $data = $logCtrl->ctrl_get_log_idlog( $id) ;
+>>>>>>> 2414869aa375932485252e971d3a9db69f9f4429:v.0.7-angularjs/clases/Vistas/log/IndexLog.php
             $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => $data);
         }
         catch (Exception $e)
@@ -97,6 +123,7 @@ switch($evento)
             $geocoderCtrl = new GeocoderController($cnx) ; 
             $objConexion->beginTransaction();
         
+<<<<<<< HEAD:v.0.7-angularjs/clases/Vistas/geocoder/IndexGeocoder.php
             $idgeocoder = $inputs->IdGeocoder;
             $idcellocator = $inputs->IdCellocator;
             $longuitud = $inputs->Longuitud;
@@ -114,6 +141,21 @@ switch($evento)
             ) ; 
         
             $data = $geocoderCtrl->ctrl_upd_geocoder($params) ;
+=======
+            $idlog = $inputs->IdLog;
+            $fecha = $inputs->Fecha;
+            $idusuario = $inputs->IdUsuario;
+            $ocurrencia = $inputs->Ocurrencia;
+        
+            $params = array(
+               $idlog,
+               $fecha,
+               $idusuario,
+               $ocurrencia,
+            ) ; 
+        
+            $data = $logCtrl->ctrl_upd_log($params) ;
+>>>>>>> 2414869aa375932485252e971d3a9db69f9f4429:v.0.7-angularjs/clases/Vistas/log/IndexLog.php
         
             $objConexion->commit();
         }
