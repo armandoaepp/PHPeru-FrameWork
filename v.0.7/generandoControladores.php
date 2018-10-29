@@ -10,34 +10,46 @@ function generandoControladores($atri, $tabla)
             $aatri[] = $romper[$i];
         }
     }
-    if (file_exists("./clases/Vistas/" . $tabla)) {
-        $carpeta = "./clases/Vistas/" . $tabla . "/";
+
+    /* if (file_exists("./App/Controllers/" . $tabla)) {
+        $carpeta = "./App/Controllers/" . $tabla . "/";
     } else {
-        mkdir("./clases/Vistas/" . $tabla, 0777);
-        $carpeta = "./clases/Vistas/" . $tabla . "/";
+        mkdir("./App/Controllers/" . $tabla, 0777);
+        $carpeta = "./App/Controllers/" . $tabla . "/";
     }
+     */
+    $carpeta = "./App/Controllers/";
+
 
     $extension = ".php";
     if (!empty($tabla)) {
-        $nomarchivo = $carpeta . "Controlador_" . $tabla;
+        $nomarchivo = $carpeta . ucwords($tabla)."Controller";
         $abrir      = fopen($nomarchivo . $extension, "w");
         $texto      = '<?php' . PHP_EOL;
-        $texto .= 'include_once "../../Modelado/Modelo_' . $tabla . '.php"; ' . PHP_EOL;
-        //$texto.='include_once "../cixphp.php"; '.PHP_EOL;
-        $texto .= 'include_once "../validacion.php"; ' . PHP_EOL;
-        $texto .= 'function CRegistrar_' . $tabla . '(){' . PHP_EOL;
-        $texto .= '$en' . $tabla . '=new Clase_' . $tabla . '();' . PHP_EOL;
+
+        $texto .= 'function set'.ucwords($tabla).'( $params = array() ){' . PHP_EOL;
+
+        $texto .= 'try{' . PHP_EOL;
+        $texto .= 'extract($params);' . PHP_EOL;
+        $texto .= '$' . $tabla . '= new ' . ucwords($tabla). '();' . PHP_EOL;
+
+
         if (count($aatri) > 0) {
             for ($i = 0; $i < count($aatri); $i++) {
                 if ($aatri[$i] == "estado") {
-                    $texto .= '$en' . $tabla . '->set' . $aatri[$i] . '("A");' . PHP_EOL;
+                    $texto .= '$' . $tabla . '->set' . ucwords($aatri[$i]) . '(1);' . PHP_EOL;
                 } else {
-                    $texto .= '$en' . $tabla . '->set' . $aatri[$i] . '(validar($_POST["' . $aatri[$i] . '_"]));' . PHP_EOL;
+                    $texto .= '$' . $tabla . '->set' . ucwords($aatri[$i]) . '($'. $aatri[$i] . ');' . PHP_EOL;
                 }
             }
         }
         $texto .= '$rpta=$en' . $tabla . '->Insertar_' . $tabla . '();' . PHP_EOL;
         $texto .= 'return $rpta;' . PHP_EOL;
+        $texto .= '}catch(exception $e){' . PHP_EOL;
+        $texto .= PHP_EOL;
+        $texto .= ' throw new Exception($e->getMessage());' . PHP_EOL;
+        $texto .= PHP_EOL;
+        $texto .= ' }' . PHP_EOL;
         $texto .= '}' . PHP_EOL;
         //funcion Actualizar
         $texto .= "" . PHP_EOL;
