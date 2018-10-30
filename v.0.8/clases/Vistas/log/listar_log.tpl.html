@@ -1,0 +1,24 @@
+<div id="div_log">
+<form id="frm_log" name="frm_log" class="hform"  ng-submit="updLog()">
+<table class="table" >
+ <caption>LISTA DE LOG </caption>
+<thead>
+    <tr>
+        <th>IdLog </th>
+        <th>Fecha </th>
+        <th>IdUsuario </th>
+        <th>Ocurrencia </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="log in logs">
+        <th>log.IdLog </th>
+        <th>log.Fecha </th>
+        <th>log.IdUsuario </th>
+        <th>log.Ocurrencia </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

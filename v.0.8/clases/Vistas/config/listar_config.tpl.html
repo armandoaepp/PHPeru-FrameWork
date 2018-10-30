@@ -1,0 +1,26 @@
+<div id="div_config">
+<form id="frm_config" name="frm_config" class="hform"  ng-submit="updConfig()">
+<table class="table" >
+ <caption>LISTA DE CONFIG </caption>
+<thead>
+    <tr>
+        <th>Idconfig </th>
+        <th>IdTipoEntidad </th>
+        <th>IdValor </th>
+        <th>Valor </th>
+        <th>Referencia </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="config in configs">
+        <th>config.Idconfig </th>
+        <th>config.idTipoEntidad </th>
+        <th>config.IdValor </th>
+        <th>config.Valor </th>
+        <th>config.Referencia </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

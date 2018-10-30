@@ -1,0 +1,58 @@
+<div id="div_usuario">
+<form id="frm_usuario" name="frm_usuario" class="hform"  ng-submit="updUsuario()">
+<fieldset> <legend> Editar Usuario</legend>
+    <fieldset>
+        <label for="IdUsuario">IdUsuario : </label>
+        <input type="text" name="IdUsuario" ng-model="usuario.IdUsuario"  value="{{IdUsuario}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Nombres">Nombres : </label>
+        <input type="text" name="Nombres" ng-model="usuario.Nombres"  value="{{Nombres}}" />
+    </fieldset>
+    <fieldset>
+        <label for="NomUsuario">NomUsuario : </label>
+        <input type="text" name="NomUsuario" ng-model="usuario.NomUsuario"  value="{{NomUsuario}}" />
+    </fieldset>
+    <fieldset>
+        <label for="PassUsuario">PassUsuario : </label>
+        <input type="text" name="PassUsuario" ng-model="usuario.PassUsuario"  value="{{PassUsuario}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Telefono1">Telefono1 : </label>
+        <input type="text" name="Telefono1" ng-model="usuario.Telefono1"  value="{{Telefono1}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Telefono2">Telefono2 : </label>
+        <input type="text" name="Telefono2" ng-model="usuario.Telefono2"  value="{{Telefono2}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Telefono3">Telefono3 : </label>
+        <input type="text" name="Telefono3" ng-model="usuario.Telefono3"  value="{{Telefono3}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Email">Email : </label>
+        <input type="text" name="Email" ng-model="usuario.Email"  value="{{Email}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Ubigeo">Ubigeo : </label>
+        <input type="text" name="Ubigeo" ng-model="usuario.Ubigeo"  value="{{Ubigeo}}" />
+    </fieldset>
+    <fieldset>
+        <label for="FechaReg">FechaReg : </label>
+        <input type="text" name="FechaReg" ng-model="usuario.FechaReg"  value="{{FechaReg}}" />
+    </fieldset>
+    <fieldset>
+        <label for="IdCliente">IdCliente : </label>
+        <input type="text" name="IdCliente" ng-model="usuario.IdCliente"  value="{{IdCliente}}" />
+    </fieldset>
+    <fieldset>
+        <label for="SuperUsuario">SuperUsuario : </label>
+        <input type="text" name="SuperUsuario" ng-model="usuario.SuperUsuario"  value="{{SuperUsuario}}" />
+    </fieldset>
+     <fieldset class="text-right">
+        <button  type="button" id="btnCancelar" onclick="location.href='#/usuario/listar';">Cancelar </button>
+        <button id="btregistrar" ng-disabled="frm_usuario.$invalid"  >Registrar </button>
+    </fieldset>
+</fieldset>
+</form>
+</div>

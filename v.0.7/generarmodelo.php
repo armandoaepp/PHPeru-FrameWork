@@ -80,7 +80,7 @@ function generarmodelo($atri, $cListar, $tabla, $name_set_get)
             $texto .= '' . PHP_EOL;
 
             //comenzamos a insertar Registros
-            $texto .= '$consulta="INSERT INTO ' . $tabla.PHP_EOL;
+            $texto .= '$this->query = "INSERT INTO ' . $tabla.PHP_EOL;
             $texto .= 'VALUES('.PHP_EOL;
             $concat = "";
             for ($i = 1; $i < count($aatri); $i++) {
@@ -128,7 +128,7 @@ function generarmodelo($atri, $cListar, $tabla, $name_set_get)
 
 
             //QUERY
-                $concat='$consulta="UPDATE '.$tabla.' SET ';
+                $concat='$this->query = "UPDATE '.$tabla.' SET '. PHP_EOL;
                 for ($i = 1; $i < count($aatri); $i++) {
                     $concat.= $aatri[$i]." = '$".$aatri[$i];
                     if ( $i < (count($aatri) - 1) )
@@ -139,7 +139,7 @@ function generarmodelo($atri, $cListar, $tabla, $name_set_get)
                 // $concat=substr($concat,0,-1);
                 $concat= $concat ;
                 $concat.= PHP_EOL;
-                $concat.=" WHERE ".$aatri[0]."='$".$aatri[0]."'".'";';
+                $concat.="WHERE ".$aatri[0]."='$".$aatri[0]."'".'";';
                 $texto.=$concat.PHP_EOL;
             // end QUERY
 

@@ -1,0 +1,28 @@
+<div id="div_perusuario">
+<form id="frm_perusuario" name="frm_perusuario" class="hform"  ng-submit="updPerusuario()">
+<table class="table" >
+ <caption>LISTA DE PERUSUARIO </caption>
+<thead>
+    <tr>
+        <th>IdPerUsuario </th>
+        <th>PerApellidos </th>
+        <th>PerNombre </th>
+        <th>PerUsuario </th>
+        <th>PerPassword </th>
+        <th>FechaReg </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="perusuario in perusuarios">
+        <th>perusuario.IdPerUsuario </th>
+        <th>perusuario.PerApellidos </th>
+        <th>perusuario.PerNombre </th>
+        <th>perusuario.PerUsuario </th>
+        <th>perusuario.PerPassword </th>
+        <th>perusuario.FechaReg </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

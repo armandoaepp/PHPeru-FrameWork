@@ -1,0 +1,54 @@
+<div id="div_operador">
+<form id="frm_operador" name="frm_operador" class="hform"  ng-submit="setOperador()">
+<fieldset> <legend> Nuevo Operador</legend>
+    <fieldset>
+        <label for="IdOperador">IdOperador : </label>
+        <input type="text" name="IdOperador" ng-model="operador.IdOperador" />
+    </fieldset>
+    <fieldset>
+        <label for="Nombre">Nombre : </label>
+        <input type="text" name="Nombre" ng-model="operador.Nombre" />
+    </fieldset>
+    <fieldset>
+        <label for="NomOperador">NomOperador : </label>
+        <input type="text" name="NomOperador" ng-model="operador.NomOperador" />
+    </fieldset>
+    <fieldset>
+        <label for="PassOperador">PassOperador : </label>
+        <input type="text" name="PassOperador" ng-model="operador.PassOperador" />
+    </fieldset>
+    <fieldset>
+        <label for="Telefono1">Telefono1 : </label>
+        <input type="text" name="Telefono1" ng-model="operador.Telefono1" />
+    </fieldset>
+    <fieldset>
+        <label for="Telefono2">Telefono2 : </label>
+        <input type="text" name="Telefono2" ng-model="operador.Telefono2" />
+    </fieldset>
+    <fieldset>
+        <label for="Telefono3">Telefono3 : </label>
+        <input type="text" name="Telefono3" ng-model="operador.Telefono3" />
+    </fieldset>
+    <fieldset>
+        <label for="CodUbigeo">CodUbigeo : </label>
+        <input type="text" name="CodUbigeo" ng-model="operador.CodUbigeo" />
+    </fieldset>
+    <fieldset>
+        <label for="FechaReg">FechaReg : </label>
+        <input type="text" name="FechaReg" ng-model="operador.FechaReg" />
+    </fieldset>
+    <fieldset>
+        <label for="IdTransp">IdTransp : </label>
+        <input type="text" name="IdTransp" ng-model="operador.IdTransp" />
+    </fieldset>
+    <fieldset>
+        <label for="SuperUsuario">SuperUsuario : </label>
+        <input type="text" name="SuperUsuario" ng-model="operador.SuperUsuario" />
+    </fieldset>
+     <fieldset class="text-right">
+        <button  type="button" id="btnCancelar" onclick="location.href='#/operador/listar';">Cancelar </button>
+        <button id="btregistrar" ng-disabled="frm_operador.$invalid"  >Registrar </button>
+    </fieldset>
+</fieldset>
+</form>
+</div>

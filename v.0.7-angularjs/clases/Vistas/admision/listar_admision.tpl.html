@@ -1,0 +1,30 @@
+<div id="div_admision">
+<form id="frm_admision" name="frm_admision" class="hform"  ng-submit="updAdmision()">
+<table class="table" >
+ <caption>LISTA DE ADMISION </caption>
+<thead>
+    <tr>
+        <th>Id </th>
+        <th>Titulo </th>
+        <th>Imagen </th>
+        <th>Requisitos </th>
+        <th>Horarios </th>
+        <th>Inversion </th>
+        <th>Email </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="admision in admisions">
+        <th>admision.id </th>
+        <th>admision.titulo </th>
+        <th>admision.imagen </th>
+        <th>admision.requisitos </th>
+        <th>admision.horarios </th>
+        <th>admision.inversion </th>
+        <th>admision.email </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

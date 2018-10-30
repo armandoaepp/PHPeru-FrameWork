@@ -1,0 +1,38 @@
+<div id="div_operador">
+<form id="frm_operador" name="frm_operador" class="hform"  ng-submit="updOperador()">
+<table class="table" >
+ <caption>LISTA DE OPERADOR </caption>
+<thead>
+    <tr>
+        <th>IdOperador </th>
+        <th>Nombre </th>
+        <th>NomOperador </th>
+        <th>PassOperador </th>
+        <th>Telefono1 </th>
+        <th>Telefono2 </th>
+        <th>Telefono3 </th>
+        <th>CodUbigeo </th>
+        <th>FechaReg </th>
+        <th>IdTransp </th>
+        <th>SuperUsuario </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="operador in operadors">
+        <th>operador.IdOperador </th>
+        <th>operador.Nombre </th>
+        <th>operador.NomOperador </th>
+        <th>operador.PassOperador </th>
+        <th>operador.Telefono1 </th>
+        <th>operador.Telefono2 </th>
+        <th>operador.Telefono3 </th>
+        <th>operador.CodUbigeo </th>
+        <th>operador.FechaReg </th>
+        <th>operador.IdTransp </th>
+        <th>operador.SuperUsuario </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

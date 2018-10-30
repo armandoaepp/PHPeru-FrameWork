@@ -1,0 +1,24 @@
+<div id="div_cuenta">
+<form id="frm_cuenta" name="frm_cuenta" class="hform"  ng-submit="updCuenta()">
+<table class="table" >
+ <caption>LISTA DE CUENTA </caption>
+<thead>
+    <tr>
+        <th>IdCuenta </th>
+        <th>TipoCli </th>
+        <th>IdCli </th>
+        <th>Saldo </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="cuenta in cuentas">
+        <th>cuenta.IdCuenta </th>
+        <th>cuenta.TipoCli </th>
+        <th>cuenta.IdCli </th>
+        <th>cuenta.Saldo </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>
