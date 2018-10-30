@@ -1,0 +1,26 @@
+<div id="div_cuenta">
+<form id="frm_cuenta" name="frm_cuenta" class="hform"  ng-submit="setCuenta()">
+<fieldset> <legend> Nuevo Cuenta</legend>
+    <fieldset>
+        <label for="IdCuenta">IdCuenta : </label>
+        <input type="text" name="IdCuenta" ng-model="cuenta.IdCuenta" />
+    </fieldset>
+    <fieldset>
+        <label for="TipoCli">TipoCli : </label>
+        <input type="text" name="TipoCli" ng-model="cuenta.TipoCli" />
+    </fieldset>
+    <fieldset>
+        <label for="IdCli">IdCli : </label>
+        <input type="text" name="IdCli" ng-model="cuenta.IdCli" />
+    </fieldset>
+    <fieldset>
+        <label for="Saldo">Saldo : </label>
+        <input type="text" name="Saldo" ng-model="cuenta.Saldo" />
+    </fieldset>
+     <fieldset class="text-right">
+        <button  type="button" id="btnCancelar" onclick="location.href='#/cuenta/listar';">Cancelar </button>
+        <button id="btregistrar" ng-disabled="frm_cuenta.$invalid"  >Registrar </button>
+    </fieldset>
+</fieldset>
+</form>
+</div>

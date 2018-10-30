@@ -1,0 +1,30 @@
+<div id="div_config">
+<form id="frm_config" name="frm_config" class="hform"  ng-submit="updConfig()">
+<fieldset> <legend> Editar Config</legend>
+    <fieldset>
+        <label for="Idconfig">Idconfig : </label>
+        <input type="text" name="Idconfig" ng-model="config.Idconfig"  value="{{Idconfig}}" />
+    </fieldset>
+    <fieldset>
+        <label for="idTipoEntidad">idTipoEntidad : </label>
+        <input type="text" name="idTipoEntidad" ng-model="config.idTipoEntidad"  value="{{idTipoEntidad}}" />
+    </fieldset>
+    <fieldset>
+        <label for="IdValor">IdValor : </label>
+        <input type="text" name="IdValor" ng-model="config.IdValor"  value="{{IdValor}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Valor">Valor : </label>
+        <input type="text" name="Valor" ng-model="config.Valor"  value="{{Valor}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Referencia">Referencia : </label>
+        <input type="text" name="Referencia" ng-model="config.Referencia"  value="{{Referencia}}" />
+    </fieldset>
+     <fieldset class="text-right">
+        <button  type="button" id="btnCancelar" onclick="location.href='#/config/listar';">Cancelar </button>
+        <button id="btregistrar" ng-disabled="frm_config.$invalid"  >Registrar </button>
+    </fieldset>
+</fieldset>
+</form>
+</div>

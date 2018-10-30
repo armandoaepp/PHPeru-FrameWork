@@ -1,0 +1,46 @@
+<div id="div_transmision">
+<form id="frm_transmision" name="frm_transmision" class="hform"  ng-submit="updTransmision()">
+<fieldset> <legend> Editar Transmision</legend>
+    <fieldset>
+        <label for="IdTransmision">IdTransmision : </label>
+        <input type="text" name="IdTransmision" ng-model="transmision.IdTransmision"  value="{{IdTransmision}}" />
+    </fieldset>
+    <fieldset>
+        <label for="IdPersonaJuridica">IdPersonaJuridica : </label>
+        <input type="text" name="IdPersonaJuridica" ng-model="transmision.IdPersonaJuridica"  value="{{IdPersonaJuridica}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Placa">Placa : </label>
+        <input type="text" name="Placa" ng-model="transmision.Placa"  value="{{Placa}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Longitud">Longitud : </label>
+        <input type="text" name="Longitud" ng-model="transmision.Longitud"  value="{{Longitud}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Latitud">Latitud : </label>
+        <input type="text" name="Latitud" ng-model="transmision.Latitud"  value="{{Latitud}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Direccion">Direccion : </label>
+        <input type="text" name="Direccion" ng-model="transmision.Direccion"  value="{{Direccion}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Velocidad">Velocidad : </label>
+        <input type="text" name="Velocidad" ng-model="transmision.Velocidad"  value="{{Velocidad}}" />
+    </fieldset>
+    <fieldset>
+        <label for="GpsTime">GpsTime : </label>
+        <input type="text" name="GpsTime" ng-model="transmision.GpsTime"  value="{{GpsTime}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Panico">Panico : </label>
+        <input type="text" name="Panico" ng-model="transmision.Panico"  value="{{Panico}}" />
+    </fieldset>
+     <fieldset class="text-right">
+        <button  type="button" id="btnCancelar" onclick="location.href='#/transmision/listar';">Cancelar </button>
+        <button id="btregistrar" ng-disabled="frm_transmision.$invalid"  >Registrar </button>
+    </fieldset>
+</fieldset>
+</form>
+</div>

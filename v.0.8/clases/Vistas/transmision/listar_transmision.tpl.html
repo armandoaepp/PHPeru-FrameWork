@@ -1,0 +1,34 @@
+<div id="div_transmision">
+<form id="frm_transmision" name="frm_transmision" class="hform"  ng-submit="updTransmision()">
+<table class="table" >
+ <caption>LISTA DE TRANSMISION </caption>
+<thead>
+    <tr>
+        <th>IdTransmision </th>
+        <th>IdPersonaJuridica </th>
+        <th>Placa </th>
+        <th>Longitud </th>
+        <th>Latitud </th>
+        <th>Direccion </th>
+        <th>Velocidad </th>
+        <th>GpsTime </th>
+        <th>Panico </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="transmision in transmisions">
+        <th>transmision.IdTransmision </th>
+        <th>transmision.IdPersonaJuridica </th>
+        <th>transmision.Placa </th>
+        <th>transmision.Longitud </th>
+        <th>transmision.Latitud </th>
+        <th>transmision.Direccion </th>
+        <th>transmision.Velocidad </th>
+        <th>transmision.GpsTime </th>
+        <th>transmision.Panico </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

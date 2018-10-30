@@ -1,0 +1,30 @@
+<div id="div_bitacora">
+<form id="frm_bitacora" name="frm_bitacora" class="hform"  ng-submit="setBitacora()">
+<fieldset> <legend> Nuevo Bitacora</legend>
+    <fieldset>
+        <label for="idbitacora">idbitacora : </label>
+        <input type="text" name="idbitacora" ng-model="bitacora.idbitacora" />
+    </fieldset>
+    <fieldset>
+        <label for="idusuario">idusuario : </label>
+        <input type="text" name="idusuario" ng-model="bitacora.idusuario" />
+    </fieldset>
+    <fieldset>
+        <label for="tipo">tipo : </label>
+        <input type="text" name="tipo" ng-model="bitacora.tipo" />
+    </fieldset>
+    <fieldset>
+        <label for="ingreso">ingreso : </label>
+        <input type="text" name="ingreso" ng-model="bitacora.ingreso" />
+    </fieldset>
+    <fieldset>
+        <label for="salida">salida : </label>
+        <input type="text" name="salida" ng-model="bitacora.salida" />
+    </fieldset>
+     <fieldset class="text-right">
+        <button  type="button" id="btnCancelar" onclick="location.href='#/bitacora/listar';">Cancelar </button>
+        <button id="btregistrar" ng-disabled="frm_bitacora.$invalid"  >Registrar </button>
+    </fieldset>
+</fieldset>
+</form>
+</div>

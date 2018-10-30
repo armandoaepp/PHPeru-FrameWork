@@ -1,0 +1,28 @@
+<div id="div_categoria">
+<form id="frm_categoria" name="frm_categoria" class="hform"  ng-submit="updCategoria()">
+<table class="table" >
+ <caption>LISTA DE CATEGORIA </caption>
+<thead>
+    <tr>
+        <th>Idcategoria </th>
+        <th>Nombre </th>
+        <th>Url </th>
+        <th>Imagen </th>
+        <th>Publicar </th>
+        <th>Created_up </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="categoria in categorias">
+        <th>categoria.idcategoria </th>
+        <th>categoria.nombre </th>
+        <th>categoria.url </th>
+        <th>categoria.imagen </th>
+        <th>categoria.publicar </th>
+        <th>categoria.created_up </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

@@ -1,0 +1,114 @@
+<div id="div_operacion">
+<form id="frm_operacion" name="frm_operacion" class="hform"  ng-submit="updOperacion()">
+<fieldset> <legend> Editar Operacion</legend>
+    <fieldset>
+        <label for="IdOperacion">IdOperacion : </label>
+        <input type="text" name="IdOperacion" ng-model="operacion.IdOperacion"  value="{{IdOperacion}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Fecha">Fecha : </label>
+        <input type="text" name="Fecha" ng-model="operacion.Fecha"  value="{{Fecha}}" />
+    </fieldset>
+    <fieldset>
+        <label for="FechaTransCli">FechaTransCli : </label>
+        <input type="text" name="FechaTransCli" ng-model="operacion.FechaTransCli"  value="{{FechaTransCli}}" />
+    </fieldset>
+    <fieldset>
+        <label for="TipoMov">TipoMov : </label>
+        <input type="text" name="TipoMov" ng-model="operacion.TipoMov"  value="{{TipoMov}}" />
+    </fieldset>
+    <fieldset>
+        <label for="MontoOperacion">MontoOperacion : </label>
+        <input type="text" name="MontoOperacion" ng-model="operacion.MontoOperacion"  value="{{MontoOperacion}}" />
+    </fieldset>
+    <fieldset>
+        <label for="IdCuenta">IdCuenta : </label>
+        <input type="text" name="IdCuenta" ng-model="operacion.IdCuenta"  value="{{IdCuenta}}" />
+    </fieldset>
+    <fieldset>
+        <label for="IdTipoOperacion">IdTipoOperacion : </label>
+        <input type="text" name="IdTipoOperacion" ng-model="operacion.IdTipoOperacion"  value="{{IdTipoOperacion}}" />
+    </fieldset>
+    <fieldset>
+        <label for="EstadoRecarga">EstadoRecarga : </label>
+        <input type="text" name="EstadoRecarga" ng-model="operacion.EstadoRecarga"  value="{{EstadoRecarga}}" />
+    </fieldset>
+    <fieldset>
+        <label for="IdSolicitud">IdSolicitud : </label>
+        <input type="text" name="IdSolicitud" ng-model="operacion.IdSolicitud"  value="{{IdSolicitud}}" />
+    </fieldset>
+    <fieldset>
+        <label for="IdVehiculo">IdVehiculo : </label>
+        <input type="text" name="IdVehiculo" ng-model="operacion.IdVehiculo"  value="{{IdVehiculo}}" />
+    </fieldset>
+    <fieldset>
+        <label for="IdUser">IdUser : </label>
+        <input type="text" name="IdUser" ng-model="operacion.IdUser"  value="{{IdUser}}" />
+    </fieldset>
+    <fieldset>
+        <label for="NumOrden">NumOrden : </label>
+        <input type="text" name="NumOrden" ng-model="operacion.NumOrden"  value="{{NumOrden}}" />
+    </fieldset>
+    <fieldset>
+        <label for="NumTransacSp">NumTransacSp : </label>
+        <input type="text" name="NumTransacSp" ng-model="operacion.NumTransacSp"  value="{{NumTransacSp}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Moneda">Moneda : </label>
+        <input type="text" name="Moneda" ng-model="operacion.Moneda"  value="{{Moneda}}" />
+    </fieldset>
+    <fieldset>
+        <label for="ResulTransac">ResulTransac : </label>
+        <input type="text" name="ResulTransac" ng-model="operacion.ResulTransac"  value="{{ResulTransac}}" />
+    </fieldset>
+    <fieldset>
+        <label for="CodAccion">CodAccion : </label>
+        <input type="text" name="CodAccion" ng-model="operacion.CodAccion"  value="{{CodAccion}}" />
+    </fieldset>
+    <fieldset>
+        <label for="DatoComercio">DatoComercio : </label>
+        <input type="text" name="DatoComercio" ng-model="operacion.DatoComercio"  value="{{DatoComercio}}" />
+    </fieldset>
+    <fieldset>
+        <label for="MedioPago">MedioPago : </label>
+        <input type="text" name="MedioPago" ng-model="operacion.MedioPago"  value="{{MedioPago}}" />
+    </fieldset>
+    <fieldset>
+        <label for="TipoResp">TipoResp : </label>
+        <input type="text" name="TipoResp" ng-model="operacion.TipoResp"  value="{{TipoResp}}" />
+    </fieldset>
+    <fieldset>
+        <label for="CodAutoriz">CodAutoriz : </label>
+        <input type="text" name="CodAutoriz" ng-model="operacion.CodAutoriz"  value="{{CodAutoriz}}" />
+    </fieldset>
+    <fieldset>
+        <label for="NumRefer">NumRefer : </label>
+        <input type="text" name="NumRefer" ng-model="operacion.NumRefer"  value="{{NumRefer}}" />
+    </fieldset>
+    <fieldset>
+        <label for="Hash">Hash : </label>
+        <input type="text" name="Hash" ng-model="operacion.Hash"  value="{{Hash}}" />
+    </fieldset>
+    <fieldset>
+        <label for="TipoProdSp">TipoProdSp : </label>
+        <input type="text" name="TipoProdSp" ng-model="operacion.TipoProdSp"  value="{{TipoProdSp}}" />
+    </fieldset>
+    <fieldset>
+        <label for="nTarjeta">nTarjeta : </label>
+        <input type="text" name="nTarjeta" ng-model="operacion.nTarjeta"  value="{{nTarjeta}}" />
+    </fieldset>
+    <fieldset>
+        <label for="TarjetaHabVisa">TarjetaHabVisa : </label>
+        <input type="text" name="TarjetaHabVisa" ng-model="operacion.TarjetaHabVisa"  value="{{TarjetaHabVisa}}" />
+    </fieldset>
+    <fieldset>
+        <label for="IpCompra">IpCompra : </label>
+        <input type="text" name="IpCompra" ng-model="operacion.IpCompra"  value="{{IpCompra}}" />
+    </fieldset>
+     <fieldset class="text-right">
+        <button  type="button" id="btnCancelar" onclick="location.href='#/operacion/listar';">Cancelar </button>
+        <button id="btregistrar" ng-disabled="frm_operacion.$invalid"  >Registrar </button>
+    </fieldset>
+</fieldset>
+</form>
+</div>

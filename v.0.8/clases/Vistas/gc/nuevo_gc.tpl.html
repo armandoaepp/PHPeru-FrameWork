@@ -1,0 +1,70 @@
+<div id="div_gc">
+<form id="frm_gc" name="frm_gc" class="hform"  ng-submit="setGc()">
+<fieldset> <legend> Nuevo Gc</legend>
+    <fieldset>
+        <label for="IdGc">IdGc : </label>
+        <input type="text" name="IdGc" ng-model="gc.IdGc" />
+    </fieldset>
+    <fieldset>
+        <label for="Razonsocial">Razonsocial : </label>
+        <input type="text" name="Razonsocial" ng-model="gc.Razonsocial" />
+    </fieldset>
+    <fieldset>
+        <label for="Direccion">Direccion : </label>
+        <input type="text" name="Direccion" ng-model="gc.Direccion" />
+    </fieldset>
+    <fieldset>
+        <label for="Telefonos">Telefonos : </label>
+        <input type="text" name="Telefonos" ng-model="gc.Telefonos" />
+    </fieldset>
+    <fieldset>
+        <label for="Telefono2">Telefono2 : </label>
+        <input type="text" name="Telefono2" ng-model="gc.Telefono2" />
+    </fieldset>
+    <fieldset>
+        <label for="Telefono3">Telefono3 : </label>
+        <input type="text" name="Telefono3" ng-model="gc.Telefono3" />
+    </fieldset>
+    <fieldset>
+        <label for="Email">Email : </label>
+        <input type="text" name="Email" ng-model="gc.Email" />
+    </fieldset>
+    <fieldset>
+        <label for="Avatar">Avatar : </label>
+        <input type="text" name="Avatar" ng-model="gc.Avatar" />
+    </fieldset>
+    <fieldset>
+        <label for="TipoDoc">TipoDoc : </label>
+        <input type="text" name="TipoDoc" ng-model="gc.TipoDoc" />
+    </fieldset>
+    <fieldset>
+        <label for="NumeroDoc">NumeroDoc : </label>
+        <input type="text" name="NumeroDoc" ng-model="gc.NumeroDoc" />
+    </fieldset>
+    <fieldset>
+        <label for="Representante">Representante : </label>
+        <input type="text" name="Representante" ng-model="gc.Representante" />
+    </fieldset>
+    <fieldset>
+        <label for="Tipo">Tipo : </label>
+        <input type="text" name="Tipo" ng-model="gc.Tipo" />
+    </fieldset>
+    <fieldset>
+        <label for="Lugar">Lugar : </label>
+        <input type="text" name="Lugar" ng-model="gc.Lugar" />
+    </fieldset>
+    <fieldset>
+        <label for="FechaReg">FechaReg : </label>
+        <input type="text" name="FechaReg" ng-model="gc.FechaReg" />
+    </fieldset>
+    <fieldset>
+        <label for="Requisitos">Requisitos : </label>
+        <input type="text" name="Requisitos" ng-model="gc.Requisitos" />
+    </fieldset>
+     <fieldset class="text-right">
+        <button  type="button" id="btnCancelar" onclick="location.href='#/gc/listar';">Cancelar </button>
+        <button id="btregistrar" ng-disabled="frm_gc.$invalid"  >Registrar </button>
+    </fieldset>
+</fieldset>
+</form>
+</div>
