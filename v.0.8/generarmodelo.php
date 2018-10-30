@@ -10,7 +10,7 @@ function generarmodelo($atri, $cListar, $tabla, $name_set_get)
             $aatri[] = $romper[$i];
         }
     }
-    $carpeta   = "./App/Models/";
+    $carpeta   = "./app/models/";
     $extension = ".php";
     $clase     = ucwords($tabla);
     $texto = '';

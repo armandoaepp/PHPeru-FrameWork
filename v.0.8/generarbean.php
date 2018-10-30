@@ -10,7 +10,7 @@ function generarbean($atri, $cListar, $tabla,  $nameMetodo )
             $aatri[] = $romper[$i];
         }
     }
-    $carpeta   = "./App/Beans/";
+    $carpeta   = "./app/beans/";
     $extension = ".php";
     $clase     = "Bean" .ucwords($tabla);
     if (!empty($tabla)) {

@@ -24,11 +24,11 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
 
     // $carpeta   = "./App/Api/";
 
-    if (file_exists("./App/api/" . $tabla)) {
-        $carpeta = "./App/api/" . $tabla . "/";
+    if (file_exists("./app/api/" . $tabla)) {
+        $carpeta = "./app/api/" . $tabla . "/";
     } else {
-        mkdir("./App/api/" . $tabla, 0777);
-        $carpeta = "./App/api/" . $tabla . "/";
+        mkdir("./app/api/" . $tabla, 0777);
+        $carpeta = "./app/api/" . $tabla . "/";
     }
 
     $extension = ".php";
