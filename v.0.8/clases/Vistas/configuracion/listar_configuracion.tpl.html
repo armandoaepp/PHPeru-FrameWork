@@ -1,0 +1,40 @@
+<div id="div_configuracion">
+<form id="frm_configuracion" name="frm_configuracion" class="hform"  ng-submit="updConfiguracion()">
+<table class="table" >
+ <caption>LISTA DE CONFIGURACION </caption>
+<thead>
+    <tr>
+        <th>Id </th>
+        <th>Titulo </th>
+        <th>Horario </th>
+        <th>Direccion </th>
+        <th>Email </th>
+        <th>Telefono </th>
+        <th>Facebook </th>
+        <th>Youtube </th>
+        <th>Instagram </th>
+        <th>Mapa </th>
+        <th>Popup </th>
+        <th>Show_popup </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="configuracion in configuracions">
+        <th>configuracion.id </th>
+        <th>configuracion.titulo </th>
+        <th>configuracion.horario </th>
+        <th>configuracion.direccion </th>
+        <th>configuracion.email </th>
+        <th>configuracion.telefono </th>
+        <th>configuracion.facebook </th>
+        <th>configuracion.youtube </th>
+        <th>configuracion.instagram </th>
+        <th>configuracion.mapa </th>
+        <th>configuracion.popup </th>
+        <th>configuracion.show_popup </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

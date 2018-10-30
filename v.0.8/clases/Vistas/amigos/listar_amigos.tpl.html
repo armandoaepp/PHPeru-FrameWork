@@ -1,0 +1,30 @@
+<div id="div_amigos">
+<form id="frm_amigos" name="frm_amigos" class="hform"  ng-submit="updAmigos()">
+<table class="table" >
+ <caption>LISTA DE AMIGOS </caption>
+<thead>
+    <tr>
+        <th>Id </th>
+        <th>Titulo </th>
+        <th>Imagen </th>
+        <th>Imagen_2 </th>
+        <th>Email </th>
+        <th>Orden </th>
+        <th>Fecha </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="amigos in amigoss">
+        <th>amigos.id </th>
+        <th>amigos.titulo </th>
+        <th>amigos.imagen </th>
+        <th>amigos.imagen_2 </th>
+        <th>amigos.email </th>
+        <th>amigos.orden </th>
+        <th>amigos.fecha </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

@@ -1,0 +1,42 @@
+<div id="div_red">
+<form id="frm_red" name="frm_red" class="hform"  ng-submit="updRed()">
+<table class="table" >
+ <caption>LISTA DE RED </caption>
+<thead>
+    <tr>
+        <th>Id </th>
+        <th>Titulo </th>
+        <th>Subtitulo </th>
+        <th>Tipo </th>
+        <th>Vacantes </th>
+        <th>Requisitos </th>
+        <th>Conocimientos </th>
+        <th>Salario </th>
+        <th>Nombrecontacto </th>
+        <th>Telefonocontacto </th>
+        <th>Emailcontacto </th>
+        <th>Orden </th>
+        <th>Fecha </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="red in reds">
+        <th>red.id </th>
+        <th>red.titulo </th>
+        <th>red.subtitulo </th>
+        <th>red.tipo </th>
+        <th>red.vacantes </th>
+        <th>red.requisitos </th>
+        <th>red.conocimientos </th>
+        <th>red.salario </th>
+        <th>red.nombrecontacto </th>
+        <th>red.telefonocontacto </th>
+        <th>red.emailcontacto </th>
+        <th>red.orden </th>
+        <th>red.fecha </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

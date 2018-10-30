@@ -1,0 +1,32 @@
+<div id="div_slidehome">
+<form id="frm_slidehome" name="frm_slidehome" class="hform"  ng-submit="updSlidehome()">
+<table class="table" >
+ <caption>LISTA DE SLIDEHOME </caption>
+<thead>
+    <tr>
+        <th>Id </th>
+        <th>Titulo </th>
+        <th>Subtitulo </th>
+        <th>Descripcion </th>
+        <th>Imagen </th>
+        <th>Url </th>
+        <th>Orden </th>
+        <th>Fecha </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="slidehome in slidehomes">
+        <th>slidehome.id </th>
+        <th>slidehome.titulo </th>
+        <th>slidehome.subtitulo </th>
+        <th>slidehome.descripcion </th>
+        <th>slidehome.imagen </th>
+        <th>slidehome.url </th>
+        <th>slidehome.orden </th>
+        <th>slidehome.fecha </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

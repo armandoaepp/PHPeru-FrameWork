@@ -1,0 +1,22 @@
+<div id="div_groups">
+<form id="frm_groups" name="frm_groups" class="hform"  ng-submit="updGroups()">
+<table class="table" >
+ <caption>LISTA DE GROUPS </caption>
+<thead>
+    <tr>
+        <th>Id </th>
+        <th>Name </th>
+        <th>Description </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="groups in groupss">
+        <th>groups.id </th>
+        <th>groups.name </th>
+        <th>groups.description </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

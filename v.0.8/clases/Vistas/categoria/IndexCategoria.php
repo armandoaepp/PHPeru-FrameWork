@@ -43,6 +43,9 @@ switch($evento)
         
             $idcategoria = $inputs->Idcategoria;
             $nombre = $inputs->Nombre;
+            $descripcion = $inputs->Descripcion;
+            $visible = $inputs->Visible;
+            $fechareg = $inputs->Fechareg;
             $url = $inputs->Url;
             $imagen = $inputs->Imagen;
             $publicar = $inputs->Publicar;
@@ -51,6 +54,9 @@ switch($evento)
             $params = array(
                'idcategoria'=> $idcategoria,
                'nombre'=> $nombre,
+               'descripcion'=> $descripcion,
+               'visible'=> $visible,
+               'fechareg'=> $fechareg,
                'url'=> $url,
                'imagen'=> $imagen,
                'publicar'=> $publicar,
@@ -99,6 +105,9 @@ switch($evento)
         
             $idcategoria = $inputs->Idcategoria;
             $nombre = $inputs->Nombre;
+            $descripcion = $inputs->Descripcion;
+            $visible = $inputs->Visible;
+            $fechareg = $inputs->Fechareg;
             $url = $inputs->Url;
             $imagen = $inputs->Imagen;
             $publicar = $inputs->Publicar;
@@ -107,6 +116,9 @@ switch($evento)
             $params = array(
                'idcategoria'=> $idcategoria,
                'nombre'=> $nombre,
+               'descripcion'=> $descripcion,
+               'visible'=> $visible,
+               'fechareg'=> $fechareg,
                'url'=> $url,
                'imagen'=> $imagen,
                'publicar'=> $publicar,

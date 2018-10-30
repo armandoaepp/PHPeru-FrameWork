@@ -1,0 +1,32 @@
+<div id="div_campus">
+<form id="frm_campus" name="frm_campus" class="hform"  ng-submit="updCampus()">
+<table class="table" >
+ <caption>LISTA DE CAMPUS </caption>
+<thead>
+    <tr>
+        <th>Id </th>
+        <th>Titulo </th>
+        <th>Subtitulo </th>
+        <th>Descripcion </th>
+        <th>Imagen </th>
+        <th>Url </th>
+        <th>Orden </th>
+        <th>Fecha </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="campus in campuss">
+        <th>campus.id </th>
+        <th>campus.titulo </th>
+        <th>campus.subtitulo </th>
+        <th>campus.descripcion </th>
+        <th>campus.imagen </th>
+        <th>campus.url </th>
+        <th>campus.orden </th>
+        <th>campus.fecha </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

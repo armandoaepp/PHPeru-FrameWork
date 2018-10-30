@@ -1,0 +1,32 @@
+<div id="div_chef">
+<form id="frm_chef" name="frm_chef" class="hform"  ng-submit="updChef()">
+<table class="table" >
+ <caption>LISTA DE CHEF </caption>
+<thead>
+    <tr>
+        <th>Id </th>
+        <th>Titulo </th>
+        <th>Subtitulo </th>
+        <th>Resumen </th>
+        <th>Descripcion </th>
+        <th>Imagen </th>
+        <th>Orden </th>
+        <th>Fecha </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="chef in chefs">
+        <th>chef.id </th>
+        <th>chef.titulo </th>
+        <th>chef.subtitulo </th>
+        <th>chef.resumen </th>
+        <th>chef.descripcion </th>
+        <th>chef.imagen </th>
+        <th>chef.orden </th>
+        <th>chef.fecha </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

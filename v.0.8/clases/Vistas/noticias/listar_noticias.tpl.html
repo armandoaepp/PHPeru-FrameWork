@@ -1,0 +1,34 @@
+<div id="div_noticias">
+<form id="frm_noticias" name="frm_noticias" class="hform"  ng-submit="updNoticias()">
+<table class="table" >
+ <caption>LISTA DE NOTICIAS </caption>
+<thead>
+    <tr>
+        <th>Id </th>
+        <th>Titulo </th>
+        <th>Descripcion </th>
+        <th>Imagen </th>
+        <th>Banner </th>
+        <th>Nombreseo </th>
+        <th>Orden </th>
+        <th>Fecha </th>
+        <th>Activo </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="noticias in noticiass">
+        <th>noticias.id </th>
+        <th>noticias.titulo </th>
+        <th>noticias.descripcion </th>
+        <th>noticias.imagen </th>
+        <th>noticias.banner </th>
+        <th>noticias.nombreseo </th>
+        <th>noticias.orden </th>
+        <th>noticias.fecha </th>
+        <th>noticias.activo </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

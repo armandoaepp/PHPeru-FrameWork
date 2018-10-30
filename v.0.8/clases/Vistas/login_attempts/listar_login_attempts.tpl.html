@@ -1,0 +1,24 @@
+<div id="div_login_attempts">
+<form id="frm_login_attempts" name="frm_login_attempts" class="hform"  ng-submit="updLogin_attempts()">
+<table class="table" >
+ <caption>LISTA DE LOGIN_ATTEMPTS </caption>
+<thead>
+    <tr>
+        <th>Id </th>
+        <th>Ip_address </th>
+        <th>Login </th>
+        <th>Time </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="login_attempts in login_attemptss">
+        <th>login_attempts.id </th>
+        <th>login_attempts.ip_address </th>
+        <th>login_attempts.login </th>
+        <th>login_attempts.time </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

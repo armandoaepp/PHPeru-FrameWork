@@ -1,0 +1,28 @@
+<div id="div_buzon_contacto">
+<form id="frm_buzon_contacto" name="frm_buzon_contacto" class="hform"  ng-submit="updBuzon_contacto()">
+<table class="table" >
+ <caption>LISTA DE BUZON_CONTACTO </caption>
+<thead>
+    <tr>
+        <th>Id </th>
+        <th>Nombre </th>
+        <th>Dni </th>
+        <th>Email </th>
+        <th>Telefono </th>
+        <th>Fecha </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="buzon_contacto in buzon_contactos">
+        <th>buzon_contacto.id </th>
+        <th>buzon_contacto.nombre </th>
+        <th>buzon_contacto.dni </th>
+        <th>buzon_contacto.email </th>
+        <th>buzon_contacto.telefono </th>
+        <th>buzon_contacto.fecha </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

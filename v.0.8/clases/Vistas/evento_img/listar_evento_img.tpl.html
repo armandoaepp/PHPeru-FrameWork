@@ -1,0 +1,26 @@
+<div id="div_evento_img">
+<form id="frm_evento_img" name="frm_evento_img" class="hform"  ng-submit="updEvento_img()">
+<table class="table" >
+ <caption>LISTA DE EVENTO_IMG </caption>
+<thead>
+    <tr>
+        <th>Id </th>
+        <th>Imagen </th>
+        <th>Id_padre </th>
+        <th>Orden </th>
+        <th>Fecha </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="evento_img in evento_imgs">
+        <th>evento_img.id </th>
+        <th>evento_img.imagen </th>
+        <th>evento_img.id_padre </th>
+        <th>evento_img.orden </th>
+        <th>evento_img.fecha </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

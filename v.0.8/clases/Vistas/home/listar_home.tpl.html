@@ -1,0 +1,42 @@
+<div id="div_home">
+<form id="frm_home" name="frm_home" class="hform"  ng-submit="updHome()">
+<table class="table" >
+ <caption>LISTA DE HOME </caption>
+<thead>
+    <tr>
+        <th>Id </th>
+        <th>Titulo </th>
+        <th>Url </th>
+        <th>Imagen </th>
+        <th>Titulo_2 </th>
+        <th>Url_2 </th>
+        <th>Imagen_2 </th>
+        <th>Titulo_3 </th>
+        <th>Url_3 </th>
+        <th>Imagen_3 </th>
+        <th>Convenios </th>
+        <th>Orden </th>
+        <th>Fecha </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="home in homes">
+        <th>home.id </th>
+        <th>home.titulo </th>
+        <th>home.url </th>
+        <th>home.imagen </th>
+        <th>home.titulo_2 </th>
+        <th>home.url_2 </th>
+        <th>home.imagen_2 </th>
+        <th>home.titulo_3 </th>
+        <th>home.url_3 </th>
+        <th>home.imagen_3 </th>
+        <th>home.convenios </th>
+        <th>home.orden </th>
+        <th>home.fecha </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

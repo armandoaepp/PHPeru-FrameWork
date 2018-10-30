@@ -1,10 +1,13 @@
 /* Procedures Generada desde Cix-PHP - by power @armandoaepp */
 DELIMITER ;;
-CREATE PROCEDURE usp_set_categoria( idcategoria int(11),nombre varchar(150),url varchar(255),imagen varchar(255),publicar char(1),estado smallint(5) unsigned,created_up timestamp ) 
+CREATE PROCEDURE usp_set_categoria( idcategoria int(11),nombre varchar(150),descripcion varchar(200),visible char(1),fechareg timestamp,url varchar(255),imagen varchar(255),publicar char(1),estado smallint(6),created_up timestamp ) 
 BEGIN
 	INSERT INTO  categoria(
 		categoria.idcategoria,
 		categoria.nombre,
+		categoria.descripcion,
+		categoria.visible,
+		categoria.fechareg,
 		categoria.url,
 		categoria.imagen,
 		categoria.publicar,
@@ -14,6 +17,9 @@ BEGIN
 	VALUES(
 		idcategoria,
 		nombre,
+		descripcion,
+		visible,
+		fechareg,
 		url,
 		imagen,
 		publicar,
@@ -24,11 +30,14 @@ END;;
 DELIMITER ;;
 
 DELIMITER ;;
-CREATE PROCEDURE usp_upd_categoria( idcategoria int(11),nombre varchar(150),url varchar(255),imagen varchar(255),publicar char(1),estado smallint(5) unsigned,created_up timestamp ) 
+CREATE PROCEDURE usp_upd_categoria( idcategoria int(11),nombre varchar(150),descripcion varchar(200),visible char(1),fechareg timestamp,url varchar(255),imagen varchar(255),publicar char(1),estado smallint(6),created_up timestamp ) 
 BEGIN
 	UPDATE categoria SET
 		categoria.idcategoria = idcategoria,
 		categoria.nombre = nombre,
+		categoria.descripcion = descripcion,
+		categoria.visible = visible,
+		categoria.fechareg = fechareg,
 		categoria.url = url,
 		categoria.imagen = imagen,
 		categoria.publicar = publicar,
@@ -53,6 +62,9 @@ BEGIN
 	SELECT 
 		categoria.idcategoria,
 		categoria.nombre,
+		categoria.descripcion,
+		categoria.visible,
+		categoria.fechareg,
 		categoria.url,
 		categoria.imagen,
 		categoria.publicar,
@@ -69,6 +81,9 @@ BEGIN
 	SELECT 
 		categoria.idcategoria,
 		categoria.nombre,
+		categoria.descripcion,
+		categoria.visible,
+		categoria.fechareg,
 		categoria.url,
 		categoria.imagen,
 		categoria.publicar,

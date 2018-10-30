@@ -1,0 +1,30 @@
+<div id="div_facultad">
+<form id="frm_facultad" name="frm_facultad" class="hform"  ng-submit="updFacultad()">
+<table class="table" >
+ <caption>LISTA DE FACULTAD </caption>
+<thead>
+    <tr>
+        <th>Id </th>
+        <th>Titulo </th>
+        <th>Descripcion </th>
+        <th>Imagen </th>
+        <th>Orden </th>
+        <th>Fecha </th>
+        <th>Activo </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="facultad in facultads">
+        <th>facultad.id </th>
+        <th>facultad.titulo </th>
+        <th>facultad.descripcion </th>
+        <th>facultad.imagen </th>
+        <th>facultad.orden </th>
+        <th>facultad.fecha </th>
+        <th>facultad.activo </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

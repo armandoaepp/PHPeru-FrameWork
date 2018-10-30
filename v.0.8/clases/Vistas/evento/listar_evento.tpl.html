@@ -1,0 +1,30 @@
+<div id="div_evento">
+<form id="frm_evento" name="frm_evento" class="hform"  ng-submit="updEvento()">
+<table class="table" >
+ <caption>LISTA DE EVENTO </caption>
+<thead>
+    <tr>
+        <th>Id </th>
+        <th>Titulo </th>
+        <th>Descripcion </th>
+        <th>Imagen </th>
+        <th>Nombreseo </th>
+        <th>Orden </th>
+        <th>Fecha </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="evento in eventos">
+        <th>evento.id </th>
+        <th>evento.titulo </th>
+        <th>evento.descripcion </th>
+        <th>evento.imagen </th>
+        <th>evento.nombreseo </th>
+        <th>evento.orden </th>
+        <th>evento.fecha </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

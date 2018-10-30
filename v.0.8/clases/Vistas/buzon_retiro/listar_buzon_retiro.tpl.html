@@ -1,0 +1,28 @@
+<div id="div_buzon_retiro">
+<form id="frm_buzon_retiro" name="frm_buzon_retiro" class="hform"  ng-submit="updBuzon_retiro()">
+<table class="table" >
+ <caption>LISTA DE BUZON_RETIRO </caption>
+<thead>
+    <tr>
+        <th>Id </th>
+        <th>Nombres </th>
+        <th>Titulo_retiro </th>
+        <th>Email </th>
+        <th>Mensaje </th>
+        <th>Fecha </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="buzon_retiro in buzon_retiros">
+        <th>buzon_retiro.id </th>
+        <th>buzon_retiro.nombres </th>
+        <th>buzon_retiro.titulo_retiro </th>
+        <th>buzon_retiro.email </th>
+        <th>buzon_retiro.mensaje </th>
+        <th>buzon_retiro.fecha </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

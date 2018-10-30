@@ -1,0 +1,26 @@
+<div id="div_traslado_pregunta">
+<form id="frm_traslado_pregunta" name="frm_traslado_pregunta" class="hform"  ng-submit="updTraslado_pregunta()">
+<table class="table" >
+ <caption>LISTA DE TRASLADO_PREGUNTA </caption>
+<thead>
+    <tr>
+        <th>Id </th>
+        <th>Pregunta </th>
+        <th>Respuesta </th>
+        <th>Orden </th>
+        <th>Fecha </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="traslado_pregunta in traslado_preguntas">
+        <th>traslado_pregunta.id </th>
+        <th>traslado_pregunta.pregunta </th>
+        <th>traslado_pregunta.respuesta </th>
+        <th>traslado_pregunta.orden </th>
+        <th>traslado_pregunta.fecha </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

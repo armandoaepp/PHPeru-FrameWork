@@ -1,0 +1,52 @@
+<div id="div_users">
+<form id="frm_users" name="frm_users" class="hform"  ng-submit="updUsers()">
+<table class="table" >
+ <caption>LISTA DE USERS </caption>
+<thead>
+    <tr>
+        <th>Id </th>
+        <th>Ip_address </th>
+        <th>Username </th>
+        <th>Password </th>
+        <th>Salt </th>
+        <th>Email </th>
+        <th>Activation_code </th>
+        <th>Forgotten_password_code </th>
+        <th>Forgotten_password_time </th>
+        <th>Remember_code </th>
+        <th>Created_on </th>
+        <th>Last_login </th>
+        <th>Active </th>
+        <th>First_name </th>
+        <th>Last_name </th>
+        <th>Company </th>
+        <th>Phone </th>
+        <th>Imagen </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="users in userss">
+        <th>users.id </th>
+        <th>users.ip_address </th>
+        <th>users.username </th>
+        <th>users.password </th>
+        <th>users.salt </th>
+        <th>users.email </th>
+        <th>users.activation_code </th>
+        <th>users.forgotten_password_code </th>
+        <th>users.forgotten_password_time </th>
+        <th>users.remember_code </th>
+        <th>users.created_on </th>
+        <th>users.last_login </th>
+        <th>users.active </th>
+        <th>users.first_name </th>
+        <th>users.last_name </th>
+        <th>users.company </th>
+        <th>users.phone </th>
+        <th>users.imagen </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

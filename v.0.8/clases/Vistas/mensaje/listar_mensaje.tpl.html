@@ -1,0 +1,36 @@
+<div id="div_mensaje">
+<form id="frm_mensaje" name="frm_mensaje" class="hform"  ng-submit="updMensaje()">
+<table class="table" >
+ <caption>LISTA DE MENSAJE </caption>
+<thead>
+    <tr>
+        <th>Id </th>
+        <th>Titulo </th>
+        <th>Imagen </th>
+        <th>Descripcion </th>
+        <th>Descripcion_2 </th>
+        <th>Slogan </th>
+        <th>Mision </th>
+        <th>Vision </th>
+        <th>Orden </th>
+        <th>Fecha </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="mensaje in mensajes">
+        <th>mensaje.id </th>
+        <th>mensaje.titulo </th>
+        <th>mensaje.imagen </th>
+        <th>mensaje.descripcion </th>
+        <th>mensaje.descripcion_2 </th>
+        <th>mensaje.slogan </th>
+        <th>mensaje.mision </th>
+        <th>mensaje.vision </th>
+        <th>mensaje.orden </th>
+        <th>mensaje.fecha </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>

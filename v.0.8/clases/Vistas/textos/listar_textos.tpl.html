@@ -1,0 +1,28 @@
+<div id="div_textos">
+<form id="frm_textos" name="frm_textos" class="hform"  ng-submit="updTextos()">
+<table class="table" >
+ <caption>LISTA DE TEXTOS </caption>
+<thead>
+    <tr>
+        <th>Id </th>
+        <th>Identificador </th>
+        <th>Titulo </th>
+        <th>Descripcion </th>
+        <th>Orden </th>
+        <th>Fecha </th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="textos in textoss">
+        <th>textos.id </th>
+        <th>textos.identificador </th>
+        <th>textos.titulo </th>
+        <th>textos.descripcion </th>
+        <th>textos.orden </th>
+        <th>textos.fecha </th>
+    </tr>
+</tbody>
+
+</table>
+</form>
+</div>
