@@ -17,16 +17,19 @@ function generandoControladores($atri, $tabla, $nameatri)
     //     $carpeta = "./App/Controllers/" . $tabla . "/";
     // }
 
-    $carpeta = "./App/Controllers/";
+    $carpeta = "./app/controllers/";
+
+    $cmTable = toCamelCase($tabla);
+
 
     $extension = ".php";
     if (!empty($tabla)) {
-        $nomarchivo = $carpeta .ucwords($tabla)."Controller";
+        $nomarchivo = $carpeta .$cmTable."Controller";
         $abrir      = fopen($nomarchivo . $extension, "w");
         $texto      = '<?php' . PHP_EOL;
         $texto .= '# Autor: Armando Enrique Pisfil Puemape tw: @armandoaepp' . PHP_EOL;
 
-        $texto .= ' class '.ucwords($tabla).'Controller' . PHP_EOL;
+        $texto .= ' class '.$cmTable.'Controller' . PHP_EOL;
         $texto  .= '{' . PHP_EOL;
         # CONTRUCTOR
         $texto  .= '    private $cnx;' . PHP_EOL;
@@ -44,7 +47,7 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '    {' . PHP_EOL;
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
-        $texto  .= '            $'.($tabla).'  = new '.ucwords($tabla).'();' . PHP_EOL;
+        $texto  .= '            $'.($tabla).'  = new '.$cmTable.'();' . PHP_EOL;
         $texto  .= '' . PHP_EOL;
         $texto  .= '            $data = $'.($tabla).'->getAll();' . PHP_EOL;
         $texto  .= '' . PHP_EOL;
@@ -61,7 +64,7 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '' . PHP_EOL;
 
         # FUNCTION set
-        $texto  .= '    public function set'.ucwords($tabla).'($params = array() )' . PHP_EOL;
+        $texto  .= '    public function set'.$cmTable.'($params = array() )' . PHP_EOL;
         $texto  .= '    {' . PHP_EOL;
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
@@ -70,15 +73,15 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '' . PHP_EOL;
 
 
-        $texto  .= '            $'.($tabla).'  = new '.ucwords($tabla).'($this->cnx);' . PHP_EOL;
+        $texto  .= '            $'.($tabla).'  = new '.$cmTable.'($this->cnx);' . PHP_EOL;
         $texto  .= '' . PHP_EOL;
-        $texto  .= '            $bean_'.($tabla).' = new Bean'.ucwords($tabla).'();' . PHP_EOL;
+        $texto  .= '            $bean_'.($tabla).' = new Bean'.$cmTable.'();' . PHP_EOL;
         $texto  .= '            ' . PHP_EOL;
 
                                 if (count($nameatri) > 0) {
                                     for ($i = 0; $i < count($nameatri); $i++) {
                                         if ($nameatri[$i] != "estado") {
-                                            $texto .= '            $bean_'.($tabla).'->set'.ucwords($nameatri[$i]).'($'.strtolower($aatri[$i]).');'. PHP_EOL;
+                                            $texto .= '            $bean_'.($tabla).'->set'.toCamelCase($nameatri[$i]).'($'.strtolower($aatri[$i]).');'. PHP_EOL;
                                         }
                                     }
                                 }
@@ -100,7 +103,7 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '' . PHP_EOL;
 
         # FUNCTION upd
-        $texto  .= '    public function update'.ucwords($tabla).'($params = array())' . PHP_EOL;
+        $texto  .= '    public function update'.$cmTable.'($params = array())' . PHP_EOL;
         $texto  .= '    {' . PHP_EOL;
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
@@ -108,14 +111,14 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '            extract($params) ; ' . PHP_EOL;
         $texto  .= '' . PHP_EOL;
 
-        $texto  .= '            $'.($tabla).'  = new '.ucwords($tabla).'($this->cnx);' . PHP_EOL;
-        $texto  .= '            $bean_'.($tabla).' = new Bean'.ucwords($tabla).'();' . PHP_EOL;
+        $texto  .= '            $'.($tabla).'  = new '.$cmTable.'($this->cnx);' . PHP_EOL;
+        $texto  .= '            $bean_'.($tabla).' = new Bean'.$cmTable.'();' . PHP_EOL;
         $texto  .= '            ' . PHP_EOL;
 
                                 if (count($nameatri) > 0) {
                                     for ($i = 0; $i < count($nameatri); $i++) {
                                         if ($nameatri[$i] != "estado") {
-                                            $texto .= '            $bean_'.($tabla).'->set'.ucwords($nameatri[$i]).'($'.strtolower($aatri[$i]).');'. PHP_EOL;
+                                            $texto .= '            $bean_'.($tabla).'->set'.toCamelCase($nameatri[$i]).'($'.strtolower($aatri[$i]).');'. PHP_EOL;
                                         }
                                     }
                                 }
@@ -141,11 +144,11 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '            extract($params) ; ' . PHP_EOL;
         $texto  .= '' . PHP_EOL;
 
-        $texto  .= '            $'.($tabla).'  = new '.ucwords($tabla).'($this->cnx);' . PHP_EOL;
-        $texto  .= '            $bean_'.($tabla).' = new Bean'.ucwords($tabla).'();' . PHP_EOL;
+        $texto  .= '            $'.($tabla).'  = new '.$cmTable.'($this->cnx);' . PHP_EOL;
+        $texto  .= '            $bean_'.($tabla).' = new Bean'.$cmTable.'();' . PHP_EOL;
         $texto  .= '            ' . PHP_EOL;
 
-        $texto .= '            $bean_'.($tabla).'->set'.ucwords($nameatri[0]).'($'.strtolower($aatri[0]).');'. PHP_EOL;
+        $texto .= '            $bean_'.($tabla).'->set'.toCamelCase($nameatri[0]).'($'.strtolower($aatri[0]).');'. PHP_EOL;
         $texto .= '            $bean_'.($tabla).'->setEstado($estado);'. PHP_EOL;
 
         $texto  .= '' . PHP_EOL;
@@ -165,11 +168,11 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '    {' . PHP_EOL;
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
-        $texto  .= '            $'.($tabla).'  = new '.ucwords($tabla).'();' . PHP_EOL;
+        $texto  .= '            $'.($tabla).'  = new '.$cmTable.'();' . PHP_EOL;
         $texto  .= '' . PHP_EOL;
-        $texto  .= '            $bean_'.($tabla).' = new Bean'.ucwords($tabla).'();' . PHP_EOL;
+        $texto  .= '            $bean_'.($tabla).' = new Bean'.$cmTable.'();' . PHP_EOL;
         $texto  .= '' . PHP_EOL;
-        $texto  .= '            $bean_'.($tabla).'->set'.ucwords($nameatri[0]).'($id);' . PHP_EOL;
+        $texto  .= '            $bean_'.($tabla).'->set'.toCamelCase($nameatri[0]).'($id);' . PHP_EOL;
         $texto  .= '' . PHP_EOL;
 
         $texto  .= '            $data = $'.($tabla).'->getById( $bean_'.($tabla).') ;' . PHP_EOL;
@@ -190,11 +193,11 @@ function generandoControladores($atri, $tabla, $nameatri)
         $texto  .= '    {' . PHP_EOL;
         $texto  .= '        try' . PHP_EOL;
         $texto  .= '        {' . PHP_EOL;
-        $texto  .= '            $'.($tabla).'  = new '.ucwords($tabla).'();' . PHP_EOL;
+        $texto  .= '            $'.($tabla).'  = new '.$cmTable.'();' . PHP_EOL;
         $texto  .= '' . PHP_EOL;
-        $texto  .= '            $bean_'.($tabla).' = new Bean'.ucwords($tabla).'();' . PHP_EOL;
+        $texto  .= '            $bean_'.($tabla).' = new Bean'.$cmTable.'();' . PHP_EOL;
         $texto  .= '' . PHP_EOL;
-        $texto  .= '            $bean_'.($tabla).'->set'.ucwords($nameatri[0]).'($id);' . PHP_EOL;
+        $texto  .= '            $bean_'.($tabla).'->set'.toCamelCase($nameatri[0]).'($id);' . PHP_EOL;
         $texto  .= '' . PHP_EOL;
 
         $texto  .= '            $data = $'.($tabla).'->deleteById( $bean_'.($tabla).' ) ;' . PHP_EOL;

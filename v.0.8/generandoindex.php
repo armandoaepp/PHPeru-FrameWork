@@ -31,11 +31,11 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $carpeta = "./app/api/" . $tabla . "/";
     }
 
-    $extension = ".php";
+    $cmTable     = toCamelCase($tabla);
 
     $extension = ".php";
     if (!empty($tabla)) {
-        $nomarchivo = $carpeta . "Index".ucwords($tabla);
+        $nomarchivo = $carpeta . "Index".$cmTable;
         $abrir      = fopen($nomarchivo . $extension, "w");
         $texto      = '<?php ' . PHP_EOL;
         // $texto .= 'ob_start();' . PHP_EOL;
@@ -66,7 +66,7 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto .= '    case "list":' . PHP_EOL;
         $texto .= '        try' . PHP_EOL;
         $texto .= '        {' . PHP_EOL;
-        $texto .= '            $'.$tabla.'_controller = new '.ucwords($tabla).'Controller() ; ' . PHP_EOL;
+        $texto .= '            $'.$tabla.'_controller = new '.$cmTable.'Controller() ; ' . PHP_EOL;
         $texto .= '            $data = $'.$tabla.'_controller->getAll() ;' . PHP_EOL;
         $texto .= '            $data = array(\'msg\' => \'Listado correcto\', \'error\' => false, \'data\' => $data);' . PHP_EOL;
 
@@ -89,7 +89,7 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto  .= '            $objConexion = new ClsConexion();' . PHP_EOL;
         $texto  .= '            $cnx = $objConexion->get_connection();' . PHP_EOL;
         $texto  .= '        ' . PHP_EOL;
-        $texto .= '            $'.$tabla.'_controller = new '.ucwords($tabla).'Controller($cnx) ; ' . PHP_EOL;
+        $texto .= '            $'.$tabla.'_controller = new '.$cmTable.'Controller($cnx) ; ' . PHP_EOL;
         $texto .= '            $objConexion->beginTransaction();' . PHP_EOL;
         $texto .= '        ' . PHP_EOL;
 
@@ -112,7 +112,7 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
 
 
 
-        $texto .= '            $data = $'.$tabla.'_controller->set'.ucwords($tabla).'($params) ;' . PHP_EOL;
+        $texto .= '            $data = $'.$tabla.'_controller->set'.$cmTable.'($params) ;' . PHP_EOL;
         $texto .= '        ' . PHP_EOL;
         $texto .= '            $objConexion->commit();' . PHP_EOL;
         $texto .= '' . PHP_EOL;
@@ -140,7 +140,7 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto  .= '            $objConexion = new ClsConexion();' . PHP_EOL;
         $texto  .= '            $cnx = $objConexion->get_connection();' . PHP_EOL;
         $texto  .= '        ' . PHP_EOL;
-        $texto  .= '            $'.$tabla.'_controller = new '.ucwords($tabla).'Controller($cnx) ; ' . PHP_EOL;
+        $texto  .= '            $'.$tabla.'_controller = new '.$cmTable.'Controller($cnx) ; ' . PHP_EOL;
         $texto  .= '            $objConexion->beginTransaction();' . PHP_EOL;
         $texto  .= '        ' . PHP_EOL;
 
@@ -148,7 +148,7 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
                 if (count($nameatri) > 0) {
                     for ($i = 0; $i < count($nameatri); $i++) {
                         if ($nameatri[$i] != "estado") {
-                            $texto .= '            $'.strtolower($nameatri[$i]).' = $inputs->'.ucwords($nameatri[$i]).';'. PHP_EOL;
+                            $texto .= '            $'.strtolower($nameatri[$i]).' = $inputs->'.($nameatri[$i]).';'. PHP_EOL;
                         }
                     }
                 }
@@ -160,7 +160,7 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto  .= '            ) ; ' . PHP_EOL;
         $texto  .= '        ' . PHP_EOL;
 
-        $texto .= '            $data = $'.$tabla.'_controller->update'.ucwords($tabla).'($params) ;' . PHP_EOL;
+        $texto .= '            $data = $'.$tabla.'_controller->update'.$cmTable.'($params) ;' . PHP_EOL;
         $texto .= '        ' . PHP_EOL;
         $texto .= '            $objConexion->commit();' . PHP_EOL;
         $texto .= '' . PHP_EOL;
@@ -199,7 +199,7 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto  .= '' . PHP_EOL;
 
 
-        $texto .= '            $'.$tabla.'_controller = new '.ucwords($tabla).'Controller() ; ' . PHP_EOL;
+        $texto .= '            $'.$tabla.'_controller = new '.$cmTable.'Controller() ; ' . PHP_EOL;
         $texto .= '' . PHP_EOL;
         $texto .= '            $data = $'.$tabla.'_controller->updateEstado( $params ) ;' . PHP_EOL;
         $texto .= '' . PHP_EOL;
@@ -224,7 +224,7 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto .= '        {' . PHP_EOL;
         $texto .= '' . PHP_EOL;
         $texto .= '            $id = $_GET["id"] ;' . PHP_EOL;
-        $texto .= '            $'.$tabla.'_controller = new '.ucwords($tabla).'Controller() ; ' . PHP_EOL;
+        $texto .= '            $'.$tabla.'_controller = new '.$cmTable.'Controller() ; ' . PHP_EOL;
         $texto .= '' . PHP_EOL;
         $texto .= '            $data = $'.$tabla.'_controller->getById( $id) ;' . PHP_EOL;
         $texto .= '' . PHP_EOL;
@@ -248,7 +248,7 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
         $texto .= '        {' . PHP_EOL;
         $texto .= '' . PHP_EOL;
         $texto .= '            $id = $_GET["id"] ;' . PHP_EOL;
-        $texto .= '            $'.$tabla.'_controller = new '.ucwords($tabla).'Controller() ; ' . PHP_EOL;
+        $texto .= '            $'.$tabla.'_controller = new '.$cmTable.'Controller() ; ' . PHP_EOL;
         $texto .= '' . PHP_EOL;
         $texto .= '            $data = $'.$tabla.'_controller->deleteById( $id) ;' . PHP_EOL;
         $texto .= '' . PHP_EOL;
