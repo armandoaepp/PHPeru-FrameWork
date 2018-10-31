@@ -17,7 +17,8 @@ function generandoControladores($atri, $tabla, $nameatri)
     //     $carpeta = "./App/Controllers/" . $tabla . "/";
     // }
 
-    $carpeta = "./app/controllers/";
+    // $carpeta = "./app/controllers/";
+    $carpeta   = CONTROLLERS."/";
 
     $cmTable = toCamelCase($tabla);
 

@@ -10,6 +10,11 @@ include_once 'generandoControladores.php';
 include_once 'generandoindex.php';
 include_once 'generandolayout.php';
 include_once 'generando_procedures.php';
+
+include_once 'generateViews.php';
+
+
+
 if (isset($_POST["btenviar"])) {
 
     $sele = $_POST["sele"];
@@ -56,9 +61,12 @@ if (isset($_POST["btenviar"])) {
 
         // echo generarmodelo($atributos, $consulta, $tabla) . "<br/>";
 
-        // echo generarbean($atributos, $consulta, $tabla) . "<br/>";
+        // echo generandoViewList($atributos, $consulta, $tabla) . "<br/>";
 
         echo generandoVistas($atributos, $arraycabeza, $tabla, $arraytabla, $arrayenlace, $arrayenlace2) . "<br/>";
+        echo generateViews($atributos, $arraycabeza, $tabla, $arraytabla, $arrayenlace, $arrayenlace2) . "<br/>";
+
+
         // echo generarprocedure($atributos, $consulta, $tabla) . "<br/>";
         // echo  generandoServiceJS($atributos, $tabla,$arraycabeza) ;
         echo '<br> <a href="index.php" > <<Regresar</a>';

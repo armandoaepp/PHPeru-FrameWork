@@ -10,7 +10,9 @@ function generarbean($atri, $cListar, $tabla,  $nameMetodo )
             $aatri[] = $romper[$i];
         }
     }
-    $carpeta   = "./app/beans/";
+    // $carpeta   = "./app/beans/";
+    $carpeta   = BEANS."/";
+
     $extension = ".php";
 
     $cmTable     = toCamelCase($tabla);

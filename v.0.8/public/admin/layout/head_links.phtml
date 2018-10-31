@@ -1,0 +1,31 @@
+<meta charset="UTF-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<?php
+if ($setvar['titulo']=='') {
+    $setvar['titulo']='Administrador de Productos y/o Servicios';
+}
+if($setvar['follow']=='') $setvar['follow']='follow';
+
+?>
+
+<title><?php echo $setvar['titulo']; ?></title>
+<link rel="shortcut icon" href="admin/favicon.ico" type="image/x-icon">
+<link rel="icon" href="admin/favicon.ico" type="image/x-icon">
+
+<meta name="robots" content="<?php echo $setvar['follow']; ?>" />
+
+<meta name="description" content="Administrador de Productos y/o Servicios" />
+<meta name="keywords" content="Administrador de Productos y/o Servicios" />
+<meta name="robots" content="<?php echo $setvar['follow']; ?>" />
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+<base href="http://localhost/PHPeru-FrameWork/v.0.8/public/" />
+<!-- <base href="http://localhost/catmedia/admin-productos/" /> -->
+<!-- <base href="/" /> -->
+
+
+
+<link rel="stylesheet" href="./admin/css/app.admin.css">

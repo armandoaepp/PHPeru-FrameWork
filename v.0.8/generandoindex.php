@@ -24,11 +24,19 @@ function generandoIndex($atri, $nameatri, $tabla, $tablaref, $arrayenlace, $arra
 
     // $carpeta   = "./App/Api/";
 
-    if (file_exists("./app/api/" . $tabla)) {
+
+   /*  if (file_exists("./app/api/" . $tabla)) {
         $carpeta = "./app/api/" . $tabla . "/";
     } else {
         mkdir("./app/api/" . $tabla, 0777);
         $carpeta = "./app/api/" . $tabla . "/";
+    } */
+
+    if (file_exists(API."/". $tabla)) {
+        $carpeta = API."/". $tabla . "/";
+    } else {
+        mkdir(API."/". $tabla, 0777);
+        $carpeta = API."/". $tabla . "/";
     }
 
     $cmTable     = toCamelCase($tabla);

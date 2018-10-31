@@ -1,0 +1,33 @@
+.screen-main {
+  min-height: calc(100vh - 112px);
+}
+
+// @media(min-width: 996px) {
+//   .screen-main {
+//     min-height: calc(100vh - 208px);
+//   }
+// }
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.05rem rgba(0, 204, 255, 0.25);
+}
+
+.table tbody td {
+  padding: 0.4rem;
+  vertical-align: middle;
+  border-top: 1px solid #dee2e6;
+}
+
+.btn-bar {
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+  color: #ffffff!important ;
+}
+
+.btn-bar i {
+  font-size: 1rem;
+}

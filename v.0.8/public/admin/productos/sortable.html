@@ -1,0 +1,108 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Sortable - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+  <style>
+    #sortable {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 60%;
+    }
+
+    #sortable li {
+      margin: 0 3px 3px 3px;
+      padding: 0.4em;
+      padding-left: 1.5em;
+      font-size: 1.4em;
+      height: 18px;
+    }
+
+    #sortable li span {
+      position: absolute;
+      margin-left: -1.3em;
+    }
+    img{
+      max-width: 200px;
+    }
+  </style>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js" ></script>
+  <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $(function () {
+      $("#sortable").sortable();
+      $("#sortable").disableSelection();
+    });
+  </script>
+
+<base href="http://localhost/catmedia/ccarq/">
+</head>
+
+<body>
+
+  <!-- <ul id="sortable">
+  <li class="ui-state-default">Item 1</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
+</ul> -->
+
+  <!-- <div id="sortable">
+  <p class="ui-state-default"> demos </p>
+  <p class="ui-state-default"> demos </p>
+  <p class="ui-state-default"> demos </p>
+  <p class="ui-state-default"> demos </p>
+</div> -->
+  <div id="sortable" class="row my-2">
+
+
+    <div class="col-6 col-sm-2 mb-3 ui-state-default">
+      <div class="card">
+        <a href="img_admin/productos/20180731100720608052715.jpg" data-fancybox="gallery" data-caption="">
+          <img src="img_admin/productos/20180731100720608052715.jpg" class="img-fluid " alt="">
+        </a>
+        <button type="button" class="close ml-auto" aria-label="Close" onclick="event.preventDefault(); deleteItemImg(4)">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+    </div>
+
+
+    <div class="col-6 col-sm-2 mb-3 ui-state-default">
+      <div class="card">
+        <a href="img_admin/productos/201808012208581614691517.jpg" data-fancybox="gallery" data-caption="">
+          <img src="img_admin/productos/201808012208581614691517.jpg" class="img-fluid " alt="">
+        </a>
+        <button type="button" class="close ml-auto" aria-label="Close" onclick="event.preventDefault(); deleteItemImg(10)">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+    </div>
+
+
+    <div class="col-6 col-sm-2 mb-3 ui-state-default">
+      <div class="card">
+        <a href="img_admin/productos/201808012208091816615199.jpg" data-fancybox="gallery" data-caption="">
+          <img src="img_admin/productos/201808012208091816615199.jpg" class="img-fluid " alt="">
+        </a>
+        <button type="button" class="close ml-auto" aria-label="Close" onclick="event.preventDefault(); deleteItemImg(11)">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

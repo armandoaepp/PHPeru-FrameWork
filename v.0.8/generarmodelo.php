@@ -10,7 +10,9 @@ function generarmodelo($atri, $cListar, $tabla, $name_set_get)
             $aatri[] = $romper[$i];
         }
     }
-    $carpeta   = "./app/models/";
+    // $carpeta   = "./app/models/";
+    $carpeta   = MODELS."/";
+
     $extension = ".php";
     // $clase     = ucwords($tabla);
     $clase     = toCamelCase($tabla);
