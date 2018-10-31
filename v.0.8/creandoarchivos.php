@@ -1,5 +1,7 @@
  <?php
 
+include_once 'functionsHelper.php';
+
 include_once 'copiandofiles.php';
 include_once 'generarmodelo.php';
 include_once 'generarbean.php';

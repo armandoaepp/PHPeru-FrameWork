@@ -12,9 +12,12 @@ function generarbean($atri, $cListar, $tabla,  $nameMetodo )
     }
     $carpeta   = "./app/beans/";
     $extension = ".php";
-    $clase     = "Bean" .ucwords($tabla);
+
+    $cmTable     = toCamelCase($tabla);
+    $clase     = "Bean" .$cmTable;
+
     if (!empty($tabla)) {
-        $nomarchivo = $carpeta . "Bean" . ucwords($tabla);
+        $nomarchivo = $carpeta . "Bean" . $cmTable;
         $abrir      = fopen($nomarchivo . $extension, "w");
         $texto      = '<?php ' . PHP_EOL;
         $texto .= '# Clase Bean Generada - ByPower @armandoaepp ' . PHP_EOL;
@@ -32,13 +35,13 @@ function generarbean($atri, $cListar, $tabla,  $nameMetodo )
         $texto .= '    # METODOS' . PHP_EOL;
         for ($i = 0; $i < count($aatri); $i++) {
             // $texto .= '    public function set' . ucwords($nameMetodo[$i]) . '($' . $aatri[$i] . '_){ $this->' . $aatri[$i] . '=$' . $aatri[$i] . '_;}' . PHP_EOL;
-            $texto .= '    public function set' . ucwords($nameMetodo[$i]) . '($' . $aatri[$i] . '_)' . PHP_EOL;
+            $texto .= '    public function set' . toCamelCase($nameMetodo[$i]) . '($' . $aatri[$i] . '_)' . PHP_EOL;
             $texto .= '    {' . PHP_EOL;
             $texto .= '        $this->' . $aatri[$i] . ' = Validation::validate( $' . $aatri[$i] . '_ );' . PHP_EOL;
             $texto .= '    }' . PHP_EOL;
             $texto .= PHP_EOL;
             // $texto .= '    public function get' . ucwords($nameMetodo[$i]) . '(){ return $this->' . $aatri[$i] . ';}' . PHP_EOL;
-            $texto .= '    public function get' . ucwords($nameMetodo[$i]) . '()' . PHP_EOL;
+            $texto .= '    public function get' . toCamelCase($nameMetodo[$i]) . '()' . PHP_EOL;
             $texto .= '    {' . PHP_EOL;
             $texto .= '        return $this->' . $aatri[$i] . ';' . PHP_EOL;
             $texto .= '    }' . PHP_EOL;

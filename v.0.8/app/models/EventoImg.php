@@ -1,6 +1,6 @@
 <?php 
 # Class Model Generada - ByPower @armandaepp 
-class Chef extends ClsConexion {
+class EventoImg extends ClsConexion {
     # CONSTRUCT 
     public function __construct($cnx  = null)
     {
@@ -12,7 +12,7 @@ class Chef extends ClsConexion {
     {
         try{
 
-            $this->query = "SELECT * FROM chef";
+            $this->query = "SELECT * FROM evento_img";
 
             $this->execute_query();
 
@@ -28,36 +28,27 @@ class Chef extends ClsConexion {
     }
 
     # Método Insertar
-    public function save($bean_chef)
+    public function save($bean_evento_img)
     {
         try{
-            $id = $bean_chef->getId();
-            $titulo = $bean_chef->getTitulo();
-            $subtitulo = $bean_chef->getSubtitulo();
-            $resumen = $bean_chef->getResumen();
-            $descripcion = $bean_chef->getDescripcion();
-            $imagen = $bean_chef->getImagen();
-            $orden = $bean_chef->getOrden();
-            $estado = $bean_chef->getEstado();
-            $fecha = $bean_chef->getFecha();
+            $id = $bean_evento_img->getId();
+            $imagen = $bean_evento_img->getImagen();
+            $id_padre = $bean_evento_img->getIdPadre();
+            $orden = $bean_evento_img->getOrden();
+            $estado = $bean_evento_img->getEstado();
+            $fecha = $bean_evento_img->getFecha();
 
-            $this->query = "INSERT INTO chef
+            $this->query = "INSERT INTO evento_img
                             (
-                                titulo,
-                                subtitulo,
-                                resumen,
-                                descripcion,
                                 imagen,
+                                id_padre,
                                 orden,
                                 estado,
                                 fecha
                             )
                             VALUES(
-                                '$titulo',
-                                '$subtitulo',
-                                '$resumen',
-                                '$descripcion',
                                 '$imagen',
+                                '$id_padre',
                                 '$orden',
                                 '$estado',
                                 '$fecha'
@@ -78,25 +69,19 @@ class Chef extends ClsConexion {
     }
 
     # Método Actualizar
-    public function update($bean_chef)
+    public function update($bean_evento_img)
     {
         try{
-            $id = $bean_chef->getId();
-            $titulo = $bean_chef->getTitulo();
-            $subtitulo = $bean_chef->getSubtitulo();
-            $resumen = $bean_chef->getResumen();
-            $descripcion = $bean_chef->getDescripcion();
-            $imagen = $bean_chef->getImagen();
-            $orden = $bean_chef->getOrden();
-            $estado = $bean_chef->getEstado();
-            $fecha = $bean_chef->getFecha();
+            $id = $bean_evento_img->getId();
+            $imagen = $bean_evento_img->getImagen();
+            $id_padre = $bean_evento_img->getIdPadre();
+            $orden = $bean_evento_img->getOrden();
+            $estado = $bean_evento_img->getEstado();
+            $fecha = $bean_evento_img->getFecha();
 
-            $this->query = "UPDATE chef SET 
-                                titulo = '$titulo,
-                                subtitulo = '$subtitulo,
-                                resumen = '$resumen,
-                                descripcion = '$descripcion,
+            $this->query = "UPDATE evento_img SET 
                                 imagen = '$imagen,
+                                id_padre = '$id_padre,
                                 orden = '$orden,
                                 estado = '$estado,
                                 fecha = '$fecha
@@ -116,13 +101,13 @@ class Chef extends ClsConexion {
     }
 
     # Método Eliminar(Actualizar Estado)
-    public function updateEstado($bean_chef)
+    public function updateEstado($bean_evento_img)
     {
         try{
-            $id = $bean_chef->getId();
-            $estado = $bean_chef->getEstado();
+            $id = $bean_evento_img->getId();
+            $estado = $bean_evento_img->getEstado();
 
-            $this->query = "UPDATE chef SET 
+            $this->query = "UPDATE evento_img SET 
                                 estado = '$estado'
                             WHERE id='$id'
                             LIMIT 1 ";
@@ -141,12 +126,12 @@ class Chef extends ClsConexion {
     }
 
     # Método Buscar por ID
-    public function getById($bean_chef)
+    public function getById($bean_evento_img)
     {
         try{
-            $id = $bean_chef->getId();
+            $id = $bean_evento_img->getId();
 
-            $this->query = "SELECT * FROM chef WHERE id = '$id' LIMIT 1";
+            $this->query = "SELECT * FROM evento_img WHERE id = '$id' LIMIT 1";
 
             $this->execute_find();
 
@@ -162,12 +147,12 @@ class Chef extends ClsConexion {
     }
 
     # Método deleteById
-    public function deleteById($bean_chef)
+    public function deleteById($bean_evento_img)
     {
         try{
-            $id = $bean_chef->getId();
+            $id = $bean_evento_img->getId();
 
-            $this->query = "DELETE FROM chef WHERE id = '$id' LIMIT 1";
+            $this->query = "DELETE FROM evento_img WHERE id = '$id' LIMIT 1";
 
             $this->execute_query();
 

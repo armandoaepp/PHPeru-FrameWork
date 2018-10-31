@@ -12,11 +12,13 @@ function generarmodelo($atri, $cListar, $tabla, $name_set_get)
     }
     $carpeta   = "./app/models/";
     $extension = ".php";
-    $clase     = ucwords($tabla);
+    // $clase     = ucwords($tabla);
+    $clase     = toCamelCase($tabla);
+
     $texto = '';
     if (!empty($tabla))
     {
-        $nomarchivo = $carpeta . "" . ucwords($tabla);
+        $nomarchivo = $carpeta . "" . $clase ;
         $abrir      = fopen($nomarchivo . $extension, "w");
 
 
@@ -65,10 +67,10 @@ function generarmodelo($atri, $cListar, $tabla, $name_set_get)
             $texto .= '        }' . PHP_EOL;
 
         $texto .= '    }' . PHP_EOL;
+        $texto .= PHP_EOL;
         //  END METODO LIST
 
 
-        $texto .= PHP_EOL;
         $texto .= '    # Método Insertar' . PHP_EOL;
         //Inicia Metodo INSERTAR
         $texto .= '    public function save($bean_'.$tabla.')' . PHP_EOL;
@@ -77,7 +79,7 @@ function generarmodelo($atri, $cListar, $tabla, $name_set_get)
         $texto .= '        try{' . PHP_EOL;
 
         for ($i = 0; $i < count($aatri); $i++) {
-            $texto .= '            $'.$aatri[$i]  .' = $bean_'.$tabla.'->get' . ucwords($name_set_get[$i]) . '();' . PHP_EOL;
+            $texto .= '            $'.$aatri[$i]  .' = $bean_'.$tabla.'->get' . toCamelCase($name_set_get[$i]) . '();' . PHP_EOL;
         }
         $texto .= '' . PHP_EOL;
 
@@ -132,7 +134,7 @@ function generarmodelo($atri, $cListar, $tabla, $name_set_get)
         $texto .= '    {' . PHP_EOL;
         $texto .= '        try{' . PHP_EOL;
            for ($i = 0; $i < count($aatri); $i++) {
-                $texto .= '            $'.$aatri[$i]  .' = $bean_'.$tabla.'->get' . ucwords($name_set_get[$i]) . '();' . PHP_EOL;
+                $texto .= '            $'.$aatri[$i]  .' = $bean_'.$tabla.'->get' . toCamelCase($name_set_get[$i]) . '();' . PHP_EOL;
             }
             $texto .= '' . PHP_EOL;
 
@@ -179,7 +181,7 @@ function generarmodelo($atri, $cListar, $tabla, $name_set_get)
         $texto .= '        try{' . PHP_EOL;
         //SQL
 
-            $texto .= '            $'.$aatri[0]  .' = $bean_'.$tabla.'->get' . ucwords($name_set_get[0]). '();' . PHP_EOL;
+            $texto .= '            $'.$aatri[0]  .' = $bean_'.$tabla.'->get' . toCamelCase($name_set_get[0]). '();' . PHP_EOL;
             // $texto .= '            $'.$aatri[count($aatri)-1]  .' = $bean_'.$tabla.'->get' . ucwords($name_set_get[count($aatri)-1]) . '();' . PHP_EOL;
             $texto .= '            $estado = $bean_'.$tabla.'->getEstado();' . PHP_EOL;
             $texto .= '' . PHP_EOL;
@@ -222,7 +224,7 @@ function generarmodelo($atri, $cListar, $tabla, $name_set_get)
         $texto .= '        try{' . PHP_EOL;
         // START SQL
 
-        $texto .= '            $'.$aatri[0]  .' = $bean_'.$tabla.'->get' . ucwords($name_set_get[0]) . '();' . PHP_EOL;
+        $texto .= '            $'.$aatri[0]  .' = $bean_'.$tabla.'->get' . toCamelCase($name_set_get[0]) . '();' . PHP_EOL;
         $texto .= '' . PHP_EOL;
 
         //QUERY
@@ -258,7 +260,7 @@ function generarmodelo($atri, $cListar, $tabla, $name_set_get)
         $texto .= '        try{' . PHP_EOL;
         //SQL
 
-            $texto .= '            $'.$aatri[0]  .' = $bean_'.$tabla.'->get' . ucwords($name_set_get[0]). '();' . PHP_EOL;
+            $texto .= '            $'.$aatri[0]  .' = $bean_'.$tabla.'->get' . toCamelCase($name_set_get[0]). '();' . PHP_EOL;
             $texto .= '' . PHP_EOL;
             //QUERY
             $concat = "";
@@ -293,4 +295,8 @@ function generarmodelo($atri, $cListar, $tabla, $name_set_get)
         fclose($abrir);
         return "Clase Generada Correctamente";
     }
+}
+
+function explodeToCamelCase($string) {
+    $value = explode('_', $string) ;
 }

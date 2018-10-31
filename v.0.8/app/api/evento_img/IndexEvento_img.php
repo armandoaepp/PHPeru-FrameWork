@@ -1,4 +1,4 @@
-<?php
+<?php 
 # Autor: Armando Enrique Pisfil Puemape tw: @armandoaepp
     header('content-type: application/json; charset=utf-8');
     require_once '../../autoload.php';
@@ -18,51 +18,45 @@ switch($evento)
     case "list":
         try
         {
-            $chef_controller = new ChefController() ;
-            $data = $chef_controller->getAll() ;
+            $evento_img_controller = new Evento_imgController() ; 
+            $data = $evento_img_controller->getAll() ;
             $data = array('msg' => 'Listado correcto', 'error' => false, 'data' => $data);
         }
         catch (Exception $e)
         {
             $data = array('msg' => 'Error al consultar datos'. $e->getMessage(), 'error' => true, 'data' => array());
         }
-
+        
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
 
     case "set":
-
+        
         try
         {
             $objConexion = new ClsConexion();
             $cnx = $objConexion->get_connection();
-
-            $chef_controller = new ChefController($cnx) ;
+        
+            $evento_img_controller = new Evento_imgController($cnx) ; 
             $objConexion->beginTransaction();
-
+        
             $id = $inputs->id;
-            $titulo = $inputs->titulo;
-            $subtitulo = $inputs->subtitulo;
-            $resumen = $inputs->resumen;
-            $descripcion = $inputs->descripcion;
             $imagen = $inputs->imagen;
+            $id_padre = $inputs->id_padre;
             $orden = $inputs->orden;
             $fecha = $inputs->fecha;
-
+        
             $params = array(
                'id'=> $id,
-               'titulo'=> $titulo,
-               'subtitulo'=> $subtitulo,
-               'resumen'=> $resumen,
-               'descripcion'=> $descripcion,
                'imagen'=> $imagen,
+               'id_padre'=> $id_padre,
                'orden'=> $orden,
                'fecha'=> $fecha,
-            ) ;
-
-            $data = $chef_controller->setChef($params) ;
-
+            ) ; 
+        
+            $data = $evento_img_controller->setEvento_img($params) ;
+        
             $objConexion->commit();
 
             $data = array('msg' => 'Operación Correcta', 'error' => false, 'data' => $data);
@@ -72,7 +66,7 @@ switch($evento)
             $objConexion->rollback();
             $data = array('msg' => 'Error al consultar datos'. $e->getMessage(), 'error' => true, 'data' => array());
         }
-
+        
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
@@ -82,32 +76,26 @@ switch($evento)
         {
             $objConexion = new ClsConexion();
             $cnx = $objConexion->get_connection();
-
-            $chef_controller = new ChefController($cnx) ;
+        
+            $evento_img_controller = new Evento_imgController($cnx) ; 
             $objConexion->beginTransaction();
-
+        
             $id = $inputs->Id;
-            $titulo = $inputs->Titulo;
-            $subtitulo = $inputs->Subtitulo;
-            $resumen = $inputs->Resumen;
-            $descripcion = $inputs->Descripcion;
             $imagen = $inputs->Imagen;
+            $id_padre = $inputs->Id_padre;
             $orden = $inputs->Orden;
             $fecha = $inputs->Fecha;
-
+        
             $params = array(
                'id'=> $id,
-               'titulo'=> $titulo,
-               'subtitulo'=> $subtitulo,
-               'resumen'=> $resumen,
-               'descripcion'=> $descripcion,
                'imagen'=> $imagen,
+               'id_padre'=> $id_padre,
                'orden'=> $orden,
                'fecha'=> $fecha,
-            ) ;
-
-            $data = $chef_controller->updateChef($params) ;
-
+            ) ; 
+        
+            $data = $evento_img_controller->updateEvento_img($params) ;
+        
             $objConexion->commit();
 
             $data = array('msg' => 'Operación Correcta', 'error' => false, 'data' => $data);
@@ -118,7 +106,7 @@ switch($evento)
             $objConexion->rollback();
             $data = array('msg' => 'Error al consultar datos'. $e->getMessage(), 'error' => true, 'data' => array());
         }
-
+        
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
@@ -133,11 +121,11 @@ switch($evento)
             $params = array(
                'id'=> $id,
                'estado'=> $estado,
-            ) ;
+            ) ; 
 
-            $chef_controller = new ChefController() ;
+            $evento_img_controller = new Evento_imgController() ; 
 
-            $data = $chef_controller->updateEstado( $params ) ;
+            $data = $evento_img_controller->updateEstado( $params ) ;
 
             $data = array('msg' => 'Operación Correcta', 'error' => false, 'data' => $data);
 
@@ -146,7 +134,7 @@ switch($evento)
         {
             $data = array('msg' => 'Error al consultar datos'. $e->getMessage(), 'error' => true, 'data' => array());
         }
-
+        
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
@@ -156,10 +144,9 @@ switch($evento)
         {
 
             $id = $_GET["id"] ;
-            $chef_controller = new ChefController() ;
+            $evento_img_controller = new Evento_imgController() ; 
 
-            $data = $chef_controller->getById( $id) ;
-            echo Serialize::unSerializeLang($data['titulo'],'es');
+            $data = $evento_img_controller->getById( $id) ;
 
             $data = array('msg' => 'Operación Correcta', 'error' => false, 'data' => $data);
 
@@ -168,7 +155,7 @@ switch($evento)
         {
             $data = array('msg' => 'Error al consultar datos'. $e->getMessage(), 'error' => true, 'data' => array());
         }
-
+        
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
@@ -178,9 +165,9 @@ switch($evento)
         {
 
             $id = $_GET["id"] ;
-            $chef_controller = new ChefController() ;
+            $evento_img_controller = new Evento_imgController() ; 
 
-            $data = $chef_controller->deleteById( $id) ;
+            $data = $evento_img_controller->deleteById( $id) ;
 
             $data = array('msg' => 'Operación Correcta', 'error' => false, 'data' => $data);
 
@@ -189,7 +176,7 @@ switch($evento)
         {
             $data = array('msg' => 'Error al consultar datos'. $e->getMessage(), 'error' => true, 'data' => array());
         }
-
+        
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
